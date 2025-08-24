@@ -178,7 +178,7 @@ export class PlannerService {
         .select('id, title, thumbnail_url, price')
         .eq('planner_id', plannerId)
         .eq('status', 'approved')
-        .order('rating_avg', { ascending: false, nullsLast: true })
+        .order('rating_avg', { ascending: false, nullsFirst: false })
         .limit(3);
 
       if (error) {

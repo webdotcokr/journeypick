@@ -62,7 +62,7 @@ export default function PlannerDetailPage() {
             The planner you're looking for doesn't exist or has been removed.
           </p>
           <Link href="/planners">
-            <Button variant="outline">
+            <Button variant="secondary">
               <ArrowLeft className="h-4 w-4 mr-2" />
               Back to Planners
             </Button>

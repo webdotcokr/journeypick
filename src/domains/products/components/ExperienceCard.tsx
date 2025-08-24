@@ -9,9 +9,9 @@ interface ExperienceCardProps {
 }
 
 export function ExperienceCard({ experience }: ExperienceCardProps) {
-  const mainImage = experience.images[0] || '/placeholder-experience.svg';
+  const mainImage = experience.thumbnail_url || experience.image_urls?.[0] || '/placeholder-experience.svg';
   const rating = experience.rating_avg || 0;
-  const reviewCount = experience.review_count || 0;
+  const reviewCount = experience.rating_count || 0;
 
   return (
     <Link href={`/experiences/${experience.id}`}>
@@ -40,7 +40,7 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
             </h3>
             <div className='flex items-center text-warm-gray text-sm mb-2'>
               <MapPin className='h-3 w-3 mr-1' />
-              <span className='truncate'>{experience.location}</span>
+              <span className='truncate'>{experience.location_text}</span>
             </div>
           </div>
 
@@ -48,7 +48,7 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
             <div className='flex items-center space-x-3'>
               <div className='flex items-center'>
                 <Clock className='h-3 w-3 mr-1' />
-                <span>{experience.duration}h</span>
+                <span>{experience.duration_hours}h</span>
               </div>
               <div className='flex items-center'>
                 <Users className='h-3 w-3 mr-1' />
@@ -73,7 +73,7 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
             
             {experience.planner && (
               <div className='text-xs text-warm-gray'>
-                by {experience.planner.name}
+                by {experience.planner.full_name}
               </div>
             )}
           </div>

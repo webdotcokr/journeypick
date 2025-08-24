@@ -70,7 +70,7 @@ export interface CreateExperienceData {
   duration_hours: number;
   max_participants: number;
   min_participants: number;
-  planner_id: string;
+  planner_id?: string; // 선택사항으로 변경 - 폼에서는 없고 서버에서 추가
   category_id: number;
   thumbnail_url?: string;
   image_urls?: string[];

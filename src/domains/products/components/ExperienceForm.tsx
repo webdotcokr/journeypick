@@ -10,6 +10,7 @@ import { Form, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { ImageUpload } from './ImageUpload';
 import { RichTextEditor } from './RichTextEditor';
 import { useCategories } from '../hooks/useExperiences';
+import { CreateExperienceData } from '../types';
 
 const experienceSchema = z.object({
   title: z.string().min(3, 'Title must be at least 3 characters').max(100, 'Title must be less than 100 characters'),
@@ -30,7 +31,7 @@ const experienceSchema = z.object({
 type ExperienceFormData = z.infer<typeof experienceSchema>;
 
 interface ExperienceFormProps {
-  onSubmit: (data: ExperienceFormData) => Promise<void>;
+  onSubmit: (data: CreateExperienceData) => Promise<void>;
   isSubmitting: boolean;
   initialData?: Partial<ExperienceFormData>;
 }
@@ -66,7 +67,7 @@ export function ExperienceForm({ onSubmit, isSubmitting, initialData }: Experien
   const minParticipants = watch('min_participants');
 
   const handleFormSubmit = async (data: ExperienceFormData) => {
-    const formData = {
+    const formData: CreateExperienceData = {
       ...data,
       overview,
       image_urls: imageUrls,

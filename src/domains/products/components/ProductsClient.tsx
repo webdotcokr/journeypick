@@ -146,7 +146,7 @@ export function ProductsClient({ initialData }: ProductsClientProps) {
                     return (
                       <Button
                         key={pageNum}
-                        variant={currentPage === pageNum ? "default" : "secondary"}
+                        variant={currentPage === pageNum ? "primary" : "secondary"}
                         size="sm"
                         onClick={() => handlePageChange(pageNum)}
                         className="w-10"
