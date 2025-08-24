@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/domains/users/hooks/useAuth';
 import { ExperienceForm } from '@/domains/products/components/ExperienceForm';
@@ -15,6 +15,17 @@ export default function NewExperiencePage() {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // 인증 상태에 따른 리다이렉트 처리
+  useEffect(() => {
+    if (!loading) {
+      if (!user || !profile) {
+        router.push('/auth/signin');
+      } else if (profile.role !== 'planner') {
+        router.push('/');
+      }
+    }
+  }, [user, profile, loading, router]);
+
   // 로딩 중
   if (loading) {
     return (
@@ -27,16 +38,16 @@ export default function NewExperiencePage() {
     );
   }
 
-  // 로그인하지 않은 경우
-  if (!user || !profile) {
-    router.push('/auth/signin');
-    return null;
-  }
-
-  // Planner가 아닌 경우
-  if (profile.role !== 'planner') {
-    router.push('/');
-    return null;
+  // 인증되지 않은 경우 또는 Planner가 아닌 경우
+  if (!user || !profile || profile.role !== 'planner') {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
+          <p className="mt-4 text-warm-gray">Redirecting...</p>
+        </div>
+      </div>
+    );
   }
 
   const handleSubmit = async (data: CreateExperienceData) => {

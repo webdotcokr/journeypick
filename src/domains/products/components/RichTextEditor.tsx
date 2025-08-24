@@ -21,6 +21,8 @@ interface RichTextEditorProps {
 
 export function RichTextEditor({ content, onChange, placeholder }: RichTextEditorProps) {
   const editor = useEditor({
+    immediatelyRender: false, // SSR hydration 문제 해결
+    shouldRerenderOnTransaction: false, // 성능 최적화
     extensions: [StarterKit],
     content,
     onUpdate: ({ editor }) => {

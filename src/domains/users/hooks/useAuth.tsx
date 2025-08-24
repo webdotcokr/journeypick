@@ -23,11 +23,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // 타임아웃 설정 (10초)
+    // 타임아웃 설정 (15초로 늘림 - 재시도 로직 고려)
     const timeoutId = setTimeout(() => {
       console.warn('Auth loading timeout - forcing completion');
       setLoading(false);
-    }, 10000);
+    }, 15000);
 
     // 초기 세션 확인
     supabase.auth.getSession()
@@ -71,11 +71,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     };
   }, []);
 
-  const fetchProfile = async (userId: string) => {
+  const fetchProfile = async (userId: string, retryCount: number = 0) => {
+    const maxRetries = 3;
+    const baseDelay = 1000; // 1초
+    const timeoutDuration = 3000; // 3초로 단축
+    
     const fetchTimeoutId = setTimeout(() => {
-      console.warn('Profile fetch timeout - completing auth loading');
+      console.warn(`Profile fetch timeout (attempt ${retryCount + 1}) - completing auth loading`);
       setLoading(false);
-    }, 5000); // 프로필 조회는 5초로 짧게
+    }, timeoutDuration);
 
     try {
       const { data, error } = await supabase
@@ -87,17 +91,39 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       clearTimeout(fetchTimeoutId);
 
       if (error) {
-        console.error('Error fetching profile:', error);
-        // 프로필이 없어도 사용자는 로그인된 상태로 처리
+        console.error(`Error fetching profile (attempt ${retryCount + 1}):`, error);
+        
+        // 프로필이 아직 생성되지 않았을 가능성 - 재시도
+        if (error.code === 'PGRST116' && retryCount < maxRetries) {
+          console.log(`Profile not found, retrying in ${baseDelay * (retryCount + 1)}ms...`);
+          setTimeout(() => {
+            fetchProfile(userId, retryCount + 1);
+          }, baseDelay * (retryCount + 1));
+          return;
+        }
+        
+        // 최대 재시도 횟수 초과하거나 다른 에러 - 프로필 없이 진행
         setProfile(null);
+        setLoading(false);
       } else {
         setProfile(data);
+        setLoading(false);
       }
     } catch (error) {
       clearTimeout(fetchTimeoutId);
-      console.error('Error fetching profile:', error);
+      console.error(`Error fetching profile (attempt ${retryCount + 1}):`, error);
+      
+      // 재시도 로직
+      if (retryCount < maxRetries) {
+        console.log(`Retrying profile fetch in ${baseDelay * (retryCount + 1)}ms...`);
+        setTimeout(() => {
+          fetchProfile(userId, retryCount + 1);
+        }, baseDelay * (retryCount + 1));
+        return;
+      }
+      
+      // 최대 재시도 횟수 초과
       setProfile(null);
-    } finally {
       setLoading(false);
     }
   };
@@ -118,16 +144,24 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     if (authError) return { error: authError };
 
-    // 트리거가 자동으로 프로필을 생성하므로 별도 처리 불필요
-    // 사용자가 role을 선택했다면 업데이트
+    // 트리거가 자동으로 프로필을 생성함
+    // 사용자가 role을 선택했다면 트리거 실행 후 업데이트
     if (authData.user && role !== 'tourist') {
-      // 잠시 기다린 후 role 업데이트 (트리거가 실행될 시간을 줌)
+      // 트리거 실행 대기 후 role 업데이트 (더 안정적으로 2초 대기)
       setTimeout(async () => {
-        await supabase
-          .from('profiles')
-          .update({ role })
-          .eq('id', authData.user!.id);
-      }, 1000);
+        try {
+          const { error: updateError } = await supabase
+            .from('profiles')
+            .update({ role })
+            .eq('id', authData.user!.id);
+          
+          if (updateError) {
+            console.error('Failed to update user role:', updateError);
+          }
+        } catch (error) {
+          console.error('Error updating user role:', error);
+        }
+      }, 2000);
     }
 
     return { error: null };
