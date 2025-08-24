@@ -20,6 +20,7 @@
     "@tiptap/react": "^3.0.8",
     "@tiptap/starter-kit": "^3.0.8",
     "@types/stripe": "^8.0.416",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.536.0",
     "next": "15.4.5",

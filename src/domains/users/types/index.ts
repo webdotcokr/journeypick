@@ -28,3 +28,25 @@ export interface SignInData {
   email: string;
   password: string;
 }
+
+export interface PlannerStats {
+  totalExperiences: number;
+  averageRating: number;
+  totalReviews: number;
+  specialties: string[];
+  priceRange: {
+    min: number;
+    max: number;
+  };
+}
+
+export interface PlannerProfile extends Profile {
+  role: 'planner';
+  stats: PlannerStats;
+  featuredExperiences: {
+    id: number;
+    title: string;
+    thumbnail_url: string | null;
+    price: number;
+  }[];
+}
