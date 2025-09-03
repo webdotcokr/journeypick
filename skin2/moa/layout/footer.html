@@ -1,131 +1,281 @@
+<style>
+/* Footer Styles */
+.footer {
+    background-color: #fff;
+    border-top: 1px solid #e5e5e5;
+    padding-top: 0;
+}
+
+/* Partners Logo Section */
+.footer__partners {
+    background-color: #f8f9fa;
+    padding: 40px 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.partners__grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 30px;
+    align-items: center;
+    justify-items: center;
+}
+
+.partner__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+}
+
+.partner__logo {
+    max-height: 50px;
+    max-width: 150px;
+    object-fit: contain;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.partner__logo:hover {
+    opacity: 1;
+}
+
+/* Main Footer Content */
+.footer__inner {
+    padding: 60px 0 30px;
+}
+
+.footer__main {
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+}
+
+.footer__brand {
+    flex: 1;
+}
+
+.footer__logo {
+    margin-bottom: 30px;
+}
+
+.brand__logo {
+    height: 40px;
+    object-fit: contain;
+}
+
+.footer__links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.footer__link {
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+    display: inline;
+}
+
+.footer__link:hover {
+    color: #000;
+}
+
+.footer__contact {
+    color: #333;
+    font-weight: 500;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+/* Payment Methods Section */
+.footer__payment {
+    flex-shrink: 0;
+}
+
+.payment__title {
+    color: #999;
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+.payment__methods {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    align-items: center;
+}
+
+.payment__icon {
+    height: 24px;
+    object-fit: contain;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.payment__icon:hover {
+    opacity: 1;
+}
+
+/* Copyright Section */
+.footer__copyright {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    border-top: 1px solid #e5e5e5;
+}
+
+.copyright__text {
+    color: #666;
+    font-size: 13px;
+}
+
+.social__link {
+    width: 32px;
+    height: 32px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid #e5e5e5;
+}
+
+.social__link:hover {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+}
+
+.social__link i {
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .partners__grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    
+    .footer__main {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .footer__payment {
+        width: 100%;
+    }
+    
+    .payment__title {
+        text-align: left;
+    }
+    
+    .payment__methods {
+        grid-template-columns: repeat(7, 1fr);
+        gap: 8px;
+    }
+    
+    .footer__copyright .container {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .partners__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .footer__inner {
+        padding: 40px 0 20px;
+    }
+    
+    .payment__methods {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 6px;
+    }
+    
+    .payment__icon {
+        height: 20px;
+    }
+}
+</style>
+
 <footer module="Layout_footer" class="footer">
-    <div class="footer__inner">
-        <div class="container container--footer flex">
-
-            <div class="footer__column footer__column--company display-pc">
-
-                <!-- ⚠️ 하단 로고 : 관리자 > 앱 > 배너매니저앱에서 관리해주세요. -->
-                 <div class="footer__logo" df-banner-code="logo" hidden>
-                     <a class="footer-logo__link" href="{#href}" df-banner-clone>
-                         {#item}
-                     </a>
-                 </div>
-
-                 <!-- 
-                     ⚠️ 회사정보는 '쇼핑몰 관리자 > 쇼핑몰 설정 > 기본 설정 > 내 쇼핑몰 정보' 화면에서 입력하신 정보가 자동 연동 노출되십니다.
-                 -->
-                <div class="footer__info">
-                    <!--@import(/moa/import/footer/company_info.html)-->
-                    <!--@import(/moa/import/footer/copyright.html)-->
+    <!-- Partners Logo Section -->
+    <div class="footer__partners">
+        <div class="container">
+            <div class="partners__grid">
+                <div class="partner__item">
+                    <img src="/web/upload/logos/kata.png" alt="KATA 한국관광협의회" class="partner__logo">
                 </div>
-
+                <div class="partner__item">
+                    <img src="/web/upload/logos/jto.png" alt="JTO 전북문화관광재단" class="partner__logo">
+                </div>
+                <div class="partner__item">
+                    <img src="/web/upload/logos/jspto.png" alt="속초문화관광재단" class="partner__logo">
+                </div>
+                <div class="partner__item">
+                    <img src="/web/upload/logos/sto.png" alt="STO 서울관광재단" class="partner__logo">
+                </div>
+                <div class="partner__item">
+                    <img src="/web/upload/logos/bto.png" alt="BTO 부산관광공사" class="partner__logo">
+                </div>
+                <div class="partner__item">
+                    <img src="/web/upload/logos/gyeongbuk.png" alt="경상북도문화관광공사" class="partner__logo">
+                </div>
             </div>
-
-            <div class="footer__info-wrap flex">
-
-                <div class="footer__column">
-
-                    <!-- 🔽 고객센터 제목 : 타이틀을 수정하시려면 '타이틀 작성란'에 원하시는 문구로 수정해주세요. -->
-                    <div class="footer__title eng-font">
-                        <!-- 타이틀 작성란 -->
-                        CS Center
-                    </div>
-
-                    <div class="footer__info">
-                        <!-- 
-                            ⚠️ 고객센터 번호는 '쇼핑몰 관리자 > 쇼핑몰 설정 > 기본 설정 > 내 쇼핑몰 정보' 화면에서 
-								입력하신 대표번호 정보가 자동 연동 노출되십니다.
-                        -->
-                        <p class="footer__txt footer__txt--cs-no">{$phone}</p>
-
-                        <!-- 
-                            ⚠️ 업무시간 정보는 '쇼핑몰 관리자 > 쇼핑몰 설정 > 기본 설정 > 내 쇼핑몰 정보' 화면에서
-								'고객센터정보안내 설정 > CS운영시간' 항목에 입력하신 정보가 자동 연동 노출되십니다.
-                        -->
-                        <p class="footer__txt">{$runtime}</p>
-                    </div>
-
-                </div>
-
-                <div class="footer__column">
-
-                    <!-- 🔽 계좌정보 제목 : 타이틀을 수정하시려면 '타이틀 작성란'에 원하시는 문구로 수정해주세요. -->
-                    <div class="footer__title footer__title--bank">
-                        <!-- 타이틀 작성란 -->
-                        Bank Account
-                    </div>
-
-                    <div class="footer__info">
-                        <!-- 🔽 계좌정보 작성란 -->
-                        <p class="footer__txt">Kakao Bank 3333-28-5419456</p>
-                        <p class="footer__txt">Account holder : MOA STUDIO</p>
-                        <p class="footer__txt footer__txt--notice">Write the orderer's name</p>
-                    </div>
-                    
-                    <div class="display-pc displaynone"><!--@import(/moa/import/footer/policy.html)--></div>
-
-                </div>
-                
-                <div class="footer__column footer__column--company text-center display-m">
-                   
-                     <div class="footer__title footer__title--dropdown flex flex--v-center flex--h-center">
-                        <!-- 🔽 타이틀 작성란 -->
-                        <span class="relative">{$mall_name} Business Info</span>
-                     </div>
-                     <!-- 
-                         ⚠️ 회사정보는 '쇼핑몰 관리자 > 쇼핑몰 설정 > 기본 설정 > 내 쇼핑몰 정보' 화면에서
-                         	입력하신 정보가 자동 연동 노출되십니다.
-                     -->
-                    <div class="footer__info">
-                        <!--@import(/moa/import/footer/company_info.html)-->
-                        <div class="display-m"><!--@import(/moa/import/footer/sns.html)--></div>
-                    </div>
-                </div>
-
-            </div>
-
         </div>
     </div>
-    <div class="footer__bottom flex flex--v-center">
-        <div class="container flex flex--v-center">
-            
-         <ul class="policy__list flex flex--v-center">
 
-             <!-- 🔽 회사소개 메뉴 : 메뉴명을 수정하시려면 '메뉴명 작성란'에 원하시는 문구로 수정해주세요. -->
-             <li class="policy__item">
-                 <a href="/about.html" class="policy__link">
-                 <!-- 메뉴명 작성란 -->
-                 About
-                 </a>
-             </li>
+    <!-- Main Footer Content -->
+    <div class="footer__inner">
+        <div class="container container--footer">
+            <div class="footer__main flex">
+                <!-- Logo and Links Section -->
+                <div class="footer__brand">
+                    <div class="footer__logo">
+                        <img src="/web/upload/journeypick-logo.png" alt="journeyPick" class="brand__logo">
+                    </div>
+                    <div class="footer__links">
+                        <a href="/member/privacy.html" class="footer__link">Privacy Policy</a>
+                        <a href="/member/mall_agreement.html" class="footer__link">Terms and Conditions</a>
+                        <a href="/help" class="footer__link">Help Center</a>
+                        <span class="footer__contact">24/7 Call Support +82 70 7605 9677</span>
+                    </div>
+                </div>
 
-             <!-- 🔽 개인정보 처리방침 메뉴 : 메뉴명을 수정하시려면 '메뉴명 작성란'에 원하시는 문구로 수정해주세요. -->
-             <li class="policy__item">
-                 <a href="/member/privacy.html" class="policy__link">
-                 <!-- 메뉴명 작성란 -->
-                 Privacy policy
-                 </a>
-             </li>
+                <!-- Payment Methods Section -->
+                <!-- <div class="footer__payment">
+                    <div class="payment__title">Payment Method</div>
+                    <div class="payment__methods">
+                        <img src="/web/upload/payment/visa.png" alt="Visa" class="payment__icon">
+                        <img src="/web/upload/payment/mastercard.png" alt="Mastercard" class="payment__icon">
+                        <img src="/web/upload/payment/jcb.png" alt="JCB" class="payment__icon">
+                        <img src="/web/upload/payment/amex.png" alt="American Express" class="payment__icon">
+                        <img src="/web/upload/payment/gpay.png" alt="Google Pay" class="payment__icon">
+                        <img src="/web/upload/payment/applepay.png" alt="Apple Pay" class="payment__icon">
+                        <img src="/web/upload/payment/paypal.png" alt="PayPal" class="payment__icon">
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
 
-             <!-- 🔽 이용약관 메뉴 : 메뉴명을 수정하시려면 '메뉴명 작성란'에 원하시는 문구로 수정해주세요. -->
-             <li class="policy__item">
-                 <!-- 메뉴명 작성란 -->
-                 <a href="/member/mall_agreement.html" class="policy__link">Agreement</a>
-             </li>
-
-             <!-- 🔽 이용안내 메뉴 : 메뉴명을 수정하시려면 '메뉴명 작성란'에 원하시는 문구로 수정해주세요. -->
-             <li class="policy__item">
-                 <!-- 메뉴명 작성란 -->
-                 <a href="/shopinfo/guide.html" class="policy__link">Guide</a>
-             </li>
-
-         </ul>
-         
-         <!-- ⚠️ SNS 메뉴 : 관리자 > 앱 > 배너매니저앱에서 관리해주세요. -->
-         <div class="display-pc"><!--@import(/moa/import/footer/sns.html)--></div>
-         
-         <div class="display-m"><!--@import(/moa/import/footer/copyright.html)--></div>
-         
+    <!-- Copyright Section -->
+    <div class="footer__copyright">
+        <div class="container flex flex--v-center flex--h-between">
+            <div class="copyright__text">
+                <p>Copyrights © 2025 journeyPick All rights reserved</p>
+            </div>
         </div>
     </div>
 </footer>
