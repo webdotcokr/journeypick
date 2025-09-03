@@ -1,0 +1,53 @@
+<div id="myshopMain" module="myshop_main">
+    <!--@css(/css/module/myshop/main.css)-->
+
+    <div class="title RW">My Account</div>
+    <div class="subTitle">
+        <h3>Shopping info</h3>
+    </div>
+    <ul class="menu">
+        <li>
+            <a href="/myshop/order/list.html">Order History</a>
+        </li>
+        <li>
+            <a href="/myshop/mileage/historyList.html">{$mileage_name}</a>
+        </li>
+        <li class="{$deposit_display|display}">
+            <a href="/myshop/deposits/historyList.html">{$deposit_name}</a>
+        </li>
+        <li class="{$coupon_display|display}">
+            <a href="/myshop/coupon/coupon.html">Coupons</a>
+        </li>
+        <li module="Myshop_InquiryDash">
+            <a href="/board/inquiry/list.html">Inquiry</a>
+        </li>
+    </ul>
+    <div class="subTitle">
+        <h3>My activity</h3>
+    </div>
+    <ul class="menu">
+        <li>
+            <a href="/product/recent_view_product.html">Recently Viewed</a>
+        </li>
+        <li>
+            <a href="/myshop/wish_list.html">Wish List</a>
+        </li>
+        <li class="{$board_display|display}">
+            <a href="/myshop/board_list.html">Forum</a>
+        </li>
+    </ul>
+    <div class="subTitle">
+        <h3>My info</h3>
+    </div>
+    <ul class="menu">
+        <li>
+            <a href="/member/modify.html">Profile</a>
+        </li>
+        <li module="Layout_stateLogon">
+            <a href="{$action_logout}">Logout</a>
+        </li>
+    </ul>
+    <div class="consult {$consult_display|display}">
+        <a href="/board/consult/list.html" class="btnNormal sizeM">Private Postings</a>
+    </div>
+</div>

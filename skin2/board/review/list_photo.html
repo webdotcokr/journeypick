@@ -1,0 +1,154 @@
+<!--@layout(/layout/basic/layout.html)-->
+<!--@js(/moa/js/lib/board_category_selected.js)-->
+<!--@css(/css/module/board/listPackage.css)-->
+<!--@css(/moa/css/lib/ptrv_style.css)-->
+<!--@css(/moa/css/lib/rv_style.css)-->
+<!--@css(/moa/css/lib/board_review_list.css)-->
+<!--@js(/moa/js/lib/rv_lt.js)-->
+<!--@js(/moa/js/lib/ptrv_lt.js)-->
+<!--@js(/moa/js/lib/board_review_list.js)-->
+
+<div module="Board_ListPackage_4">
+   
+    <div class="container">
+    
+         <div module="board_title_4">
+            <div class="path">
+                <span>Current Page</span>
+                <ol>
+                    <li><a href="/">Home</a></li>
+                    <li title="Current Page"><strong>{$board_name}</strong></li>
+                </ol>
+            </div>
+            
+            <div class="titleArea">
+                <h2>{$board_title} {$board_adult_icon}</h2>
+            </div>
+            <p class="imgArea displaynone">{$board_top_image}</p>
+     </div>
+     
+     </div>
+ 
+     <div module="Layout_BoardInfo" class="board-tab">
+         <ul class="board-tab__wrapper">
+             <li class="board-tab__item"><a href="{$board_list_url}">{$board_name}</a></li>
+             <li class="board-tab__item"><a href="{$board_list_url}">{$board_name}</a></li>
+         </ul>
+     </div>
+     
+     <div class="best-review" module="board_fixed_4">
+         <div class="container">
+            
+             <div class="relative">
+                 
+                 <span class="prd-nav prd-nav--prev flex flex--v-center flex--h-center jsBestPrev"><!--@import(/moa/icon/icon_arrow_left.html)--></span>
+                 <span class="prd-nav prd-nav--next flex flex--v-center flex--h-center jsBestNext"><!--@import(/moa/icon/icon_arrow_right.html)--></span>
+                 
+                 <div class="swiper-container best-review__container jsBestRVSlide">
+                     <ul class="inline text-center best-review__wrapper swiper-wrapper jsFixedList">
+                         <!--
+                         $count = 20
+                         $login_page_url = /member/login.html
+                         $deny_access_url = /index.html
+                     -->
+                         <!--@import(/moa/import/board/ptrv_item_slide.html)-->
+                         <!--@import(/moa/import/board/ptrv_item_slide.html)-->
+                     </ul>        
+                 </div>
+             
+             </div>
+             
+         </div>
+     </div>
+ 
+     <div class="container">
+    
+         <div class="board-top clearfix flex flex--v-center">
+             <div class="view-type inline">
+                 <a href="/board/review/list_photo.html?board_no=4" class="view-type__tab relative on">
+                     Gallery view
+                 </a>
+                 <a href="/board/review/list.html?board_no=4" class="view-type__tab relative">
+                     List view
+                 </a>
+             </div>
+             
+             <div module="board_search_4" id="top-search">
+                 <!--@css(/css/module/board/search.css)-->
+                 <fieldset class="boardSearch flex flex--v-center flex--h-center">
+                    <legend>Search a post</legend>
+                     <div class="form flex flex--v-center">
+                        {$form.search_date} {$form.search_key}
+                        <input id="search" name="search" fw-filter="" fw-label="" fw-msg="" class="inputTypeText" placeholder="Search product." value="" type="text">
+                        <a href="#none" class="btnNormal flex flex--v-center flex--h-center" onclick="{$action_search}">
+                         <?xml version="1.0" encoding="UTF-8" standalone="no"?> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><style>.cls-1{fill:#bcc2cc;}</style></defs><title>Asset 19</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M63.22,59.45,47.3,43.53a26.7,26.7,0,1,0-3.77,3.77L59.45,63.22a2.67,2.67,0,0,0,3.77-3.77ZM26.67,48A21.34,21.34,0,1,1,48,26.67,21.36,21.36,0,0,1,26.67,48Z"/></g></g></svg>
+                     </a></div>
+                 </fieldset>
+             </div>
+ 
+         </div>
+     
+         <div class="main-review main-review--photo">
+             <div class="main-review__inner main-review__inner--photo relative">
+                 <ul module="board_list_4" class=" inline jsNormalList">
+                     <!--
+                     $count = 30
+                     $login_page_url = /member/login.html
+                     $deny_access_url = /index.html
+                 -->
+                     <!--@import(/moa/import/board/ptrv_item.html)-->
+                     <!--@import(/moa/import/board/ptrv_item.html)-->
+                 </ul>
+             </div>
+         </div>
+ 
+         <div module="board_ButtonList_4" class="{$write_display|display} ec-base-button gBottom">
+             <a href="/board/product/write.html{$param_write}" class="btnSubmitFix {$write_display|display}">Write</a>
+         </div>
+         <div module="board_search_4">
+             <!--@css(/css/module/board/search.css)-->
+             <fieldset class="boardSearch">
+                <legend>Search a post</legend>
+                 <p class="category {$form.product_category_selector_display|display}">{$form.product_category_selector}</p>
+                 <div class="form">{$form.search_date} {$form.search_key} {$form.search} <a href="#none" class="btnNormal" onclick="{$action_search}">Search</a></div>
+             </fieldset>
+         </div>
+         
+     </div>
+     
+ </div>
+ 
+ <div class="container">
+ 
+     <div module="board_paging_4" class="ec-base-paginate typeList">
+         <a href="{$param_first}" class="first">First</a>
+         <a href="{$param_prev}">Prev</a>
+         <ol>
+             <li><a href="{$param_num}" class="{$param_class}">{$page_num}</a></li>
+             <li><a href="{$param_num}" class="{$param_class}">{$page_num}</a></li>
+         </ol>
+         <a href="{$param_next}">Next</a>
+         <a href="{$param_last}" class="last">Last</a>
+     </div>
+ 
+     <!-- Admin only -->
+     <div module="board_catemove_4">
+         <!--@css(/css/module/board/catemove.css)-->
+         <span class="gColumn">{$board_catemove_selectbox}</span>
+         <span class="gColumn"><a href="#none" class="btnNormal sizeS" onclick="{$action_category_move}">{$category_move}</a></span>
+     </div>
+ 
+     <div module="board_function_4">
+         <!--@css(/css/module/board/function.css)-->
+         <span class="gColumn">{$board_function_selectbox}</span>
+         <span class="gColumn">
+             <a href="#none" class="btnNormal sizeS" onclick="{$action_article_move}">{$article_move}</a>
+             <a href="#none" class="btnNormal sizeS" onclick="{$action_article_copy}">{$article_copy}</a>
+         </span>
+         <span class="ec-base-help">{$board_function_help|replace:*,}</span>
+     </div>
+     <!-- // Admin only -->
+ 
+ </div>
+ 
+ <!--@import(/moa/import/board/rv_frame.html)-->

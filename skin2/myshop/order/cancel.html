@@ -1,0 +1,199 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="path">
+    <span>Current Page</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/myshop/index.html">My Account</a></li>
+        <li title="Current Page"><strong>Request Cancellation</strong></li>
+    </ol>
+</div>
+
+<div class="myshopArea">
+    <div class="titleArea titleArea--myshop">
+        <h2>Request Cancellation</h2>
+    </div>
+    <div module="Myshop_OrderHistoryApplyCancel">
+        <!--@css(/css/module/myshop/orderHistoryApplyCancel.css)-->
+        <div class="titleArea titleArea--middle">
+            <h3>Product Details</h3>
+        </div>
+        
+        <div class="order">
+            <div class="order__number">
+                <span class="date" title="주문일자">{$order_date_ymd}</span>
+                <span class="number" title="주문번호">({$order_id})</span>
+            </div>
+        	<div class="{$product_no_receiver_display|display}">
+                <div module="Myshop_products">
+                    <div class="ec-base-prdInfo gCheck">
+                        <div class="prdBox">
+                            <span class="check">{$form.checkbox}</span>
+                            <span class="thumbnail"><a href="/product/detail.html{$param_product}"><img src="{$product_image}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" alt="" /></a></span>
+                            <div class="description">
+                                <strong class="prdName" title="상품명">{$product_name_link}</strong>
+                                <div class="price">
+                                	<span class="price" title="판매가">{$item_price_raw_front_head}<strong>{$item_price_raw_front}</strong>{$item_price_raw_front_tail}<span class="{$item_price_ref_display|display}"> {$item_price_raw_back_head}{$item_price_raw_back}{$item_price_raw_back_tail}</span></span>
+                                	<span class="qty" title="수량">({$qty}item(s))</span>
+                                </div>
+                                <div class="optionGroup {$option_display|display}">
+                                    <div>{$option_str}</div>
+                                    <ul module="Myshop_optionSet">
+                                        <li><span class="product">{$product_name}</span>{$option_str} ({$qty}item(s))</li>
+                                        <li><span class="product">{$product_name}</span>{$option_str} ({$qty}item(s))</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="quantity">
+                                <span class="ec-base-qty">
+                                    <a href="javascript:;" class="down" onclick="{$out_shortcut}">Down</a>
+                                    {$form.quantity}
+                                    <a href="javascript:;" class="up" onclick="{$add_shortcut}">Up</a>
+                                </span>
+                                <a class="btnNormal sizeQty" href="javascript:;" onclick="{$action_modify}">Edit</a>
+                            </div>
+                        </div>
+                        <div class="prdFoot" title="주문처리상태">
+                            <div class="gLeft">
+                                <span class="txtStatus">{$cur_state}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ec-base-prdInfo gCheck">
+                        <div class="prdBox">
+                            <span class="check">{$form.checkbox}</span>
+                            <span class="thumbnail"><a href="/product/detail.html{$param_product}"><img src="{$product_image}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" alt="" /></a></span>
+                            <div class="description">
+                                <strong class="prdName" title="상품명">{$product_name_link}</strong>
+                                <div class="price">
+                                	<span class="price" title="판매가">{$item_price_raw_front_head}<strong>{$item_price_raw_front}</strong>{$item_price_raw_front_tail}<span class="{$item_price_ref_display|display}"> {$item_price_raw_back_head}{$item_price_raw_back}{$item_price_raw_back_tail}</span></span>
+                                	<span class="qty" title="수량">({$qty}item(s))</span>
+                                </div>
+                                <div class="optionGroup {$option_display|display}">
+                                    <div>{$option_str}</div>
+                                    <ul module="Myshop_optionSet">
+                                        <li><span class="product">{$product_name}</span>{$option_str} ({$qty}item(s))</li>
+                                        <li><span class="product">{$product_name}</span>{$option_str} ({$qty}item(s))</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="quantity">
+                                <span class="ec-base-qty">
+                                    <a href="javascript:;" class="down" onclick="{$out_shortcut}">Down</a>
+                                    {$form.quantity}
+                                    <a href="javascript:;" class="up" onclick="{$add_shortcut}">Up</a>
+                                </span>
+                                <a class="btnNormal sizeQty" href="javascript:;" onclick="{$action_modify}">Edit</a>
+                            </div>
+                        </div>
+                        <div class="prdFoot" title="주문처리상태">
+                            <div class="gLeft">
+                                <span class="txtStatus">{$cur_state}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <ul class="ec-base-help gBlank10">
+            <li class="txtWarn">If a cancellation/return causes the conditions for gift issuance to not be met, the gift will be automatically requested for cancellation.</li>
+        </ul>
+
+        <div class="titleArea titleArea--middle">
+            <h3>Reason to Cancel</h3>
+        </div>
+        <div class="ec-base-table typeWrite">
+            <table border="1" >
+                <caption>Reason to Cancel</caption>
+                <colgroup>
+                        <col style="width:200px;" />
+                        <col style="width:auto;" />
+                    </colgroup>
+                <tbody>
+                    <tr>
+                        <th scope="row">Select Reason</th>
+                        <td>{$form.reason_select}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Reason Description</th>
+                        <td>{$form.reason_detail}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="{$cs_add_item_display|display}">
+            <div class="titleArea titleArea--middle">
+                <h3>Additional Information</h3>
+            </div>
+            <div class="ec-base-table typeWrite">
+                <table border="1" >
+                    <caption>Additional Information</caption>
+                    <colgroup>
+                        <col style="width:200px;" />
+                        <col style="width:auto;" />
+                    </colgroup>
+                    <tbody module="Myshop_Csadd">
+                        <tr>
+                            <th scope="row">{$item_title}</th>
+                            <td>
+                                {$item_value}
+                                <p class="gBlank5">{$guide_content}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{$item_title}</th>
+                            <td>
+                                {$item_value}
+                                <p class="gBlank5">{$guide_content}</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        {$form.is_new_cs_form}
+        <div class="{$refund_info_display|display}">
+            <div class="titleArea titleArea--middle">
+                <h3>Refund Details</h3>
+            </div>
+            <div class="ec-base-table typeWrite">
+                <table border="1" >
+                    <caption>Refund Details</caption>
+                    <colgroup>
+                        <col style="width:200px;" />
+                        <col style="width:auto;" />
+                    </colgroup>
+                    <tbody class="{$refund_notice_display|display}">
+                        <tr>
+                            <th scope="row">Refund Estimate</th>
+                            <td>Expected amount of refund can be seen at 'Search by Order Details' once seller confirms submissions.</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Shipping Price Information</th>
+                            <td>{$cs_info_desc}</td>
+                        </tr>
+                    </tbody>
+                    <tbody class="{$refund_account_display|display}">
+                        <tr>
+                            <th scope="row">Refund Account</th>
+                            <td>
+                                <span id="{$id_acc_full_str}" class="{$acc_full_str_display|display} gSpace10">{$acc_full_str}</span>
+                                <span id="{$id_acc_reg_disp}" class="{$acc_reg_display|display}"><a href="#none" class="btnNormal sizeS" onclick="OrderApply.popupAccount('./account.html');">Add</a></span>
+                                <span id="{$id_acc_mod_disp}" class="{$acc_mod_display|display}"><a href="#none" class="btnNormal sizeS" onclick="OrderApply.popupAccount('./account.html');">Edit</a></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="ec-base-help {$refund_account_display|display}"><span class="txtWarn">Cash refund will be made into registered account.</span></p>
+        </div>
+        <div class="ec-base-button gBottom">
+            <a href="/myshop/order/list.html{$back_page_param}" class="btnNormalFix sizeM">Back</a>
+            <a href="#none" class="btnSubmitFix sizeM" onclick="OrderApply.apply(); return false;">Cancel Request</a>
+        </div>
+    </div>
+
+    <!--@import(/myshop/myshop_main.html)-->    
+</div>  

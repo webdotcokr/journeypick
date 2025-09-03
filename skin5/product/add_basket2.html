@@ -1,0 +1,95 @@
+<div module="Order_LayerBasketPackage" class="ec-base-layer-area">
+    <!--@css(/layout/basic/css/ec-base-paginate.css)-->
+    <!--@css(/css/module/product/basketAdd2.css)-->
+    <div id="cart-layer" class="ec-base-layer typeSide">
+        <div class="header flex flex--v-center">
+            <h2>Add to cart</h2>
+        </div>
+        <div class="content" module="Order_LayerBasket">
+            <ul class="prdList" module="Order_list">
+                <li class="item">
+                    <div class="box">
+                        <div class="thumbnail">
+                            <a href="/product/detail.html{$param}"><img src="{$img}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" alt="{$name_alt}" class="thumb" /></a>
+                        </div>
+                        <div class="info">
+                            <p class="name">{$product_name_link}{$icon}</p>
+                            <p class="option">{$option_str}</p>
+                            <ul>
+                                <li>Qty : {$quantity}</li>
+                                <li class="price">{$purchase_price}</li>
+                                <li class="{$purchase_price_ref_display|display}"><strong>{$purchase_price_ref}</strong></li>
+                                <li class="{$discount_price_display|display}"><strong class="txtWarn">-{$discount_price}</strong></li>
+                                <li class="{$discount_price_ref_display|display}"><strong class="txtWarn">{$discount_price_ref}</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="item">
+                    <div class="box">
+                        <div class="thumbnail">
+                            <a href="/product/detail.html{$param}"><img src="{$img}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" alt="{$name_alt}" class="thumb" /></a>
+                        </div>
+                        <div class="info">
+                            <p class="name">{$product_name_link}{$icon}</p>
+                            <p class="option">{$option_str}</p>
+                            <ul>
+                                <li>Qty : {$quantity}</li>
+                                <li class="price">{$purchase_price}</li>
+                                <li class="{$purchase_price_ref_display|display}"><strong>{$purchase_price_ref}</strong></li>
+                                <li class="{$discount_price_display|display}"><strong class="txtWarn">-{$discount_price}</strong></li>
+                                <li class="{$discount_price_ref_display|display}"><strong class="txtWarn">{$discount_price_ref}</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <div module="Order_LayerBasketPaging" class="ec-base-paginate typeList">
+                <a href="#none" {$param_before}>Prev</a>
+                <ol>
+                    <li><a href="#none" {$param} class="{$param_class}">{$no}</a></li>
+                    <li><a href="#none" {$param} class="{$param_class}">{$no}</a></li>
+                </ol>
+                <a href="#none" {$param_next}>Next</a>
+            </div>
+        </div>
+        <div class="ec-base-button">
+            <a href="#none" class="btnSubmit sizeM" onclick="Basket.orderLayerAll(this)" link-order="/order/orderform.html?basket_type=all_buy" link-login="/member/login.html">Buy Now</a>
+            <a href="/order/basket.html{$basket_param}" class="btnNormal sizeM">Add to cart</a>
+        </div>
+<!--        <a class="btnClose" onclick="$('#confirmLayer').remove();">닫기</a>-->
+        <a class="btnClose" ><!--@import(/moa/icon/icon_x.html)--></a>
+    </div>    
+    <div class="cart-layer-bg"></div>
+</div>
+<script>
+    var cartLayer = document.getElementById('cart-layer');
+    
+    setTimeout(function() {
+       cartLayer.classList.add('on'); 
+    },200);
+    
+    $('.cart-layer-bg, .btnClose').on('click', function() {
+        cartLayer.classList.remove('on');
+        setTimeout(function() {
+            $('#confirmLayer').remove();
+        },500);
+    });
+    
+    $.ajax({
+        url: '/order/basket.html',
+        dataType: 'html',
+        async: false,
+        success: function(data) {
+            var getCount = $(data).find('#cart-count').data('count');
+            var cartCount = parent.document.querySelector('.cart-count');
+            if (!getCount) {
+                cartCount.innerText = '0';
+            } else {
+                cartCount.innerText = getCount;
+            }
+        }
+    });
+    
+</script>

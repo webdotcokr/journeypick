@@ -1,0 +1,325 @@
+#wrap #contents {
+    max-width: 100%;
+    padding: 0 0 200px;
+}
+
+.category-banner:not(:empty) {
+    width: 100%;
+}
+
+.category-banner:empty,
+.category-banner img:nth-child(2) {
+    display: none;
+}
+
+.category-banner img {
+    width: 100%;
+    height: auto;
+}
+
+.xans-product-menupackage {
+    margin: 0 0 55px;
+}
+
+.xans-product-menupackage .title {
+    min-height: 30px;
+    margin: 10px 0 20px;
+}
+
+.xans-product-menupackage .title .banner {
+    margin: 0 0 20px;
+}
+
+.xans-product-menupackage .title h2 {
+    color: #4a5164;
+    font-size: 16px;
+}
+
+.xans-product-menupackage .title h2,
+.xans-product-menupackage .title .likeButton {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.xans-product-menupackage .title .likeButton button {
+    margin: 0 0 0 10px;
+    padding: 0 0 0 20px;
+    height: 16px;
+    font-family: verdana;
+    color: #9a9a9a;
+    letter-spacing: -1px;
+    background: none;
+}
+
+.xans-product-menupackage .title .likeButton.selected button {
+    color: #353535;
+}
+
+.xans-product-headcategory + .ec-base-tab.typeMenu {
+    display: block;
+    margin-bottom: 60px;
+}
+
+.xans-product-headcategory[data-parent="BRAND"] + .ec-base-tab.typeMenu,
+.xans-product-headcategory[data-parent="Brand"] + .ec-base-tab.typeMenu,
+.xans-product-headcategory[data-parent="brand"] + .ec-base-tab.typeMenu,
+.xans-product-headcategory[data-parent="브랜드"] + .ec-base-tab.typeMenu {
+    display: none !important;
+}
+
+.xans-product-headcategory + .ec-base-tab.typeMenu ul {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    flex-wrap:wrap;
+}
+
+.xans-product-menupackage .menuCategory {
+    border: 1px solid #d7d5d5;
+    font-size: 0;
+    line-height: 0;
+}
+
+.xans-product-menupackage .menuCategory > li {
+    display: inline-block;
+    width: 175px;
+    margin: 15px 0 15px 20px;
+    padding: 0 5px 0 0;
+    font-size: 12px;
+    line-height: 14px;
+    vertical-align: top;
+}
+
+.xans-product-menupackage .menuCategory > li > a {
+    padding: 0 13px 0 0;
+    font-weight: bold;
+    color: #2e2e2e;
+    background: url("//img.echosting.cafe24.com/skin/base_ko_KR/product/ico_menu_category.gif") no-repeat 100% 5px;
+}
+
+.xans-product-menupackage .menuCategory > li > a:hover {
+    color: #008bcc;
+    text-decoration: none;
+    background-position: 100% -95px
+}
+
+.xans-product-menupackage .menuCategory > li.selected > a {
+    color: #008bcc;
+}
+
+.xans-product-menupackage .menuCategory > li .count {
+    font-weight: normal;
+}
+
+.xans-product-menupackage .menuCategory > li > ul {
+    padding: 6px 0 0 0;
+}
+
+.xans-product-menupackage .menuCategory > li > ul > li {
+    margin: 8px 0 0 0;
+    line-height: 14px;
+}
+
+.xans-product-menupackage .menuCategory > li > ul > li > a {
+    color: #575a63;
+}
+
+.xans-product-menupackage .menuCategory > li > ul > li > a:hover,
+.xans-product-menupackage .menuCategory > li > ul > li.selected > a {
+    color: #008bcc;
+}
+
+.xans-product-menupackage .menuCategory > li > ul > li > .button {
+    display: inline-block;
+    position: relative;
+    width: 9px;
+    height: 14px;
+    margin: 1px 0 0 3px;
+    vertical-align: top;
+}
+
+.xans-product-menupackage .subCategory {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 13px;
+    z-index: 11;
+    width: 300px;
+    margin: 0 0 0 -151px;
+    padding: 6px 0;
+    border: 1px solid #565960;
+    font-size: 0;
+    line-height: 0;
+    background: var(--bg-color) url("//img.echosting.cafe24.com/skin/base_ko_KR/product/bg_sub_category_line.gif") repeat-y 150px 0;
+}
+
+.xans-product-menupackage .subCategory li {
+    display: inline-block;
+    width: 130px;
+    margin: 8px 0 8px 18px;
+    font-size: 12px;
+    line-height: 14px;
+    vertical-align: top;
+}
+
+.xans-product-menupackage .subCategory li a {
+    color: #575a63;
+}
+
+.xans-product-menupackage .subCategory li a:hover,
+.xans-product-menupackage .subCategory li.selected a {
+    color: #008bcc;
+}
+
+.xans-product-menupackage .menuCategory .button.selected {
+    z-index: 11;
+}
+
+.xans-product-menupackage .menuCategory .button.selected .subCategory {
+    display: block;
+}
+
+#wrap .ec-base-tab.typeMenu .menu > li {
+    margin: 0 9px 18px;
+}
+
+#wrap .ec-base-tab.typeMenu .menu > li .button {
+    margin: 0;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.3;
+    position: relative;
+    background: #f8f8f8;
+    border-radius: 40px;
+    line-height: 1;
+}
+
+#wrap .ec-base-tab.typeMenu .menu > li.selected .button {
+    color: #fff;
+    background: #222;
+}
+
+@media(hover:hover) {
+    
+    html.loaded #wrap .ec-base-tab.typeMenu .menu > li .button {
+        -webkit-transition: color 0.3s ease, background 0.3s ease;
+        transition: color 0.3s ease, background 0.3s ease;
+    }
+    
+    #wrap .ec-base-tab.typeMenu .menu > li .button:hover {
+        color: #fff;
+        background: #222;
+    }
+    
+}
+
+@media all and (max-width:1024px) {
+    
+    .xans-product-menupackage {
+        margin: 0;
+    }
+    
+    #wrap .ec-base-tab.typeMenu {
+        display: block;
+        height: auto;
+        margin-bottom: 40px;
+    }
+    
+    #wrap .ec-base-tab.typeMenu .menu {
+        position: relative;
+        overflow: unset;
+        width: auto;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+    
+}
+
+/********************* Mobile *********************/
+@media all and (max-width:767px) {
+    
+    #wrap #contents {
+        padding-bottom: 60px;
+    }
+    
+    #contents > .container {
+        padding: 0;
+    }
+    
+    .category-banner:not(:empty) {
+        height: auto;
+    }
+    
+    .category-banner img {
+        position: relative;
+        left: 0;
+        width: 100%;
+        margin-left: 0;
+    }
+    
+    .category-banner img:nth-child(1) {
+        display: none;
+    }
+    
+    .category-banner img:nth-child(2) {
+        display: block;
+    }
+    
+    #wrap .ec-base-tab.typeMenu {
+        margin-top: -10px;
+/*
+        width: calc(100% + 32px);
+        margin-left: -16px;
+*/
+    }
+    
+    .xans-product-menupackage .gInner {
+        margin: 0 16px;
+    }
+    
+    #wrap .ec-base-tab.typeMenu .menu.swiper-wrapper {
+        justify-content: normal;
+        flex-wrap:nowrap;
+    }
+    
+    #wrap .ec-base-tab.typeMenu .menu > li {
+        width: auto;
+        height: auto;
+        margin: 0 10px 0 0;
+    }
+    
+    #wrap .ec-base-tab.typeMenu .menu > li:first-child {
+        margin-left: 16px;
+    }
+    
+    #wrap .ec-base-tab.typeMenu .menu > li:last-child {
+        margin-right: 16px;
+    }
+    
+    #wrap .ec-base-tab.typeMenu .button {
+        margin: 0;
+        line-height: 1;
+        padding-bottom: 1px;
+    }
+    
+/*
+    #wrap .ec-base-tab.typeMenu .menu > li .button {
+        font-size: 13px;
+    }
+*/
+    
+}
+
+/********************* Tablet *********************/
+@media all and (min-width:768px) {
+    .xans-product-menupackage .gInner {
+        margin: 0 24px;
+    }
+
+}
+
+.ec-base-tab.typeMenu ul > li .iconWrap:after {
+    display:none !important;
+}

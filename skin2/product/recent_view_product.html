@@ -1,0 +1,119 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="path">
+    <span>Current Page</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li title="Current Page"><strong>Recently Viewed</strong></li>
+    </ol>
+</div>
+
+<div class="myshopArea">
+    <div class="titleArea titleArea--myshop">
+        <h2>Recently Viewed</h2>
+    </div>
+    
+    <div module="product_recentlist">
+        <!--@css(/css/module/product/recentlist.css)-->
+        <!--
+            $count = 10
+        -->
+        <ul module="product_listitem">
+            <li>
+                <div class="ec-base-prdInfo">
+                    <div class="prdBox">
+                        <div class="thumbnail">
+                            <a href="{$link_product_detail}"><img src="{$image_medium}" alt="" width="83" height="83" /></a>
+                            <span class="wishIcon">{$list_wish_icon}</span>
+                        </div>
+                        <div class="description">
+                            <strong class="prdName"><a href="{$link_product_detail}">{$product_name}</a></strong>
+                            <ul module="product_setproduct" class="item">
+                                <li>{$product_name}</li>
+                                <li>{$product_name}</li>
+                            </ul>
+                            <ul class="price">
+                                <li class="tdp-price tdp-price--custom {$strike_custom_price} {$custom_price_display|display}">{$product_custom}</li>
+                                <li class="tdp-price tdp-price--basic {$discount}">{$price}{$product_tax_type_text}</li>
+                                <li class="tdp-price {$product_sale_price_display|display}">{$product_sale_price}</li>
+                            </ul>
+                            <ul class="info">
+                                <li class="mileage">{$mileage_list}</li>
+                            </ul>
+                        </div>
+                        <div class="buttonGroup">
+                            <span class="gRight">
+                                <button type="button" class="btnNormal sizeS {$disp_basket|display}" onclick="{$act_basket}">Add to Cart</button>
+                                <button type="button" class="btnSubmit sizeS {$disp_order|display}" onclick="{$act_order}">Checkout</button>
+                            </span>
+                        </div>
+                    </div>
+                    <ul class="optionSelect" module="product_mainoption">
+                        <li><div class="name"><span class="optionDesc">{$option_name}</span> {$form.option}</div></li>
+                        <li><div class="name"><span class="optionDesc">{$option_name}</span> {$form.option}</div></li>
+                    </ul>
+                    <ul class="optionSelect" module="product_addoption">
+                        <li><div class="name"><span class="optionDesc">{$add_option_name}</span> {$form.add_option}</div></li>
+                        <li><div class="name"><span class="optionDesc">{$add_option_name}</span> {$form.add_option}</div></li>
+                    </ul>
+                    <button type="button" class="btnDelete {$class_del}" href="#none" rel="{$rel_del}">Delete</button>
+                </div>
+            </li>
+            <li>
+                <div class="ec-base-prdInfo">
+                    <div class="prdBox">
+                        <div class="thumbnail">
+                            <a href="{$link_product_detail}"><img src="{$image_medium}" alt="" width="83" height="83" /></a>
+                            <span class="wishIcon">{$list_wish_icon}</span>
+                        </div>
+                        <div class="description">
+                            <strong class="prdName"><a href="{$link_product_detail}">{$product_name}</a></strong>
+                            <ul module="product_setproduct" class="item">
+                                <li>{$product_name}</li>
+                                <li>{$product_name}</li>
+                            </ul>
+                            <ul class="price">
+                                <li class="tdp-price tdp-price--custom {$strike_custom_price} {$custom_price_display|display}">{$product_custom}</li>
+                                <li class="tdp-price tdp-price--basic {$discount}">{$price}{$product_tax_type_text}</li>
+                                <li class="tdp-price {$product_sale_price_display|display}">{$product_sale_price}</li>
+                            </ul>
+                            <ul class="info">
+                                <li class="mileage">{$mileage_list}</li>
+                            </ul>
+                        </div>
+                        <div class="buttonGroup">
+                            <span class="gRight">
+                                <button type="button" class="btnNormal sizeS {$disp_basket|display}" onclick="{$act_basket}">Add to Cart</button>
+                                <button type="button" class="btnSubmit sizeS {$disp_order|display}" onclick="{$act_order}">Checkout</button>
+                            </span>
+                        </div>
+                    </div>
+                    <ul class="optionSelect" module="product_mainoption">
+                        <li><div class="name"><span class="optionDesc">{$option_name}</span> {$form.option}</div></li>
+                        <li><div class="name"><span class="optionDesc">{$option_name}</span> {$form.option}</div></li>
+                    </ul>
+                    <ul class="optionSelect" module="product_addoption">
+                        <li><div class="name"><span class="optionDesc">{$add_option_name}</span> {$form.add_option}</div></li>
+                        <li><div class="name"><span class="optionDesc">{$add_option_name}</span> {$form.add_option}</div></li>
+                    </ul>
+                    <button type="button" class="btnDelete {$class_del}" href="#none" rel="{$rel_del}">Delete</button>
+                </div>
+            </li>
+        </ul>
+        <p class="ec-base-prdEmpty {$empty_display|display}">You have no recently viewed items.</p>
+    </div>
+
+    <div module="product_recentlistpaging" class="ec-base-paginate typeList">
+        <a href="{$param_first}" class="first">First</a>
+        <a href="{$param_before}">Prev</a>
+        <ol>
+            <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+            <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+            <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+            <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+            <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+        </ol>
+        <a href="{$param_next}">Next</a>
+        <a href="{$param_last}" class="last">Last</a>
+    </div>
+    <!--@import(/myshop/myshop_main.html)-->    
+</div>  

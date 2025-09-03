@@ -1,0 +1,38 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="path">
+    <span>Current Page</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li title="Current Page"><strong>Forgot Password</strong></li>
+    </ol>
+</div>
+
+<div class="titleArea">
+    <h2>Forgot Password</h2>
+</div>
+
+<div module="member_passwordreset" class="memberArea gInnerMargin">
+    <!--@css(/css/module/member/passwd_reset.css)-->
+    <div class="ec-base-box typeMember">
+        <fieldset class="content">
+            <legend>reset password</legend>
+            <ul class="ec-base-desc gVer">
+                <li><strong class="term">ID</strong><div class="desc"><strong class="txtEm">{$member_id}</strong></div></li>
+                <li>
+                    <strong class="term">new password</strong>
+                    <div class="desc">
+                        {$form.new_passwd}
+                        <div class="txtInfo">
+                            {$passwd_type_desc}
+                        </div>
+                    </div>
+                </li>
+                <li><strong class="term">confirm new password</strong><div class="desc">{$form.new_passwd_confirm}</div></li>
+            </ul>
+        </fieldset>
+    </div>
+    <div class="ec-base-button gBottom">
+        <a href="#none" class="btnSubmitFix sizeM" onclick="{$action_func_password_reset_submit}">Change password</a>
+        <a href="#none" class="btnNormalFix sizeM" onclick="{$action_func_password_reset_cancel}">Cancel</a>
+    </div>
+</div>

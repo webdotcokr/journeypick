@@ -1,0 +1,164 @@
+<!--@layout(/layout/basic/layout.html)-->
+<!--@css(/moa/css/lib/swiper.min.css)-->
+<!--@js(/moa/js/lib/swiper.min.js)-->
+<!--@css(/css/module/product/menupackage.css)-->
+<!--@js(/moa/js/product/list.js)-->
+<!--@js(/moa/js/lib/calc_sale_rate.js)-->
+<!--@js(/moa/js/lib/thumbnail_lazyload.js)-->
+<div class="category-banner relative" module="product_headcategory">{$top_image_tag}{$top_image1_tag_mobile}{$top_image2_tag_mobile}{$top_image3_tag_mobile}</div>
+
+<div class="container">
+    <div module="Product_menupackage">
+        <!--@js(/js/module/product/menucategory.js)-->
+        <div class="path" module="product_headcategory">
+            <span>Current Page</span>
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li class="{$disp_cate_1|display}"><a href="{$link_product_list_1}">{$name_1}</a></li>
+                <li class="{$disp_cate_2|display}"><a href="{$link_product_list_2}">{$name_2}</a></li>
+                <li class="{$disp_cate_3|display}"><a href="{$link_product_list_3}">{$name_3}</a></li>
+                <li class="{$disp_cate_4|display}"><strong><a href="{$link_product_list_4}">{$name_4}</a></strong></li>
+            </ol>
+        </div>
+        <!--@import(/product/shoppQ/searchContent.html)-->
+    </div>
+
+    <div class="titleArea" module="product_headcategory" data-parent="{$name_1}">
+        <h2>{$title_text_or_image}</h2>
+        <span class="likeButton {$disp_likecate_class}"><button type="button">{$disp_likecate_icon}<strong>{$disp_likecate_count}</strong></button></span>
+    </div>
+
+    <div class="ec-base-tab typeMenu">
+        <div class="jsCateSlide">
+            <ul class="menuCategory menu">
+                <li module="product_displaycategory" style="display:{$display};" class="{$selected}">
+                    <a href="{$link_product_list_sub}" class="button">{$category_name}
+                        <span class="count {$product_count_display|display}">({$product_count})</span></a><a href="#none" class="iconWrap"></a>
+                    <ul module="product_children">
+                        <li class="{$selected}">
+                            <a href="{$link_product_list_sub}">{$category_name}
+                                <span class="{$product_count_display|display}">({$product_count})</span></a><a href="#none" class="iconWrap"></a>
+                            <div class="button">
+                                {$children_icon}
+                                <ul module="product_children" class="subCategory">
+                                    <li class="{$selected}"><a href="{$link_product_list_sub}">{$category_name}<span class="{$product_count_display|display}">({$product_count})</span></a><a href="#none" class="iconWrap"></a></li>
+                                    <li class="{$selected}"><a href="{$link_product_list_sub}">{$category_name}<span class="{$product_count_display|display}">({$product_count})</span></a><a href="#none" class="iconWrap"></a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="{$selected}">
+                            <a href="{$link_product_list_sub}">{$category_name}
+                                <span class="{$product_count_display|display}">({$product_count})</span></a><a href="#none" class="iconWrap"></a>
+                            <div class="button">
+                                {$children_icon}
+                                <ul module="product_children" class="subCategory">
+                                    <li class="{$selected}"><a href="{$link_product_list_sub}">{$category_name}<span class="{$product_count_display|display}">({$product_count})</span></a><a href="#none" class="iconWrap"></a></li>
+                                    <li class="{$selected}"><a href="{$link_product_list_sub}">{$category_name}<span class="{$product_count_display|display}">({$product_count})</span></a><a href="#none" class="iconWrap"></a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div module="product_listrecommend" class="ec-base-product gInner relative">
+        <!--@css(/css/module/product/listrecommend_swipe.css)-->
+        <!--
+            $count = 8
+        -->
+        
+        <div class="swiper-container scroll-effect jsPrdSlide">
+            <ul class="prdList prdList--best grid-slide swiper-wrapper">
+                <!--@import(/moa/import/product/product_form_slide.html)-->
+                <!--@import(/moa/import/product/product_form_slide.html)-->
+            </ul>
+        </div>
+        
+        <span class="prd-nav prd-nav--prev flex flex--v-center flex--h-center jsPrdPrev displaynone"><!--@import(/moa/icon/icon_arrow_left.html)--></span>
+        <span class="prd-nav prd-nav--next flex flex--v-center flex--h-center jsPrdNext displaynone"><!--@import(/moa/icon/icon_arrow_right.html)--></span>
+        
+        <div class="recommend-pager display-pc text-center"></div>
+    </div>
+    
+    <div module="product_listnew" class="ec-base-product gInner">
+        <!--@css(/css/module/product/listnew_swipe.css)-->
+        <!--
+            $count = 8
+        -->
+
+        <div class="title">
+            <h3>NEW ARRIVALS</h3>
+        </div>
+        <ul class="prdList grid4">
+            <!--@import(/moa/import/product/product_form.html)-->
+            <!--@import(/moa/import/product/product_form.html)-->
+        </ul>
+    </div>
+
+    <div module="product_normalpackage">
+        <!--@css(/css/module/product/listnormal.css)-->
+        <!--@js(/js/module/product/normalmenu.js)-->
+        <div module="product_normalmenu">
+            <!--
+                $compare_page = /product/compare.html
+            -->
+            <div class="function" id="{$listmenu_position}">
+                <p class="prdCount"><strong class="txtEm">{$total_count}</strong> items were found</p>
+                <div class="sort">
+                    <select id="selArray" name="selArray" module="product_Orderby">
+                        <option value="{$param}">{$sort_name}</option>
+                        <option value="{$param}">{$sort_name}</option>
+                    </select>
+                </div>
+                <div class="grid-control pull-right flex">
+                    <span class="grid-control__btn selected" data-grid="4"><!--@import(/moa/icon/icon_grid2.html)--></span>
+                    <span class="grid-control__btn" data-grid="1"><!--@import(/moa/icon/icon_grid1.html)--></span>
+                </div>
+                <span class="compare {$product_compare_display|display}"><a href="#none" class="btnCompare" onclick="{$product_compare_action}">Compare Products</a></span>
+            </div>
+
+            <fieldset class="condition {$select_search_display|display}">
+                <legend>Advanced Find</legend>
+                <p>
+                    <!--@js(/js/module/product/product_selectsearch.js)-->
+                    <select class="FirstSelect" module="product_FirstSelect">
+                        <option value="">-Select Criteria-</option>
+                        <option value="{$value}" {$selected}>{$title}</option>
+                        <option value="{$value}" {$selected}>{$title}</option>
+                    </select>
+                    <select class="SecondSelect" module="product_SecondSelect">
+                        <option value="">-Select Criteria-</option>
+                        <option value="{$value}" {$selected}>{$title}</option>
+                        <option value="{$value}" {$selected}>{$title}</option>
+                    </select>
+                    <a href="#SelectSearch" class="btnSubmitFix">Search</a>
+                </p>
+            </fieldset>
+        </div>
+        <div class="product_area">
+            <div module="product_listnormal" class="ec-base-product">
+                <!--
+                    $count = 20
+                        ※ 상품진열갯수를 설정하는 변수입니다. 설정하지 않을 경우, 최대 200개의 상품이 진열 됩니다.
+                        ※ 진열된 상품이 많으면, 쇼핑몰에 부하가 발생할 수 있습니다.
+                    $moreview = yes
+                    $cache = yes
+                    $basket_result = /product/add_basket.html
+                    $basket_option = /product/basket_option.html
+                -->
+                <ul class="prdList grid4">
+                    <!--@import(/moa/import/product/product_form.html)-->
+                    <!--@import(/moa/import/product/product_form.html)-->
+                </ul>
+            </div>
+
+            <div module="product_listmore" class="more">
+                <a href="#none" onclick="{$more_action}" class="btnMore btnMore--prd">
+                    More<span id="more_current_page">{$current_page}</span>/<span id="more_total_page">{$total_page}</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

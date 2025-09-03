@@ -1,0 +1,78 @@
+<div id="prd-qna" class="ec-base-fold tab-content theme1 selected eToggle {$qna_display|display}">
+
+    <div class="section-title">
+        <h2 class="text-center eng-font">Q&A</h2>
+        <p class="text-center">Product related questions and answers.</p>
+    </div>
+    <div class="contents">
+        <div module="product_qna">
+            <!--@js(/js/module/product/qna.js)-->
+            <a name="use_qna"></a>
+            <p class="noAccess {$deny_display|display}">You do not have permission to view this page.</p>
+            <div class="minor {$adult_display|display}">
+                <p><img src="//img.echosting.cafe24.com/skin/skin/product/ico_under19.gif" alt="" /> This page is not available to <strong> "users under age 18". </strong>!</p>
+                <p class="button"><a href="/intro/board.html{$returnParam}" class="btnEm sizeS">Adult certification</a></p>
+            </div>
+            <div class="ec-base-table typeList">
+                <table border="1" class="{$list_display|display}">
+                    <caption>Product Q&amp;A</caption>
+                    <colgroup>
+                        <col style="width:70px;" class="RW" />
+                        <col style="width:auto" />
+                        <col style="width:110px;" />
+                        <col style="width:110px;" />
+                        <col style="width:55px;" />
+                    </colgroup>
+                    <thead class="displaynone">
+                        <tr>
+                            <th scope="col" class="RW">No</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Posted by</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Views</th>
+                        </tr>
+                    </thead>
+                    <tbody class="center">
+                        <tr>
+                            <td class="RW">{$no}</td>
+                            <td class="subject left txtBreak">
+                                <div class="{$category_name_display|display}">{$category_name}</div>{$icon_re}{$icon_lock} <a href="{$link_board_detail}{$param_read}">{$subject}</a> {$icon_file}<span class="comment">{$comment_count}</span>{$icon_hit}{$icon_new}
+                            </td>
+                            <td>{$member_icon} {$writer}</td>
+                            <td>{$write_date}</td>
+                            <td>{$hit_count}</td>
+                        </tr>
+                        <tr>
+                            <td class="RW">{$no}</td>
+                            <td class="subject left txtBreak">
+                                <div class="{$category_name_display|display}">{$category_name}</div><br>{$icon_re}{$icon_lock} <a href="{$link_board_detail}{$param_read}">{$subject}</a> {$icon_file}<span class="comment">{$comment_count}</span>{$icon_hit}{$icon_new}
+                            </td>
+                            <td>{$member_icon} {$writer}</td>
+                            <td>{$write_date}</td>
+                            <td>{$hit_count}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="ec-base-button gMColumn">
+            <span class="gRight">
+                <a href="{$qna_list}" class="btnNormalFix sizeM">See All</a>
+                <a href="{$qna_write}" class="btnSubmitFix sizeM">Product Questions</a>
+            </span>
+        </div>
+        <div module="product_qnapaging" class="ec-base-paginate typeList">
+            <a href="{$param_first}" class="first">First</a>
+            <a href="{$param_before}">Prev</a>
+            <ol>
+                <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+                <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+                <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+                <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+                <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+            </ol>
+            <a href="{$param_next}">Next</a>
+            <a href="{$param_last}" class="last">Last</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+.top-banner,
+.header,
+.footer {
+    display: none;
+}
+
+.xans-myshop-orderhistorynologin { display:none; }

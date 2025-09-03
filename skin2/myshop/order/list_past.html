@@ -1,0 +1,125 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="path">
+    <span>Current Page</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/myshop/index.html">My Account</a></li>
+        <li title="Current Page"><strong>Orders</strong></li>
+    </ol>
+</div>
+
+<div class="myshopArea">
+    <div class="titleArea titleArea--myshop">
+        <h2>Orders</h2>
+    </div>
+    <div module="Myshop_OrderHistoryTab" class="ec-base-tab typeNav">
+        <ul class="menu">
+            <li class="{$tab_class}"><a href="/myshop/order/list.html{$param}">Order History ({$total_orders})</a></li>
+            <li class="{$tab_class_cs}"><a href="/myshop/order/list.html{$param_cs}">Cancellations/Returns/Exchanges ({$total_orders_cs})</a></li>
+            <li class="{$tab_class_past} RW"><a href="/myshop/order/list_past.html{$param_past}">Archived Orders ({$total_orders_past})</a></li>
+            <li class="{$tab_class_old} {$old_list_display|display}"><a href="/myshop/order/list_old.html{$param_old}">Transferred Orders ({$total_orders_old})</a></li>
+        </ul>
+    </div>
+
+    <div module="Myshop_OrderHistoryHead">
+        <!--@css(/css/module/myshop/orderHistoryHead.css)-->
+        <fieldset class="form">
+            <legend>Time Period</legend>
+            <div class="stateSelect">
+                {$order_search_year}
+            </div>
+            <div class="date">
+                <span class="btnSubmit sizeM">Search<input id="order_search_btn" type="image" src="//img.echosting.cafe24.com/skin/admin_ko_KR/myshop/btn_search.gif" onclick="OrderHistory.searchPast(true)" alt=""></span>
+            </div>
+        </fieldset>
+        <ul class="txtInfo">
+            <li>You can check the summaries of your orders that have been fulfilled within the last 36 months in Recent orders tab.</li>
+            <li>Product subtotal refers to the sum of all the prices and the relevant extra charges for options (VAT included) for the products added to a cart.</li>
+        </ul>
+    </div>
+
+    <div module="Myshop_OrderHistoryListPast" class="ec-base-table typeList">
+        <!--@css(/css/module/myshop/orderHistoryListPast.css)-->
+        <!--
+            $login_url = /member/login.html
+        -->
+        <div class="orderList {$list_display|display}">
+            <div class="order">
+                <h3 class="{$display_column|display}">
+                    <span class="date" title="주문일자">{$order_date}</span>
+                    <span class="number" title="주문번호">({$order_id})</span>
+                </h3>
+                <div class="ec-base-prdInfo">
+                    <div class="prdBox">
+                        <div class="thumbnail"><a href="/product/detail.html{$param}"><img src="{$product_image}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" width="83" height="83" alt="" /></a></div>
+                        <div class="description">
+                            <strong class="prdName" title="상품명">{$product_name_link}</strong>
+                            <div class="price">
+                                <span title="판매가">{$product_price_front_head}<strong>{$product_price_front}</strong>{$product_price_front_tail}<span class="refer {$product_price_ref_display|display}"> {$product_price_back_head}{$product_price_back}{$product_price_back_tail}</span></span>
+                            	<span class="qty" title="수량">({$quantity} item(s))</span>
+                            </div>
+                            <p class="optionGroup {$option_str_display|display}">{$option_str}</p>
+                            <ul class="optionGroup" module="Myshop_optionSet">
+                                <li><span class="product">{$product_name}</span>{$option_str} ({$qty} item(s))</li>
+                                <li><span class="product">{$product_name}</span>{$option_str} ({$qty} item(s))</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="prdFoot" title="주문처리상태">
+                        <div class="gLeft">
+                            <span class="txtStatus">{$status}</span>
+                            <span class="store">{$mobile_store_info}</span>
+                            <span class="addition {$detail_info_display|display}"><a href="order_detail_cs.html{$params}" target="_blank" class="btnText">Detail</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="order">
+                <h3 class="{$display_column|display}">
+                    <span class="date" title="주문일자">{$order_date}</span>
+                    <span class="number" title="주문번호">({$order_id})</span>
+                </h3>
+                <div class="ec-base-prdInfo">
+                    <div class="prdBox">
+                        <div class="thumbnail"><a href="/product/detail.html{$param}"><img src="{$product_image}" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" width="83" height="83" alt="" /></a></div>
+                        <div class="description">
+                            <strong class="prdName" title="상품명">{$product_name_link}</strong>
+                            <div class="price">
+                                <span title="판매가">{$product_price_front_head}<strong>{$product_price_front}</strong>{$product_price_front_tail}<span class="refer {$product_price_ref_display|display}"> {$product_price_back_head}{$product_price_back}{$product_price_back_tail}</span></span>
+                            	<span class="qty" title="수량">({$quantity} item(s))</span>
+                            </div>
+                            <p class="optionGroup {$option_str_display|display}">{$option_str}</p>
+                            <ul class="optionGroup" module="Myshop_optionSet">
+                                <li><span class="product">{$product_name}</span>{$option_str} ({$qty} item(s))</li>
+                                <li><span class="product">{$product_name}</span>{$option_str} ({$qty} item(s))</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="prdFoot" title="주문처리상태">
+                        <div class="gLeft">
+                            <span class="txtStatus">{$status}</span>
+                            <span class="store">{$mobile_store_info}</span>
+                            <span class="addition {$detail_info_display|display}"><a href="order_detail_cs.html{$params}" target="_blank" class="btnText">Detail</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="ec-base-prdEmpty {$empty_display|display}">You have no order history.</p>
+    </div>
+
+    <div module="Myshop_OrderHistoryPaging" class="ec-base-paginate typeList">
+        <a href="{$param_first}" class="first">First</a>
+        <a href="{$param_prev}">Prev</a>
+        <ol>
+            <li><a href="{$param_page}" class="{$param_class}">{$num}</a></li>
+            <li><a href="{$param_page}" class="{$param_class}">{$num}</a></li>
+        </ol>
+        <a href="{$param_next}">Next</a>
+        <a href="{$param_last}" class="last">Last</a>
+    </div>
+    
+    <!--@import(/myshop/myshop_main.html)-->    
+    
+</div>      

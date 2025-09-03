@@ -1,0 +1,54 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="path">
+    <span>Current Page</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/myshop/index.html">My Account</a></li>
+        <li title="Current Page"><strong>Orders</strong></li>
+    </ol>
+</div>
+
+<div class="myshopArea">
+    <div class="titleArea titleArea--myshop">
+        <h2>Orders</h2>
+    </div>
+    <div module="Myshop_OrderHistoryTab" class="ec-base-tab typeNav">
+        <ul class="menu">
+            <li class="{$tab_class}"><a href="/myshop/order/list.html{$param}">Order History ({$total_orders})</a></li>
+            <li class="{$tab_class_cs}"><a href="/myshop/order/list.html{$param_cs}">Cancellations/Returns/Exchanges ({$total_orders_cs})</a></li>
+            <li class="{$tab_class_old} {$old_list_display|display} RW"><a href="/myshop/order/list_old.html{$param_old}">Transferred Orders ({$total_orders_old})</a></li>
+        </ul>
+    </div>
+
+    <div module="Myshop_OrderHistoryHead">
+        <!--@css(/css/module/myshop/orderHistoryHead.css)-->
+        <fieldset class="form">
+            <legend>Time Period</legend>
+            <div class="stateSelect {$status_bar_display|display}">
+                {$form.order_status}
+            </div>
+            <span class="period">
+                <a href="#none" class="btnNormal sizeM {$now_style}" days="00">Today</a>
+                <a href="#none" class="btnNormal sizeM {$month_style}" days="30">1 Month</a>
+                <a href="#none" class="btnNormal sizeM {$three_style}" days="90">3 Month</a>
+                <a href="#none" class="btnNormal sizeM {$six_style}" days="180">6 Month</a>
+            </span>
+            <div class="date">
+                <span class="datepicker">{$form.start_date} ~ {$form.end_date}</span>
+                <span class="btnSubmit sizeM">Search{$form.submit_date}</span>
+            </div>
+        </fieldset>
+        <ul class="txtList">
+            <li class="{$is_past_list_none_display|display}">Your order history for the last three months is listed by default. You can look up your order history by selecting the time period.</li>
+            <li class="{$is_past_list_display|display}">By default, results are shown for the past three months. You can also view the order history of orders that have been fulfilled over the past 36 months by adjusting the date range.</li>
+            <li class="{$is_past_list_display|display}">You can check order history of orders that have been fulfilled over 36 months ago in <a href="javascript:OrderHistory.searchPast(false)">[Archived Orders]</a> tab.</li>
+            <li>Click on the order number to view order details.</li>
+            <li class="{$cs_request_guide_display|display}">Cancel/Exchange/Return request can be accepted within {$cs_request_period_day} days {$cs_request_period_day_condition}.</li>
+        </ul>
+    </div>
+
+    <!--@import(/myshop/order/history_list_item.html)-->
+
+    <!--@import(/myshop/myshop_main.html)-->    
+    
+</div>    

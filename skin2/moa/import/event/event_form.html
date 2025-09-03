@@ -1,0 +1,17 @@
+<li
+    id="anchorBoxId_{$product_no}"
+    class="event-content__item"
+    data-aos="fade" 
+    data-aos-duration="1000" 
+    data-aos-easing="ease"
+>
+    <div class="event-content__thumbnail">
+        <a href="/event/detail.html{$param}"><img src="{$image_medium}" id="{$image_medium_id}" alt="{$seo_alt_tag}" loading="lazy" width="100%" height="100%"></a>
+    </div>
+    <div class="event-content__info">
+        <a href="/event/detail.html{$param}" class="{$product_name_display|display}">
+            <div class="event-content__name"><span class="title {$product_name_title_display|display}">{$product_name_title} :</span> {$product_name|striptag}</div>
+            <div class="event-content__date">{$summary_desc|striptag}</div>
+        </a>
+    </div>
+</li>

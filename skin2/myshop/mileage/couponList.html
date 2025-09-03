@@ -1,0 +1,138 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="path">
+    <span>Current Page</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/myshop/index.html">My Account</a></li>
+        <li title="Current Page"><strong>Reward Points</strong></li>
+    </ol>
+</div>
+
+<div class="myshopArea">
+    <div module="Myshop_mileageCouponPackage">
+    <!--@css(/css/module/myshop/mileageCouponPackage.css)-->
+        <div class="titleArea titleArea--myshop" module="myshop_head">
+            <h2>{$mileage_name}</h2>
+        </div>
+
+        <div module="myshop_summary" class="ec-base-box gHalf">
+            <ul>
+				<li><strong class="title">Total {$mileage_name} earned</strong> <span class="data">{$total_mileage}</span></li>
+                <li><strong class="title">{$mileage_name} available</strong> <span class="data">{$avail_mileage}</span></li>
+                <li><strong class="title">{$mileage_name} used</strong> <span class="data">{$used_mileage}</span></li>
+			</ul>
+			<ul>
+                <li><strong class="title">{$mileage_name} pending</strong> <span class="data">{$unavail_mileage}</span></li>
+                <li><strong class="title">{$mileage_name} to be refunded</strong> <span class="data">{$refunded_mileage}</span>
+            </ul>
+        </div>
+
+        <div class="ec-base-tab typeNav">
+            <ul class="menu">
+                <li><a href="/myshop/mileage/historyList.html">Reward Points History</a></li>
+                <li><a href="/myshop/mileage/unavailList.html">Pending Reward Points History</a></li>
+                <li class="selected"><a href="/myshop/mileage/couponList.html">Pending Coupons/Membership Level</a></li>
+            </ul>
+        </div>
+		
+        <div module="myshop_couponMemberList">
+            <!--
+                $only_html = no
+                $count = 10
+                $login_page = /member/login.html
+            -->
+			<div class="{$display_coupon|display}">
+				<div class="item">
+					<h3>
+						<span class="date" title="주문날짜">{$order_date}</span>
+						<span class="number" title="관련주문번호"><a href="/myshop/order/detail.html?order_id={$order_id}">{$order_id}</a></span>
+					</h3>
+					<div class="ec-base-table gClearBorderTop">
+						<table border="1">
+                            <caption>{$mileage_name} Log</caption>
+							<colgroup>
+								<col style="width:150px;">
+								<col style="width:auto;">
+							</colgroup>
+							<tbody>
+								<tr>
+									<th scope="row">Pending {$mileage_name}</th>
+									<td>{$mileage_money}</td>
+								</tr>
+								<tr>
+									<th scope="row">Valid <br />From</th>
+									<td>{$mileage_type}</td>
+								</tr>
+								<tr>
+									<th scope="row">Description</th>
+									<td>{$mileage_detail}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="item">
+					<h3>
+						<span class="date" title="주문날짜">{$order_date}</span>
+						<span class="number" title="관련주문번호"><a href="/myshop/order/detail.html?order_id={$order_id}">{$order_id}</a></span>
+					</h3>
+					<div class="ec-base-table gClearBorderTop">
+						<table border="1">
+                            <caption>{$mileage_name} Log</caption>
+							<colgroup>
+								<col style="width:150px;">
+								<col style="width:auto;">
+							</colgroup>
+							<tbody>
+								<tr>
+									<th scope="row">Pending {$mileage_name}</th>
+									<td>{$mileage_money}</td>
+								</tr>
+								<tr>
+									<th scope="row">Valid <br />From</th>
+									<td>{$mileage_type}</td>
+								</tr>
+								<tr>
+									<th scope="row">Description</th>
+									<td>{$mileage_detail}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<p class="ec-base-prdEmpty {$display_coupon_none|display}">You have no {$mileage_name} history to view.</p>
+        </div>
+    </div>
+
+    <div module="myshop_couponMemberPaging" class="ec-base-paginate typeList">
+        <a href="{$first_url}" class="first">First</a>
+        <a href="{$prev_url}">Prev</a>
+        <ol>
+            <li><a href="{$url_query}" class="{$param_class}">{$n}</a></li>
+            <li><a href="{$url_query}" class="{$param_class}">{$n}</a></li>
+            <li><a href="{$url_query}" class="{$param_class}">{$n}</a></li>
+            <li><a href="{$url_query}" class="{$param_class}">{$n}</a></li>
+            <li><a href="{$url_query}" class="{$param_class}">{$n}</a></li>
+            <li><a href="{$url_query}" class="{$param_class}">{$n}</a></li>
+            <li><a href="{$url_query}" class="{$param_class}">{$n}</a></li>
+            <li><a href="{$url_query}" class="{$param_class}">{$n}</a></li>
+            <li><a href="{$url_query}" class="{$param_class}">{$n}</a></li>
+            <li><a href="{$url_query}" class="{$param_class}">{$n}</a></li>
+        </ol>
+        <a href="{$next_url}">Next</a>
+        <a href="{$last_url}" class="last">Last</a>
+    </div>
+
+    <div class="ec-base-help" module="myshop_head">
+        <h3>About {$mileage_name}</h3>
+        <div class="inner">
+            <ul module="myshop_historyInfo">
+                <li>{$mileage_name} do not become available for use until {$mileage_period} days after your order is delivered to you.  </li>
+                <li>Please note that {$mileage_name} remain pending in case the order is cancelled or returned. <br/> Pending {$mileage_name} cannot be used as a payment method.</li>
+                <li>Once the {$mileage_name} become available (=Total {$mileage_name} earned - {$mileage_name} used - {$mileage_name} pending), <br/> you can use them like cash to pay for any purchases.</li>
+            </ul>
+        </div>
+    </div>
+    <!--@import(/myshop/myshop_main.html)-->
+</div>  

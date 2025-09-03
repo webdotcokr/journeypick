@@ -1,0 +1,150 @@
+#wrap .ec-base-tab.typeMenu .menu > li {
+    margin-bottom: 0;
+    height: auto;
+}
+
+.event-tab {
+    margin-bottom: 40px;
+}
+
+.event-tab__list {
+    border-bottom: 1px solid #000;
+}
+.event-tab__item {
+    position: relative;
+    width: 210px;
+/*    border: 1px solid #e5e5e5;*/
+    border: 1px solid #c4c4c4;
+    border-bottom: 0;
+}
+
+.event-tab__item.selected {
+    border-color: #000;
+}
+
+.event-tab__item:first-child:not(.selected) {
+    border-right: 0;
+}
+
+.event-tab__item.selected + .event-tab__item {
+    border-left: 0;
+}
+
+.event-tab__item.selected::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: var(--bg-color);
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+}
+
+.event-tab__item a {
+    display: block;
+    padding: 14px 0;
+    text-align: center;
+    color: #6d6d6d;
+    font-size: 14px;
+}
+
+.event-tab__item.selected a {
+    color: #000;
+}
+
+.event-content__list {
+    width: calc(100% + 20px);
+    margin-left: -10px;
+}
+
+.event-content__item {
+    width: calc(33.333% - 20px);
+    margin: 0 10px 60px;
+}
+
+.event-content__thumbnail {
+    margin-bottom: 17px;
+    -webkit-transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease;
+}
+
+.event-content__thumbnail img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.event-content__name {
+    font-size: 20px;
+    color: #000;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+.event-content__date {
+    font-size: 14px;
+    color: #696969;
+}
+
+@media (hover:hover) {
+    .event-content__item:hover .event-content__thumbnail {
+        opacity: .7;
+    }
+}
+
+@media (max-width: 1024px) {
+    
+    .event-content__list {
+        width: calc(100% + 16px);
+        margin-left: -8px;
+    }
+    
+    .event-content__item {
+        width: calc(33.333% - 16px);
+        margin: 0 8px 40px;
+    }
+    
+}
+
+@media (max-width: 767px) {
+    
+    .event-tab {
+        padding: 0 16px;
+    }
+    
+    .event-tab__item {
+        width: 50%;
+        box-sizing: border-box;
+    }
+    
+    .event-tab__item.selected a {
+        font-weight: 600;
+    }
+    
+    .event-content__list {
+        width: 100%;
+        margin-left: 0;
+        box-sizing: border-box;
+        padding: 0;
+    }
+    
+    .event-content__item {
+        width: 100%;
+        margin: 0 0 50px;
+    }
+    
+    .event-content__thumbnail {
+        margin-bottom: 15px;
+    }
+    
+    .event-content__name {
+        font-size: 18px;
+        margin-bottom: 6px;
+    }
+    
+    .event-content__date {
+        font-size: 13px;
+    }
+    
+}

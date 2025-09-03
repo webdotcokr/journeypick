@@ -1,0 +1,216 @@
+.xans-board-title p.imgArea {
+    margin: 0 0 20px;
+}
+
+#wrap .ec-base-box.typeProduct {
+	margin: 0;
+    padding: 16px;
+    border: 1px solid #ebebeb;
+    border-radius: 6px;
+}
+
+#wrap .information h3 {
+	margin: 0 0 7px;
+	padding: 0 120px 0 0;
+	font-size: 13px;
+    font-weight: bold;
+}
+
+#wrap .information .price {
+    font-size: 13px;
+}
+
+#wrap .ec-base-box.typeProduct .thumbnail {
+    width: 80px;
+}
+
+#wrap .ec-base-box.typeProduct .thumbnail img {
+    border-radius: 6px;
+}
+
+.ec-base-box + #BoardDelForm .ec-base-table {
+    border-top: 0;
+}
+
+.xans-board-read .ec-base-table .head {
+    padding: 20px 0;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.xans-board-read .ec-base-table .head h3 {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.xans-board-read .ec-base-table .description {
+    margin: 15px 0 0;
+}
+
+.xans-board-read .ec-base-table .description .name {
+    display: inline-block;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.xans-board-read .ec-base-table .description * {
+    font-size: 12px;
+    color: #6d6d6d;
+}
+
+.xans-board-read .ec-base-table .description * img {
+    height: 22px;
+    vertical-align: middle;
+}
+
+.xans-board-read .ec-base-table .etcArea {
+    display: inline-block;
+}
+
+.xans-board-read .ec-base-table .etcArea li {
+    display: inline-block;
+    padding: 0 8px;
+    vertical-align: middle;
+    color: #6d6d6d;
+}
+
+.xans-board-read .ec-base-table .etcArea li a {
+    text-decoration: none;
+}
+
+.xans-board-read .ec-base-table .etcArea .txtNum {
+    font-size: 12px;
+    color: #6d6d6d;
+}
+
+.xans-board-read .ec-base-table .detail {
+    padding: 30px 20px;
+    word-break: break-all;
+    line-height: normal;
+}
+
+.xans-board-read .ec-base-table .detail ol,
+.xans-board-read .ec-base-table .detail ul {
+    margin: 15px 0;
+    padding: 0 0 0 40px;
+}
+
+.xans-board-read .ec-base-table .detail ol li {
+    list-style: decimal;
+}
+
+.xans-board-read .ec-base-table .detail ul li {
+    list-style: disc;
+}
+
+.xans-board-read .ec-base-table .detail img {
+    max-width: 100%;
+}
+
+.xans-board-read .ec-base-table .attach {
+    position: relative;
+    padding: 20px 0;
+    margin: 0 20px;
+    text-align: right;
+}
+
+.xans-board-read .ec-base-table .attach a {
+    padding: 0 0 0 12px;
+    color: #6d6d6d;
+}
+
+.xans-board-read .ec-base-table .attach a:hover {
+    text-decoration: underline;
+}
+
+.xans-board-read .ec-base-table .attach a:first-child {
+    padding-left: 20px;
+    background: url("//img.echosting.cafe24.com/skin/skin/board/icon-file.svg") no-repeat 0 0;
+    background-size: 14px auto;
+}
+
+.xans-board-product .ec-base-box.typeProduct {
+    margin: 0 0 40px;
+}
+
+.xans-board-product .information h3 {
+    margin: 0 0 2px;
+    padding: 0 120px 0 0;
+    font-size: 14px;
+}
+
+.xans-board-product #sPrdCommonImg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    text-align: right;
+}
+
+.xans-board-product .information .button {
+    margin: 15px 0 0;
+}
+
+/* gallery */
+
+#gd .titleArea {
+    margin-top: 45px;
+}
+
+#gd .gd-info {
+    margin-top: -30px;
+    margin-bottom: 30px;
+}
+
+#gd .gd-txt,
+#gd .gd-txt * {
+    color: #696969;
+    font-size: 14px;
+}
+
+#gd .gd-txt:not(.displaynone)::before {
+    content: '|';
+    color: currentColor;
+    margin: 0 6px;
+}
+
+#gd .gd-txt:first-child::before {
+    display: none;
+}
+
+#gd.xans-board-read .ec-base-table .detail {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/********************* Mobile / Tablet *********************/
+@media all and (max-width:1024px) {
+    .xans-board-read .ec-base-table .head {
+        padding: 20px 16px;
+    }
+
+    .xans-board-read .ec-base-table .attach {
+        margin: 0 16px;
+    }
+    
+    #gd .titleArea h2 {
+        font-size: 22px;
+    }
+    
+    #gd .gd-info {
+        margin-bottom: 10px;
+    }
+    
+}
+
+@media all and (max-width:768px) {
+    
+    #gd .gd-txt, #gd .gd-txt * {
+        font-size: 13px;
+    }
+    
+    #gd.xans-board-read .ec-base-table .detail {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+

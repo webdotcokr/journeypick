@@ -1,0 +1,111 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="path" module="Myshop_DepositHead">
+    <span>Current Page</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/myshop/index.html">My Account</a></li>
+        <li title="Current Page"><strong>{$deposit_name}</strong></li>
+    </ol>
+</div>
+
+<div module="Myshop_depositHistoryPackage">
+    <!--@css(/css/module/myshop/depositHistoryPackage.css)-->
+    <div class="titleArea" module="Myshop_DepositHead">
+        <h2>{$deposit_name}</h2>
+    </div>
+
+    <div module="Myshop_DepositSummary" class="ec-base-box gHalf">
+        <ul>
+            <li><strong class="title">Total {$deposit_name}</strong> <span class="data">{$all_deposit}</span></li>
+            <li><strong class="title">{$deposit_name} Used</strong> <span class="data">{$used_deposit}</span></li>
+        </ul>
+        <ul>
+            <li><strong class="title">{$deposit_name} Available</strong> <span class="data">{$total_deposit}</span></li>
+            <li><strong class="title">{$deposit_name} Cash refund request</strong> <span class="data">{$deposit_refund_wait}</span></li>
+        </ul>
+    </div>
+
+    <div module="Myshop_DepositHistoryList">
+        <!--
+            $count = 10
+            $only_html = no
+            $login_page = /member/login.html
+        -->
+        <div class="ec-base-button {$display_deposit|display}">
+            <span class="gRight">
+                <a href="#none" class="btnNormal" id="{$btn_deposit_refund_id}">Submit Cash Refund</a>
+            </span>
+        </div>
+
+        <div class="ec-base-table typeList">
+            <table border="1" >
+                <caption>My {$deposit_name} History</caption>
+                <colgroup>
+                    <col style="width:20%" />
+                    <col style="width:15%" />
+                    <col style="width:20%" />
+                    <col style="width:auto" />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th scope="col">Order Date</th>
+                        <th scope="col">{$deposit_name}</th>
+                        <th scope="col">Order No.</th>
+                        <th scope="col">Details</th>
+                    </tr>
+                </thead>
+                <tbody class="{$display_history|display} center">
+                    <tr>
+                        <td>{$deposit_date}</td>
+                        <td class="right">{$deposit_money}</td>
+                        <td>{$deposit_order_id}</td>
+                        <td class="left">{$deposit_detail}{$deposit_memo}</td>
+                    </tr>
+                    <tr>
+                        <td>{$deposit_date}</td>
+                        <td class="right">{$deposit_money}</td>
+                        <td>{$deposit_order_id}</td>
+                        <td class="left">{$deposit_detail}{$deposit_memo}</td>
+                    </tr>
+                    <tr>
+                        <td>{$deposit_date}</td>
+                        <td class="right">{$deposit_money}</td>
+                        <td>{$deposit_order_id}</td>
+                        <td class="left">{$deposit_detail}{$deposit_memo}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="message {$display_history_none|display}">You have no {$deposit_name} history to view.</p>
+        </div>
+    </div>
+
+    <div module="myshop_DepositHistoryPaging" class="ec-base-paginate typeList">
+        <a href="{$first_url}" class="first">First</a>
+        <a href="{$prev_url}">Prev</a>
+        <ol>
+            <li><a href="{$url_query}" class="{$param_class}">{$n}</a></li>
+            <li><a href="{$url_query}" class="{$param_class}">{$n}</a></li>
+            <li><a href="{$url_query}" class="{$param_class}">{$n}</a></li>
+            <li><a href="{$url_query}" class="{$param_class}">{$n}</a></li>
+            <li><a href="{$url_query}" class="{$param_class}">{$n}</a></li>
+            <li><a href="{$url_query}" class="{$param_class}">{$n}</a></li>
+            <li><a href="{$url_query}" class="{$param_class}">{$n}</a></li>
+            <li><a href="{$url_query}" class="{$param_class}">{$n}</a></li>
+            <li><a href="{$url_query}" class="{$param_class}">{$n}</a></li>
+            <li><a href="{$url_query}" class="{$param_class}">{$n}</a></li>
+        </ol>
+        <a href="{$next_url}">Next</a>
+        <a href="{$last_url}" class="last">Last</a>
+    </div>
+</div>
+
+<div class="ec-base-help" module="Myshop_DepositHead">
+    <h3>About {$deposit_name}</h3>
+    <div class="inner">
+        <ul>
+            <li>We will issue you {$deposit_name} in the amount paid for your refunds or for the price differences from your exchanges.</li>
+            <li>Available {$deposit_name} (Accumulated {$deposit_name}- Used {$deposit_name}-Cash refund request {$deposit_name})can be used like cash to pay for any product purchase.</li>
+            <li>If you want cash refunds, you can request your refunds to be credited to your bank account.</li>
+        </ul>
+    </div>
+</div>

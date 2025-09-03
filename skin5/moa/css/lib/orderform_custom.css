@@ -1,0 +1,43 @@
+#userStyle {
+    opacity: 1;
+    visibility: visible;
+}
+
+html, 
+#userStyle,
+#userStyle * {
+    font-family: 'Inter','Noto Sans KR',"맑은 고딕","malgun gothic","돋움","dotum",sans-serif;
+}
+
+html,
+#userStyle,
+#mCafe24Order input[type="button"], #mCafe24Order input[type="text"], #mCafe24Order input[type="password"], #mCafe24Order input[type="tel"], #mCafe24Order input[type="image"], #mCafe24Order textarea,
+#mCafe24Order .ec-base-table .ec-address .ec-address-zipcode .btnBasic,
+#mCafe24Order #omessage_select, #mCafe24Order #fmessage_select, #mCafe24Order #ship_hope_time, #mCafe24Order #fship_hope_time, #mCafe24Order .xans-order-ordadd select, #mCafe24Order #bankaccount, #mCafe24Order #receiver_id_card_type {
+    font-size: 14px;
+}
+
+#userStyle #mCafe24Order .title h2,
+#userStyle #mCafe24Order .totalPay .heading,
+#userStyle #mCafe24Order .txtStrong,
+#mCafe24Order .payMethod > li.selected > label,
+#mCafe24Order .agreeArea .allAgree {
+    font-size: 15px;
+}
+
+#userStyle #header .titleArea h1,
+#userStyle #mCafe24Order .btnSubmit {
+    background: #000;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#userStyle #mCafe24Order .txtStrong,
+#userStyle #mCafe24Order .txtEm {
+    color: #000;
+}
+
+#userStyle #mCafe24Order .payMethod > li.selected > label,
+#userStyle #mCafe24Order .payMethod > li.selected > .inner {
+    border-color: #000;
+}

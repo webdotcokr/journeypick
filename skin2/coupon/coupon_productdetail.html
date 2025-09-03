@@ -1,0 +1,66 @@
+<div class="mcp flex flex--v-center flex--h-center" module="coupon_productdetailajax">
+    <!--@css(/css/module/coupon/productDetailAjax.css)-->
+
+<div class="mcp-bg"></div>
+<div class="mcp__container mcp__container--coupon">
+
+    <!--
+    $coupon_down_result_url = /coupon/coupon_down_result.html
+-->
+    <div class="mcp__title">Download Coupons</div>
+    <div class="mcp__close flex flex--v-center flex--h-center">
+        <svg class="icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor" preserveAspectRatio="xMidYMid meet"><path fill-rule="nonzero" d="M11.6 10l7.1 7.1-1.6 1.6-7.1-7.1-7.1 7.1-1.6-1.6L8.4 10 1.3 2.9l1.6-1.6L10 8.4l7.1-7.1 1.6 1.6z"></path></svg>
+    </div>
+    
+    <div class="mcp__inner mcp__inner--coupon">
+        <!--
+        1 row : ul class="grid1"
+        2 row : ul class="grid2"
+        3 row : ul class="grid3"
+    -->
+        <div class="mcp__content">
+            <div class="coupon-item {$background_class}" style="background-image:url('{$background_url}')">
+                <div class="coupon-item__inner relative flex">
+                    <div class="coupon-item__detail" {$call_coupon_detail}>
+                        <p class="coupon-discount" >{$coupon_content}</p>
+                        <div class="coupon-name">{$coupon_name|cut:13,...}</div>
+                        <p class="coupon-period">{$coupon_period}<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#391818" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm-4,48a12,12,0,1,1-12,12A12,12,0,0,1,124,72Zm12,112a16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40a8,8,0,0,1,0,16Z"></path></svg></p>
+                    </div>
+                    <a href="{$coupon_issue_url}" class="coupon-item__download flex flex--v-center flex--h-center">
+                        <span class="download-icon text-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#391818" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm37.66,117.66-32,32a8,8,0,0,1-11.32,0l-32-32a8,8,0,0,1,11.32-11.32L120,148.69V88a8,8,0,0,1,16,0v60.69l18.34-18.35a8,8,0,0,1,11.32,11.32Z"></path></svg><br>
+                            Download
+                        </span>
+                    </a>
+                </div>
+<!--                    <div class="button"><a href="{$coupon_issue_url}"><img src="{$download_url}" alt="다운받기" /></a></div>-->
+            </div>
+            <div class="coupon-item {$background_class}" style="background-image:url('{$background_url}')">
+                <div class="coupon-item__inner relative flex">
+                    <div class="coupon-item__detail" {$call_coupon_detail}>
+                        <p class="coupon-discount" >{$coupon_content}</p>
+                        <div class="coupon-name">{$coupon_name|cut:13,...}</div>
+                        <p class="coupon-period">{$coupon_period}<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#391818" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm-4,48a12,12,0,1,1-12,12A12,12,0,0,1,124,72Zm12,112a16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40a8,8,0,0,1,0,16Z"></path></svg></p>
+                    </div>
+                    <a href="{$coupon_issue_url}" class="coupon-item__download flex flex--v-center flex--h-center">
+                        <span class="download-icon text-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#391818" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm37.66,117.66-32,32a8,8,0,0,1-11.32,0l-32-32a8,8,0,0,1,11.32-11.32L120,148.69V88a8,8,0,0,1,16,0v60.69l18.34-18.35a8,8,0,0,1,11.32,11.32Z"></path></svg><br>
+                            Download
+                        </span>
+                    </a>
+                </div>
+<!--                    <div class="button"><a href="{$coupon_issue_url}"><img src="{$download_url}" alt="다운받기" /></a></div>-->
+            </div>
+        </div>
+    </div>
+
+    <a href="#none" id="btn_all_coupondown" class="coupon-all-download flex flex--v-center flex--h-center">Download All coupons</a>
+</div>
+
+</div>
+
+<script>
+
+var _0x3eecec=_0x33a9;function _0x5cb3(){var _0x26fbd1=['length','querySelectorAll','1072xodYaM','91656hrRCBK','.coupon-discount','test','5rpaKLf','innerHTML','40707emFkIO','2283988UQpNuB','927438cqwDGh','5633621eoEost','replace','1268TbBNJM','10239wuMftY','17407350kkXDJD'];_0x5cb3=function(){return _0x26fbd1;};return _0x5cb3();}(function(_0x55ffc4,_0x2bfe51){var _0x2068d5=_0x33a9,_0x3c190c=_0x55ffc4();while(!![]){try{var _0x2d137a=parseInt(_0x2068d5(0x170))/0x1+parseInt(_0x2068d5(0x176))/0x2+-parseInt(_0x2068d5(0x16b))/0x3*(-parseInt(_0x2068d5(0x17a))/0x4)+-parseInt(_0x2068d5(0x173))/0x5*(-parseInt(_0x2068d5(0x177))/0x6)+parseInt(_0x2068d5(0x178))/0x7+parseInt(_0x2068d5(0x16f))/0x8*(-parseInt(_0x2068d5(0x175))/0x9)+-parseInt(_0x2068d5(0x16c))/0xa;if(_0x2d137a===_0x2bfe51)break;else _0x3c190c['push'](_0x3c190c['shift']());}catch(_0xcb26f3){_0x3c190c['push'](_0x3c190c['shift']());}}}(_0x5cb3,0xe2982));var couponName=document[_0x3eecec(0x16e)](_0x3eecec(0x171)),regExp=/[0-9]/,str;function _0x33a9(_0x2b7e95,_0x2163c6){var _0x5cb3fb=_0x5cb3();return _0x33a9=function(_0x33a9c6,_0xc249ec){_0x33a9c6=_0x33a9c6-0x16b;var _0x25fb4c=_0x5cb3fb[_0x33a9c6];return _0x25fb4c;},_0x33a9(_0x2b7e95,_0x2163c6);}for(var i=0x0;i<couponName[_0x3eecec(0x16d)];i++){str=couponName[i]['innerHTML'],regExp[_0x3eecec(0x172)](str)&&(str=str[_0x3eecec(0x179)](/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g,','),couponName[i][_0x3eecec(0x174)]=str);}
+
+</script>

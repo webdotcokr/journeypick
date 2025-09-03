@@ -1,0 +1,33 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="path">
+    <span>Current Page</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li title="Current Page"><strong>Forgot ID</strong></li>
+    </ol>
+</div>
+
+<div class="titleArea">
+    <h2>Forgot ID</h2>
+</div>
+
+<div module="member_findidresult" class="memberArea gInnerMargin">
+    <!--@css(/css/module/member/find_id_result.css)-->
+    <div class="ec-base-box typeMember">
+        <div class="complete">
+            <p class="headDesc">You have successfully recovered your ID.</p>
+            <p class="infoDesc">Thank you for shopping with us.<br />The following <span class="txtEm">{$idCnt}</span> ID was found with the information you have provided us.</p>
+            <div class="description">
+                <ul class="ec-base-desc gSmall">
+                    <li><strong class="term">Name</strong><div class="desc">{$name}</div></li>
+                    <li><strong class="term">{$searchType}</strong><div class="desc">{$searchInfo}</div></li>
+                </ul>
+                {$searchIds}
+            </div>
+        </div>
+    </div>
+    <div class="ec-base-button gBottom">
+        <a href="javascript:go_findlogin('{$id}');" class="btnNormalFix sizeM">Login</a>
+        <a href="javascript:go_findpwd('{$id}','{$mtype}');" class="btnSubmitFix sizeM">Find Password</a>
+    </div>
+</div>

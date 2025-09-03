@@ -1,0 +1,334 @@
+/* 달력 패키지 */
+.xans-attend-calendarhead {
+    text-align: center;
+}
+
+.xans-attend-calendarhead .date {
+    display: inline;
+    color: #000;
+    font-size: 24px;
+}
+
+.xans-attend-calendarhead .date img {
+    vertical-align: middle;
+}
+
+.xans-attend-calendar {
+    margin: 20px 0 0;
+}
+
+.xans-attend-calendar th {
+    border-right: 1px solid #eeeeee;
+    padding: 11px 0;
+    color: #222;
+    border-top: 1px solid #eeeeee;
+    font-size: 13px;
+}
+
+.xans-attend-calendar th.sun {
+    color: #e5541e;
+    border-left: 1px solid #eeeeee;
+}
+
+.xans-attend-calendar th.sat {
+    color: #0033ff;
+}
+
+.xans-attend-calendar td {
+    border: 1px solid #eeeeee;
+    background: var(--bg-color);
+    height: 120px;
+}
+
+.xans-attend-calendar td p {
+    position: relative;
+    padding: 10px;
+    color: #000;
+    font-size: 15px;
+}
+
+.xans-attend-calendar td p>img {
+    max-width: 100px;
+    margin: 10px auto;
+    display: block;
+}
+
+.xans-attend-calendar #attStart,
+.xans-attend-calendar #attEnd {
+    position: absolute;
+    left: -13px;
+    top: -40px;
+}
+
+/* 스탬프형 > 보안문자 레이어 */
+.xans-attend-button .attendSecurityLayer {
+    display: none;
+    position: absolute;
+    z-index: 100;
+    width: 320px;
+    color: #757575;
+}
+
+.xans-attend-button .attendSecurityLayer h3 {
+    height: 35px;
+    padding: 0 35px 0 19px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 35px;
+    background-color: #333;
+}
+
+.xans-attend-button .attendSecurityLayer .content {
+    padding: 20px;
+    border-left: 1px solid #757575;
+    border-right: 1px solid #757575;
+    background-color: var(--bg-color);
+}
+
+.xans-attend-button .attendSecurityLayer .close {
+    position: absolute;
+    right: 14px;
+    top: 12px;
+}
+
+.xans-attend-button .attendSecurityLayer .close img {
+    cursor: pointer;
+}
+
+.xans-attend-button .attendSecurityLayer .btnArea {
+    padding: 10px 0;
+    border: 1px solid #757575;
+    border-top: 1px solid #d7d7d7;
+    text-align: center;
+    background-color: #fafafa;
+}
+
+.xans-attend-button .attendSecurityLayer .form {
+    padding: 5px 10px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #d8d8d8;
+}
+
+.xans-attend-button .attendSecurityLayer .form img {
+    width: 80px;
+}
+
+.xans-attend-button .attendSecurityLayer .form img,
+.xans-attend-button .attendSecurityLayer .form .keyword {
+    vertical-align: middle;
+}
+
+.xans-attend-button .attendSecurityLayer .form .keyword {
+    width: 130px;
+    height: 20px;
+    margin: 0 2px;
+    line-height: 20px;
+    border: 1px solid #e8e8e8;
+    color: #333;
+}
+
+.xans-attend-button .attendSecurityLayer #secure_text {
+    width: 160px;
+}
+
+.attend-msg {
+    padding: 35px 0;
+    color: #6d6d6d;
+    text-align: center;
+    background: #f7f8fa;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 30px 0;
+    border: none !important;
+}
+
+
+@media (max-width: 768px) {
+
+    .xans-attend-calendarpackage {
+        padding: 0 0 29px;
+    }
+    
+    .xans-attend-calendarhead .date {
+        font-size: 20px;
+    }
+
+    /* 달력 패키지 */
+    .xans-attend-calendarhead {
+        margin: 14px 0 0;
+        padding: 14px 0;
+        text-align: center;
+        overflow: hidden;
+        zoom: 1;
+        border: 1px solid #eee;
+        border-bottom: 0;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        background: var(--bg-color);
+    }
+
+    .xans-attend-calendarhead p {
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .xans-attend-calendarhead p.prev,
+    .xans-attend-calendarhead p.next {
+        padding: 0 7px;
+        margin: 0 7px;
+    }
+
+    .xans-attend-calendarhead p.prev img,
+    .xans-attend-calendarhead p.next img {
+        width: 8.5px;
+    }
+
+    .xans-attend-calendarhead p span {
+        font-size: 19px;
+        font-weight: bold;
+        vertical-align: middle;
+    }
+
+    .xans-attend-calendar {
+        margin: 0;
+        padding: 0 3% 14px;
+        border: 1px solid #d5d5d5;
+        border-top: 0;
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+        background: var(--bg-color);
+    }
+
+    .xans-attend-calendar table thead tr {
+        border-bottom: 1px solid #ddd;
+    }
+
+    .xans-attend-calendar th {
+        height: 30px;
+        font-size: 11px;
+/*        border-top: 0;*/
+        vertical-align: middle;
+    }
+
+    .xans-attend-calendar tr:first-child td {
+/*        padding: 23px 0 0;*/
+    }
+
+    .xans-attend-calendar td {
+        vertical-align: top;
+        height: 70px;
+        position: relative;
+        background: var(--bg-color);
+    }
+
+    .xans-attend-calendar td>div {
+        position: relative;
+        min-width: 35px;
+        min-height: 17px;
+        padding: 9px 0;
+        text-align: center;
+    }
+
+    .xans-attend-calendar td.sun,
+    .xans-attend-calendar td.sat {
+        color: #777;
+    }
+
+    .xans-attend-calendar td.sat>div,
+    .xans-attend-calendar td.sat>div img {
+        background: #f4f4f4;
+    }
+
+    .xans-attend-calendar td p {
+        position: static;
+        font-size: 13px;
+        padding: 5px;
+    }
+
+    .xans-attend-calendar td img {
+        width: 50px;
+        height: auto;
+    }
+
+    .xans-attend-calendar #attStart,
+    .xans-attend-calendar #attEnd {
+/*        z-index: 100;*/
+        position: absolute;
+        left: 15%;
+        top: -6px;
+        background: none;
+    }
+
+    /* 스탬프형 > 보안문자 레이어 */
+    .xans-attend-button {
+        position: relative;
+        margin: 0;
+    }
+
+    .xans-attend-button .security {
+        display: none;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        width: 300px;
+        z-index: 100;
+        margin: -50px 0 0 -150px;
+        background: #f1f1f1;
+    }
+
+    .xans-attend-button .security fieldset {
+        position: relative;
+        margin: 14px;
+        padding: 14px;
+        border: 1px solid #d5d5d5;
+        border-radius: 3px;
+        background: var(--bg-color);
+    }
+
+    .xans-attend-button .security h2 {
+        height: 36px;
+        padding: 0 38px 0 7px;
+        font-size: 15px;
+        line-height: 36px;
+        color: #fff;
+        background: #333;
+    }
+
+    .xans-attend-button .security .btnClose {
+        position: absolute;
+        right: -14px;
+        top: -50px;
+        z-index: 110;
+        width: 36px;
+        height: 36px;
+        border: 0;
+        padding: 0;
+        font-size: 0;
+        text-indent: 100%;
+        background: url("//img.echosting.cafe24.com/skin/mobile_ko_KR/layout/ico_close_white.png") center center no-repeat;
+        background-size: 14px 14px;
+    }
+
+    .xans-attend-button .security .wrap {
+        padding: 12px 6px 6px;
+        padding: 6px;
+        font-size: 12px;
+        background: var(--bg-color);
+    }
+
+    .xans-attend-button .capcha>img {
+        vertical-align: top;
+    }
+
+    .xans-attend-button .capcha #secure_text {
+        width: 100px;
+    }
+    
+    .attend-msg {
+        padding: 25px 0;
+        margin: 16px;
+    }
+
+}

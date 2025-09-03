@@ -1,0 +1,88 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="path">
+    <span>Current Page</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li title="Current Page"><strong>Welcome</strong></li>
+    </ol>
+</div>
+
+<div class="titleArea">
+    <h2>Welcome</h2>
+</div>
+
+<div class="ec-base-step">
+    <ol class="step">
+        <li>1. Terms and Conditions</li>
+        <li>2. Enter information</li>
+        <li class="selected">3. Join completed</li>
+    </ol>
+</div>
+
+<div module="member_joinComplete" class="memberArea gInnerMargin">
+    <!--@css(/css/module/member/joincomplete.css)-->
+    <div class="joinComplete">
+        <p class="desc">Your account has been created!</p>
+        
+        <div class="memberSpecial" module="member_BenefitJoin">
+            <p>Thank you for signing up.<br/>Your membership level is [{$group_name}].</p>
+            <ul>
+            	<li class="{$display_no_benefit|display}">Receive an {$use_dc} of <strong>{$dc_price}{$dc_type}</strong> when you purchase <strong>{$dc_pay} {$dc_min_price}</strong>. {$dc_max_percent}</li>
+                <li class="{$display_with_all|display}">Receive {$use_dc_mileage} of <strong>{$dc_price_mileage}{$dc_type_mileage}</strong> when you purchase <strong>{$dc_pay} {$dc_min_price_mileage}</strong>. {$dc_max_mileage_percent}</li>
+            </ul>
+        </div>
+        <div class="ec-base-box typeMember gMessage">
+            <div class="information">
+                <div class="description">
+                    <dl class="ec-base-desc">
+                        <dt>ID</dt><dd>{$member_id}</dd>
+                        <dt>Name</dt><dd>{$member_name}</dd>
+                        <dt>Email</dt><dd>{$member_email}</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <p class="memberAge {$under_fourteen_display|display}">
+            <strong>If you are under 14 years of age</strong>, please note that you will be able to use your account once your account has been verified through the account confirmation process.
+        </p>
+    </div>
+    <div class="ec-base-button gBottom">
+        <a href="{$redirect_function}" class="btnNormalFix sizeM">Complete</a>
+        <a href="/member/login.html" class="btnSubmitFix sizeM {$display_login_chk|display}">Login</a>
+    </div>
+</div>
+
+<div module="coupon_join">
+    <!--@css(/css/module/coupon/join.css)-->
+    <div class="couponSkinArea">
+        <ul class="grid3 flex flex--h-center">
+            <li>
+                <div class="coupon relative flex flex--v-center flex--h-center {$background_class}">
+                    <img src="{$background_url}">
+                    <div class="coupon-align">
+                        <strong class="title" style="color:#333; font-size:11px;">{$coupon_name}</strong>
+                        <p class="discount coupon-discount" ><span>{$coupon_content}</span></p>
+                        <p class="period" style="color:#909090;">{$coupon_period}</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="coupon relative flex flex--v-center flex--h-center {$background_class}">
+                    <img src="{$background_url}">
+                    <div class="coupon-align">
+                        <strong class="title" style="color:#333; font-size:11px;">{$coupon_name}</strong>
+                        <p class="discount coupon-discount" ><span>{$coupon_content}</span></p>
+                        <p class="period" style="color:#909090;">{$coupon_period}</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<script>
+
+var _0x3eecec=_0x33a9;function _0x5cb3(){var _0x26fbd1=['length','querySelectorAll','1072xodYaM','91656hrRCBK','.coupon-discount','test','5rpaKLf','innerHTML','40707emFkIO','2283988UQpNuB','927438cqwDGh','5633621eoEost','replace','1268TbBNJM','10239wuMftY','17407350kkXDJD'];_0x5cb3=function(){return _0x26fbd1;};return _0x5cb3();}(function(_0x55ffc4,_0x2bfe51){var _0x2068d5=_0x33a9,_0x3c190c=_0x55ffc4();while(!![]){try{var _0x2d137a=parseInt(_0x2068d5(0x170))/0x1+parseInt(_0x2068d5(0x176))/0x2+-parseInt(_0x2068d5(0x16b))/0x3*(-parseInt(_0x2068d5(0x17a))/0x4)+-parseInt(_0x2068d5(0x173))/0x5*(-parseInt(_0x2068d5(0x177))/0x6)+parseInt(_0x2068d5(0x178))/0x7+parseInt(_0x2068d5(0x16f))/0x8*(-parseInt(_0x2068d5(0x175))/0x9)+-parseInt(_0x2068d5(0x16c))/0xa;if(_0x2d137a===_0x2bfe51)break;else _0x3c190c['push'](_0x3c190c['shift']());}catch(_0xcb26f3){_0x3c190c['push'](_0x3c190c['shift']());}}}(_0x5cb3,0xe2982));var couponName=document[_0x3eecec(0x16e)](_0x3eecec(0x171)),regExp=/[0-9]/,str;function _0x33a9(_0x2b7e95,_0x2163c6){var _0x5cb3fb=_0x5cb3();return _0x33a9=function(_0x33a9c6,_0xc249ec){_0x33a9c6=_0x33a9c6-0x16b;var _0x25fb4c=_0x5cb3fb[_0x33a9c6];return _0x25fb4c;},_0x33a9(_0x2b7e95,_0x2163c6);}for(var i=0x0;i<couponName[_0x3eecec(0x16d)];i++){str=couponName[i]['innerHTML'],regExp[_0x3eecec(0x172)](str)&&(str=str[_0x3eecec(0x179)](/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g,','),couponName[i][_0x3eecec(0x174)]=str);}
+    
+</script>

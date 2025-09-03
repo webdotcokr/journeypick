@@ -1,0 +1,31 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div module="board_CommentDeletePackage_1002">
+    <!--@css(/css/module/board/commentDeletePackage.css)-->
+    <div module="board_title_1002">
+        <div class="path">
+            <span>Current Page</span>
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li title="Current Page"><strong>{$board_name}</strong></li>
+            </ol>
+        </div>
+
+        <div class="titleArea">
+            <h2>{$board_name}</h2>
+        </div>
+    </div>
+
+    <div module="Board_CommentDel_1002">
+        <div class="ec-base-box typeThin gPadding center">
+            <fieldset>
+                <legend>Remove Comment</legend>
+                <p class="headDesc">Please enter your password to remove comment.</p>
+                <p class="password">{$form.comment_password}</p>
+            </fieldset>
+        </div>
+        <div class="ec-base-button gBottom">
+            <a href="{$link_board_list}" class="btnNormalFix sizeM">List</a>
+            <button type="submit" class="btnSubmitFix sizeM">Submit</button>
+        </div>
+    </div>
+</div>

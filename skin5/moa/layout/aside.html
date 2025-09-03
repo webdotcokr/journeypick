@@ -1,0 +1,156 @@
+<aside class="aside display-m" module="layout_slidePackage">
+    <!--@css(/layout/basic/css/slideMenu.css)-->
+    <!--@js(/layout/basic/js/slide_menu.js)-->
+    <div class="aside__inner">
+       
+        <div class="membership">
+           
+            <!-- 🔽 로그아웃 시 노출 영역 -->
+            <div class="membership__inner" module="Layout_statelogoff">
+
+                <!-- 🔽 안내 문구 : 내용을 수정하시려면 원하시는 문구로 수정해주세요. -->
+                <a href="/member/join.html" class="membership__txt">
+                    Sign up and receive various benefits
+                </a>
+                <!-- 🔼 안내 문구 -->
+
+                <div class="membership__btn-wrap flex flex--v-center">
+
+                    <!-- 🔽 로그인 메뉴 : 내용을 수정하시려면 원하시는 문구로 수정해주세요. -->
+                    <a class="membership__btn flex flex--v-center" href="/member/login.html">Login</a>
+
+                    <!-- 🔽 주문조회 메뉴 : 내용을 수정하시려면 원하시는 문구로 수정해주세요. -->
+                    <a class="membership__btn flex flex--v-center" href="/myshop/order/list.html">Order</a>
+
+                </div>
+
+            </div>
+            <!-- 🔼 로그아웃 시 노출 영역 -->
+            
+            <!-- 🔽 로그인 시 노출 영역 -->
+            <div class="membership__inner" module="Layout_statelogon">
+
+                <!-- 🔽 안내 문구 : 내용을 수정하시려면 원하시는 문구로 수정해주세요. -->
+                <a href="/myshop/index.html" class="membership__txt" module="Layout_statelogon">
+                    {$name}, Have a nice day.
+                </a>
+                <!-- 🔼 안내 문구 -->
+
+                <div class="membership__btn-wrap flex flex--v-center">
+
+                    <!-- 🔽 마이페이지 메뉴 : 내용을 수정하시려면 원하시는 문구로 수정해주세요. -->
+                    <a class="membership__btn flex flex--v-center" href="/myshop/index.html">My page</a>
+
+                    <!-- 🔽 주문조회 메뉴 : 내용을 수정하시려면 원하시는 문구로 수정해주세요. -->
+                    <a class="membership__btn flex flex--v-center" href="/myshop/order/list.html">Order</a>
+
+                </div>
+            </div>
+            <!-- 🔼 로그인 시 노출 영역 -->
+            
+        </div>
+        
+        <div id="slideCateList" class="aside-category">
+            <ul module="layout_category" class="aside-category__list">
+              
+                <!-- 🔽 브랜드 소개 메뉴 : 메뉴명을 수정하시려면 '메뉴명 작성란'에 원하시는 문구로 수정해주세요. -->
+                <li class="aside-category__item relative">
+                    <!-- 메뉴명 작성란 -->
+                    <a href="/about.html" class="aside-category__link view">
+                    About
+                    </a>
+                </li>
+                <!-- 🔼 브랜드 소개 메뉴 -->
+               
+                <!-- 🔽 상품 카테고리 : 쇼핑몰 관리자 페이지에서 설정하신 분류와 자동 연동 됩니다. (매뉴얼 참고) -->
+                <li id="cate{$cate_no}" class="aside-category__item relative" data-name="{$name}">
+                    <a href="{$link_product_list}" class="aside-category__link view"><span>{$name|cut 25}</span></a>
+                    <a href="#none" class="aside-category__toggle cate" cate="{$param}"></a>
+                </li>
+                <li id="cate{$cate_no}" class="aside-category__item relative" data-name="{$name}">
+                    <a href="{$link_product_list}" class="aside-category__link view"><span>{$name|cut 25}</span></a>
+                    <a href="#none" class="aside-category__toggle cate" cate="{$param}"></a>
+                </li>
+                <!-- 🔼 상품 카테고리 -->
+                
+                <!-- 🔽 리뷰 메뉴 : 메뉴명을 수정하시려면 '메뉴명 작성란'에 원하시는 문구로 수정해주세요. -->
+                <li class="aside-category__item relative">
+                    <!-- 메뉴명 작성란 -->
+                    <a href="/board/review/list_photo.html?board_no=4" class="aside-category__link view">
+                    Review
+                    </a>
+                </li>
+                <!-- 🔼 리뷰 메뉴 -->
+                
+                <!-- 🔽 이벤트 메뉴 : 메뉴명을 수정하시려면 '메뉴명 작성란'에 원하시는 문구로 수정해주세요. -->
+                <li class="aside-category__item relative">
+                    <!-- 메뉴명 작성란 -->
+                    <a href="/event/list.html?cate_no=42" class="aside-category__link view">Event</a>
+                    <a href="#none" class="aside-category__toggle cate"></a>
+                    
+                    <!-- 🔽 하위 카테고리 -->
+                    <ul class="aside-child">
+
+                        <!-- 🔽 진행중인 이벤트 : 메뉴명을 수정하시려면 '메뉴명 작성란'에 원하시는 문구로 수정해주세요. -->
+                        <li>
+                            <!-- 메뉴명 작성란 -->
+                            <a href="/event/list.html?cate_no=42" class="view">Ongoing Events</a>
+                        </li>
+                        <!-- 🔼 진행중인 이벤트 -->
+
+                        <!-- 🔽 출석체크 : 관리자 > 프로모션 > 출석체크 이벤트를 설정하시면 자동 노출됩니다. -->
+                        <li module="Layout_attendBanner">
+                            <!--
+                                $stamp_type_url = /attend/stamp.html
+                                $comment_type_url = /attend/comment.html
+                            -->
+                            <!-- 메뉴명 작성란 -->
+                            <a href="{$attend_url}" class="view">Check-in</a>
+                        </li>
+                        <!-- 🔼 출석체크 -->
+
+                    </ul>
+                </li>     
+                <!-- 🔼 이벤트 메뉴 -->
+                
+                <!-- 🔽 매거진 : 메뉴명을 수정하시려면 '메뉴명 작성란'에 원하시는 문구로 수정해주세요. -->
+                <li class="aside-category__item relative">
+                    <!-- 메뉴명 작성란 -->
+                    <a href="/board/gallery/list.html?board_no=8" class="aside-category__link view">
+                    Magazine
+                    </a>
+                </li>   
+                <!-- 🔼 매거진 -->             
+                
+                <!-- 🔽 고객센터 : 메뉴명을 수정하시려면 '메뉴명 작성란'에 원하시는 문구로 수정해주세요. --> 
+                <li class="aside-category__item relative">
+                    <!-- 메뉴명 작성란 -->
+                    <a href="/board/free/list.html?board_no=1" class="aside-category__link view">
+                    CS Center
+                    </a>
+                    <a href="#none" class="aside-category__toggle cate"></a>
+                    
+                    <!-- 🔽 게시판 하위 카테고리 : 게시판 카테고리는 게시판 카테고리와 자동연동 됩니다. -->
+                    <ul module="Layout_BoardInfo" class="aside-child">
+                        <li><a href="{$board_list_url}" class="view">{$board_name}</a></li>
+                        <li><a href="{$board_list_url}" class="view">{$board_name}</a></li>
+                    </ul>
+                    <!-- 🔼 게시판 하위 카테고리 -->
+                    
+                </li>
+                
+            </ul>
+        </div>
+        
+        <div class="gbl gbl--m relative" module="Layout_multishopList">
+            <div class="gbl__wrap">
+                <ul class="gbl__list flex flex--v-center" module="Layout_multishopListitem">
+                    <li class="gbl__item {$selected_class}"><a href="//{$shop_domain}/" class="gbl__link flex flex--v-center" data-lang="{$shop_flag_code}"><img src="//ecimg.cafe24img.com/pg1048b90797506061/tmp2024/web/upload/flag_{$shop_flag_code}.svg">{$locale_language}</a></li>
+                    <li class="gbl__item {$selected_class}"><a href="//{$shop_domain}/" class="gbl__link flex flex--v-center" data-lang="{$shop_flag_code}"><img src="//ecimg.cafe24img.com/pg1048b90797506061/tmp2024/web/upload/flag_{$shop_flag_code}.svg">{$locale_language}</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</aside>
+<div class="aside-bg"></div>

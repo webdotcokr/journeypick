@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="70" height="11" viewBox="0 0 70 11">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 13px;
+        font-family: Quicksand;
+        font-weight: 500;
+      }
+    </style>
+  </defs>
+  <text id="Add_to_Cart" data-name="Add to Cart" class="cls-1" x="-0.186" y="10.479">Add to Cart</text>
+</svg>

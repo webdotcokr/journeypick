@@ -1,0 +1,218 @@
+<div module="MyShop_OrderHistoryDetail" id="{$detail_info_layer}" class="csDetail ec-base-layer-area" unroll="1">
+    <!--@css(/layout/basic/css/ec-base-layer.css)-->
+    <!--@css(/layout/basic/css/ec-base-button.css)-->
+    <!--@css(/layout/basic/css/ec-base-table.css)-->
+    <!--@css(/css/module/myshop/orderHistoryDetail.css)-->
+    <div class="ec-base-layer typeModal">
+        <div class="header">
+            <h3>Cancel/Exchange/Return Details</h3>
+        </div>
+        <div class="content">
+            <div class="ec-base-box">
+                <strong>{$product_name}</strong>
+                <p class="{$option_display|display}">{$option_str}</p>
+                <ul module="Myshop_optionSet">
+                    <li><strong>{$product_name}</strong>{$option_str} ({$qty} item(s))</li>
+                    <li><strong>{$product_name}</strong>{$option_str} ({$qty} item(s))</li>
+                </ul>
+            </div>
+
+            <div class="csArea" module="Myshop_ReasonCancel">
+                <div class="titleArea titleArea--middle">
+                    <h3>Reason for Cancellation Request</h3>
+                </div>
+                <div class="ec-base-table">
+                    <table border="1" >
+                        <caption>Reason for Cancellation Request</caption>
+                        <colgroup>
+                            <col style="width:120px;" />
+                            <col style="width:auto;" />
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Date</th>
+                                <td>{$cs_date}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Reason</th>
+                                <td>{$reason}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Refund Account</th>
+                                <td id="{$refund_bank_info}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table border="1" >
+                        <caption>Reason for Cancellation Request</caption>
+                        <colgroup>
+                            <col style="width:120px;" />
+                            <col style="width:auto;" />
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Date</th>
+                                <td>{$cs_date}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Reason</th>
+                                <td>{$reason}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Refund Account</th>
+                                <td id="{$refund_bank_info}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="csArea" module="Myshop_ReasonExchange">
+                <div class="titleArea titleArea--middle">
+                    <h3>Reason for Exchange Request</h3>
+                </div>
+                <div class="ec-base-table">
+                    <table border="1" >
+                        <caption>Reason for Exchange Request</caption>
+                        <colgroup>
+                            <col style="width:120px;" />
+                            <col style="width:auto;" />
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Date</th>
+                                <td>{$cs_date}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Reason</th>
+                                <td>{$reason}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Refund Account</th>
+                                <td id="{$refund_bank_info}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table border="1" >
+                        <caption>Reason for Exchange Request</caption>
+                        <colgroup>
+                            <col style="width:120px;" />
+                            <col style="width:auto;" />
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Date</th>
+                                <td>{$cs_date}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Reason</th>
+                                <td>{$reason}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Refund Account</th>
+                                <td id="{$refund_bank_info}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="csArea" module="Myshop_ReasonReturn">
+                <div class="titleArea titleArea--middle">
+                    <h3>Reason for Return Request</h3>
+                </div>
+                <div class="ec-base-table">
+                    <table border="1" >
+                        <caption>Reason for Return Request</caption>
+                        <colgroup>
+                            <col style="width:120px;" />
+                            <col style="width:auto;" />
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Date</th>
+                                <td>{$cs_date}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Reason</th>
+                                <td>{$reason}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Refund Account</th>
+                                <td id="{$refund_bank_info}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table border="1" >
+                        <caption>Reason for Return Request</caption>
+                        <colgroup>
+                            <col style="width:120px;" />
+                            <col style="width:auto;" />
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Date</th>
+                                <td>{$cs_date}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Reason</th>
+                                <td>{$reason}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Refund Account</th>
+                                <td id="{$refund_bank_info}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="csArea" module="Myshop_ReasonReject">
+                <div class="titleArea titleArea--middle">
+                    <h3>Reason for not being able to process</h3>
+                </div>
+                <div class="ec-base-table">
+                    <table border="1" >
+                        <caption>Reason for not being able to process</caption>
+                        <colgroup>
+                            <col style="width:120px;" />
+                            <col style="width:auto;" />
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Date</th>
+                                <td>{$cs_date}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Reason</th>
+                                <td>{$reason}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table border="1" >
+                        <caption>Reason for not being able to process</caption>
+                        <colgroup>
+                            <col style="width:120px;" />
+                            <col style="width:auto;" />
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Date</th>
+                                <td>{$cs_date}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Reason</th>
+                                <td>{$reason}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="ec-base-button">
+            <a href="#none" class="btnNormalFix sizeM" onclick="{$close_btn}">Close</a>
+        </div>
+        <a href="#none" class="btnClose" onclick="{$close_btn}">Close</a>
+    </div>
+</div>

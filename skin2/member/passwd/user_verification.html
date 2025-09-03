@@ -1,0 +1,53 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="path">
+    <span>Current Page</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li title="Current Page"><strong>Forgot Password</strong></li>
+    </ol>
+</div>
+
+<div class="titleArea">
+    <h2>Forgot Password</h2>
+</div>
+
+<div module="member_passwordverification" class="memberArea gInnerMargin">
+    <!--@css(/css/module/member/user_verification.css)-->
+    <div class="ec-base-box typeMember">
+        <fieldset class="content">
+            <legend>user verification</legend>
+            <ul class="ec-base-desc gVer">
+                <li>
+                    <strong class="term">user verification</strong>
+                    <div class="desc">{$form.user_verification_method_type}</div>
+                </li>
+                <li id="{$user_verification_email_info}">
+                    <strong class="term">e-mail</strong>
+                    <div class="desc">
+                        <strong class="txtEm">{$user_verification_email}</strong><br />
+                        <a href="#none" class="btnNormal sizeS gBlank10" onclick="{$action_func_user_verification}">Receive a verification code</a>
+                    </div>
+                </li>
+                <li id="{$user_verification_mobile_info}"><strong class="term">mobile</strong>
+                    <div class="desc">
+                        <strong class="txtEm">{$user_verification_mobile}</strong><br />
+                        <a href="#none" class="btnNormal sizeS gBlank10" onclick="{$action_func_user_verification}">Receive a verification code</a>
+                    </div>
+                </li>
+                <li>
+                    <strong class="term">verification code</strong>
+                    <div class="desc">{$form.verification_code}
+                        <div class="txtInfo">
+                            <p id="{$user_verification_email_desc}" class="{$display_user_verification_email_desc|display}">Your verification code is valid for 60 minutes once it is issued, and you can request it again in 30 seconds after previous request.</p>
+                            <p id="{$user_verification_mobile_desc}" class="{$display_user_verification_mobile_desc|display}">Your verification code is valid for 3 minutes once it is issued,<br /> and you can request it again in 30 seconds after previous request.</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </fieldset>
+    </div>
+    <div class="ec-base-button gBottom">
+        <a href="#none" class="btnSubmitFix sizeM" onclick="{$action_func_user_verification_submit}">Submit</a>
+        <a href="#none" class="btnNormalFix sizeM" onclick="{$action_func_user_verification_cancel}">Cancel</a>
+    </div>
+</div>

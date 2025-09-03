@@ -1,0 +1,33 @@
+<!--@layout(/layout/basic/layout.html)-->
+<!--@css(/moa/css/about.css)-->
+<!--@js(/moa/js/about.js)-->
+
+<div class="path">
+    <span>Current Page</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li title="현재 위치"><strong>About</strong></li>
+    </ol>
+</div>
+
+<!-- 상단 배너 + 텍스트 영역 -->
+<div class="hero relative text-center" df-banner-code="about-top" hidden>
+   <div class="hero__wrapper" df-banner-clone>
+        {#item}
+        <div class="moa-data-txt displaynone">{#html}</div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="about" df-banner-code="about" hidden>
+       
+        <!-- 회사 소개 -->
+        <div class="about__section flex flex--v-center jsAboutItem" df-banner-clone>
+            <div class="about__column about__column--banner">
+                <div class="moa-data-txt displaynone">{#html}</div>
+                <div class="about__img ">{#item}</div>
+            </div>
+        </div>
+        
+    </div>
+</div>

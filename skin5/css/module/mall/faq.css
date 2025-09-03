@@ -1,0 +1,20 @@
+.xans-mall-faq .contents { padding:20px 0 0; color:#6d6d6d; line-height:20px; }
+
+/********************* Mobile / Tablet *********************/
+@media all and (max-width:1024px) {
+    .xans-mall-faq .contents { padding:20px 16px 0; }
+}
+
+@media all and (max-width: 768px) {
+
+    html #contents {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    
+    html #contents .ec-base-fold.theme1.gBottomLine > .title,
+    html #contents .ec-base-fold > .contents {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}

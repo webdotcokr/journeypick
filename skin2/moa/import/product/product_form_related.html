@@ -1,0 +1,12 @@
+<li class="prdList__item swiper-slide jsRelatedItem" data-sale="{$disp_sale_price|replace:\,,}" data-price="{$disp_product_price|replace:\,,}">
+    <div class="thumbnail">
+        <a href="{$link_product_detail}" class="thumb"><img src="{$img_medium}" alt="{$seo_alt_tag}" /></a>
+    </div>
+    <div class="description">
+        <a href="{$link_product_detail}"><strong class="name">{$name}</strong></a>
+        <div class="price flex">
+            <span class="salePrice {$sale_price_display|display}">{$disp_sale_price}</span>
+            <span class="prdPrice {$product_sale_strike}">{$disp_product_price}</span>
+        </div>
+    </div>
+</li>

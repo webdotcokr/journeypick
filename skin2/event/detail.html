@@ -1,0 +1,82 @@
+<!--@layout(/layout/basic/layout.html)-->
+<!--@css(/moa/css/lib/swiper.min.css)-->
+<!--@js(/moa/js/lib/swiper.min.js)-->
+<!--@css(/css/module/product/detail.css)-->
+<!--@css(/css/module/product/additional.css)-->
+<!--@css(/moa/css/event/detail.css)-->
+
+<!--
+    $category_page = /product/list.html
+    $project_page = /product/project.html
+    $jointbuy_page = /product/jointbuy.html
+-->
+<div class="path" module="product_headcategory">
+    <span>Current Page</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li class="{$disp_cate_1|display}"><a href="/event/list.html{$param_1}">{$name_1}</a></li>
+        <li class="{$disp_cate_2|display}"><a href="/event/list.html{$param_2}">{$name_2}</a></li>
+        <li class="{$disp_cate_3|display}"><a href="/event/list.html{$param_3}">{$name_3}</a></li>
+        <li class="{$disp_cate_4|display}"><strong><a href="/event/list.html{$param_4}">{$name_4}</a></strong></li>
+    </ol>
+</div>
+
+<div module="product_detail">
+    <!--
+		$coupon_download_page = /coupon/coupon_productdetail.html
+    -->
+    <div class="titleArea event-hero text-center">
+        <h2 class="event-hero__name">{$name}</h2>
+        <p class="event-hero__date">{$summary_desc|striptag}</p>
+    </div>
+    
+</div>
+
+<div id="event-detail" module="product_additional">
+
+    <div id="prdDetail" class="productDetail">
+        <div>{$product_detail}</div>
+    </div>
+    
+</div>
+    
+    <div id="related" module="product_relation">
+        <!--@css(/css/module/product/relation.css)-->
+        <!--@js(/js/module/product/relation.js)-->
+
+        <div class="relation relative">
+           
+            <!-- 이벤트 관련 상품 타이틀&서브 문구 -->
+            <div class="section-title">
+                <h2 class="text-center eng-font">Event Products</h2>
+            </div>
+            
+            <div module="product_relationlist" class="ec-base-product relative">
+                <div class="swiper-container jsRelatedSlide" data-slide-view="5">
+                    <ul class="prdList grid-slide swiper-wrapper">
+                        <!--@import(/moa/import/product/product_form_related.html)-->
+                        <!--@import(/moa/import/product/product_form_related.html)-->
+                    </ul>
+                </div>
+                <span class="prd-nav prd-nav--prev flex flex--v-center flex--h-center jsPrdPrev">
+                    <!--@import(/moa/icon/icon_arrow_left.html)-->
+                </span>
+                <span class="prd-nav prd-nav--next flex flex--v-center flex--h-center jsPrdNext">
+                    <!--@import(/moa/icon/icon_arrow_right.html)-->
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div module="Product_menupackage">
+        <div class="cate-title" module="product_headcategory">
+            <ol class="relative">
+                <li class="{$disp_cate_1|display}"><a href="/event/list.html{$param_1}" class="list-btn">List</a></li>
+                <li class="{$disp_cate_2|display}"><a href="/event/list.html{$param_2}" class="list-btn">List</a></li>
+                <li class="{$disp_cate_3|display}"><a href="/event/list.html{$param_3}" class="list-btn">List</a></li>
+                <li class="{$disp_cate_4|display}"><a href="/event/list.html{$param_4}" class="list-btn">List</a></li>
+            </ol>
+        </div>
+    </div>
+
+<!--@define(cmc_log)-->

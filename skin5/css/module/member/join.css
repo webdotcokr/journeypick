@@ -1,0 +1,502 @@
+.xans-member-join .required {
+    display: block;
+    margin: -13px 0 0;
+    line-height: 1;
+    text-align: right;
+    color: var(--font-color-base);
+}
+
+.xans-member-join .icoRequired {
+    vertical-align: middle;
+    margin-top: -3.5px;
+}
+
+.xans-member-join p.txtInfo:empty {
+    margin: 0;
+}
+
+.xans-member-join .ec-base-table .error {
+    color: var(--font-color-warn);
+    margin-top: 0;
+}
+
+.xans-member-join .verify {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.xans-member-join .verify .time {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: var(--font-color-warn);
+}
+
+.xans-member-join .verify #verify_sms_number {
+    padding: 2px 50px 2px 4px;
+    box-sizing: border-box;
+}
+
+.xans-member-join .verify #verify_sms_number:disabled {
+    padding-right: 4px;
+}
+
+.xans-member-join .ec-base-table.typeWrite table .interest {
+    margin-top: 10px;
+}
+
+.xans-member-join .ec-base-table.typeWrite table .interest label {
+    line-height: 26px;
+}
+
+.xans-member-join .eTooltip {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.xans-member-join .ec-base-tooltip.typeUpper {
+    left: 20px !important;
+    bottom: 28px !important;
+    width: 260px;
+}
+
+.xans-member-join .ec-base-tooltip.typeUpper .edge {
+    left: 20%;
+}
+
+.xans-member-join .ec-base-tooltip.typeUpper:before,
+.xans-member-join .ec-base-tooltip.typeUpper:after {
+    left: 55px;
+}
+
+#realNameAuth p span {
+    display: inline-block;
+    width: 80px;
+}
+
+.xans-member-join #btn_verify_mobile_confirm {
+    margin-left: 15px;
+}
+
+/* custom */
+
+/* gFlow */
+#wrap .xans-member-join .ec-base-table .gFlow {
+    display: inline-block;
+    width: 100%;
+    margin-top: 5px;
+}
+
+/* gBorderClear */
+#wrap .xans-member-join .ec-base-table tr.gBorderClear td {
+    border-bottom: 0;
+}
+
+#wrap .xans-member-join .ec-base-table.typeList tr.gBorderClear {
+    border-bottom: 0;
+}
+
+/* Table - typeWrite */
+#wrap .xans-member-join .ec-base-table.typeWrite {
+    padding: 0;
+    border-top: 0;
+}
+
+#wrap .xans-member-join .ec-base-table.typeWrite tr {
+    display: block;
+}
+
+#wrap .xans-member-join .ec-base-table.typeWrite th {
+    display: block;
+    padding: 6px 0 5px;
+    border-bottom: 0;
+    text-align: left;
+    background-color: transparent;
+    color: #333;
+    font-weight: 650;
+}
+
+#wrap .xans-member-join .ec-base-table.typeWrite td {
+    display: block;
+    padding: 2px 0 15px;
+    border-bottom: 0;
+    align-items: center;
+}
+
+/* formMultiple */
+#wrap .xans-member-join .ec-base-table.typeWrite .formMultiple {
+    padding-top: 10px;
+}
+
+/* formGroup */
+#wrap .xans-member-join .ec-base-table.typeWrite td.formGroup {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#wrap .xans-member-join .ec-base-table.typeWrite td.formGroup.date {
+    padding-left: 10px;
+    padding-right: 15px;
+}
+
+#wrap .xans-member-join .ec-base-table.typeWrite .formGroup {
+    display: flex;
+    flex-flow: wrap;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+#wrap .xans-member-join .ec-base-table.typeWrite .formGroup input[type="text"],
+#wrap .xans-member-join .ec-base-table.typeWrite .formGroup input[type="password"],
+#wrap .xans-member-join .ec-base-table.typeWrite .formGroup select {
+    flex: 1;
+}
+
+/* txtInfo */
+#wrap .xans-member-join .ec-base-table.typeWrite span.txtInfo {
+    display: block;
+    width: 100%;
+    margin: 10px 0 0;
+}
+
+/* form */
+#wrap .xans-member-join .ec-base-table.typeWrite td input[type="text"],
+#wrap .xans-member-join .ec-base-table.typeWrite td input[type="password"],
+#wrap .xans-member-join .ec-base-table.typeWrite td select {
+    width: 100%;
+    height: 48px;
+}
+
+/* address */
+.ec-address .ec-address-zipcode {
+    display: flex;
+    flex-flow: wrap;
+}
+
+#wrap .xans-member-join .ec-base-table.typeWrite .ec-address .ec-address-zipcode input[type="text"] {
+    flex: 1;
+}
+
+#wrap .xans-member-join .ec-base-table.typeWrite .ec-address .ec-address-zipcode .ec-base-label {
+    display: block;
+    width: 100%;
+    margin: 5px 0 0;
+}
+
+/* Table - typeList */
+#wrap .xans-member-join .ec-base-table.typeList thead {
+    display: none;
+}
+
+#wrap .xans-member-join .ec-base-table.typeList table,
+#wrap .xans-member-join .ec-base-table.typeList tbody {
+    display: block;
+}
+
+#wrap .xans-member-join .ec-base-table.typeList tr {
+    display: block;
+    position: relative;
+    padding: 20px 8px 19px;
+    border-bottom: 1px solid #e5e5e5;
+    text-align: left;
+}
+
+#wrap .xans-member-join .ec-base-table.typeList tr:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+#wrap .xans-member-join .ec-base-table.typeList td {
+    height: auto;
+    display: block;
+    float: left;
+    padding: 3px 8px;
+    border-bottom: 0;
+    text-align: left;
+    color: #6d6d6d;
+}
+
+#wrap .xans-member-join .ec-base-table.typeList td a {
+    color: #6d6d6d;
+}
+
+#wrap .xans-member-join .ec-base-table.typeList td.chk {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+#wrap .xans-member-join .ec-base-table.typeList td.chk .boardChk {
+    margin: 5px 8px 0 8px;
+}
+
+#wrap .xans-member-join .ec-base-table.typeList td.chk:not(.no) .boardChk {
+    margin: 5px 8px 0px 8px
+}
+
+#wrap .xans-member-join .ec-base-table.typeList td.subject {
+    float: none;
+    box-sizing: border-box;
+}
+
+#wrap .xans-member-join .ec-base-table.typeList td.subject a {
+    color: #000;
+}
+
+#wrap .xans-member-join .ec-base-table.typeList.gThumb td.thumb {
+    overflow: hidden;
+    position: absolute;
+    top: 24px;
+    left: 16px;
+    width: 65px;
+    height: calc(100% - 45px);
+    padding: 0;
+}
+
+#wrap .xans-member-join .ec-base-table.typeList.gThumb td.thumb a {
+    display: block;
+    height: 100%;
+    text-align: center;
+}
+
+#wrap .xans-member-join .ec-base-table.typeList.gThumb td.thumb img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#wrap .xans-member-join .ec-base-table.typeList.gThumb tr {
+    padding-left: 90px;
+    padding-right: 20px;
+}
+
+#wrap .xans-member-join .ec-base-table.typeList.gThumb td.chk {
+    z-index: 1;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    padding: 0;
+}
+
+#wrap .xans-member-join .ec-base-table.typeList.gThumb td.chk .boardChk {
+    margin: 0;
+}
+
+#wrap .xans-member-join .ec-base-table.typeWrite td #mobile1,
+#wrap .xans-member-join .ec-base-table.typeWrite td #phone1 {
+    margin-left: 0;
+} 
+
+#wrap .xans-member-join .ec-base-table.typeWrite td #mobile3,
+#wrap .xans-member-join .ec-base-table.typeWrite td #phone3 {
+    margin-right: 0;
+} 
+
+#wrap .ec-base-button.gBottom {
+    margin-top: 0;
+}
+
+#wrap [class^='btn'][class*='Fix'].sizeM {
+    width: 100%;
+    height: 50px;
+    font-size: 16px;
+    padding: 17px 20px;
+    font-weight: bold;
+}
+
+.agreeAll {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 25px;
+}
+
+.agreeInner .agreeArea {
+    padding-bottom: 0;
+}
+
+.agreeArea .title {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.agreeAll h3,
+.agreeArea .title h3 {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.agreeAll h3 {
+    font-weight: 650;
+}
+
+.agreeAll label,
+.agreeArea label {
+    font-size: 14px;
+    color: #333;
+}
+
+.agreeAll > p {
+    margin-top: 10px;
+}
+
+.agreeAll > p label {
+    color: #8c8c8c;
+    font-size: 13px;
+    margin-left: 0;
+    display: block;
+    line-height: 1.4;
+}
+
+.agreeInner {
+    margin-bottom: 50px;
+}
+
+.agreeArea .title label:nth-child(2) {
+    display: none;
+}
+
+.agreeArea .title label + label {
+    margin-left: 0;
+}
+
+.agree-cont-box {
+    padding-bottom: 30px;
+    display: none;
+}
+
+.agree-cont-box--last {
+    padding-bottom: 0;
+}
+
+.agreeArea .contents {
+    height: 200px;
+    overflow: auto;
+    border: 1px solid #e5e5e5;
+    padding: 10px;
+}
+
+.agreeArea--marketing .contents {
+    height: 100px;
+}
+
+.agreeArea .contents * {
+    font-size: 11px;
+    line-height: 1.5;
+    color: #8c8c8c;
+}
+
+.agreeArea--marketing .additional li:not(:last-child) {
+    margin-bottom: 16px;
+}
+
+.agree-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 14px;
+    display: block;
+    cursor: pointer;
+    text-align: right;
+    justify-content: flex-end;
+}
+
+.agree-toggle.on {
+    transform: rotate(180deg);
+}
+
+/********************* Mobile / Tablet *********************/
+@media all and (max-width:1024px) {
+    
+    .join-container {
+        padding: 0 16px 30px;
+    }
+
+    .xans-member-join input,
+    .xans-member-join select,
+    .xans-member-join .eTooltip,
+    .xans-member-join #nameContents,
+    .xans-member-join #authWrap {
+        width: 100%;
+    }
+    
+    #wrap .xans-member-join .ec-base-table.typeWrite td.formGroup,
+    #wrap .xans-member-join .ec-base-table.typeWrite th,
+    #wrap .xans-member-join .ec-base-table.typeWrite td {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    
+    .agreeInner {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    
+    .agreeAll {
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+    
+    .agreeArea .title h3,
+    .agreeAll h3 {
+        font-size: 13px;
+/*        font-weight: 500;*/
+    }
+    
+}
+
+/********************* PC *********************/
+@media all and (min-width:1025px) {
+
+    .join-container {
+        /*        max-width: 500px;*/
+        max-width: 380px;
+        margin: 0 auto 30px;
+    }
+
+    #wrap .memberArea {
+        /*        max-width: 100%;*/
+        max-width: 380px;
+    }
+
+    #wrap span.txtInfo {
+        display: block;
+        margin: 5px 0 0 !important;
+    }
+
+    .xans-member-join select,
+    .xans-member-join input[type="text"],
+    .xans-member-join input[type="password"] {
+        width: 290px;
+    }
+
+    .xans-member-join #hint,
+    .xans-member-join #hint_answer {
+        width: 450px;
+    }
+
+    .xans-member-join #mobile1,
+    .xans-member-join #mobile2,
+    .xans-member-join #mobile3,
+    .xans-member-join #phone1,
+    .xans-member-join #phone2,
+    .xans-member-join #phone3,
+    .xans-member-join #birth_year,
+    .xans-member-join #marry_year,
+    .xans-member-join #partner_year,
+    .xans-member-join #birth_month,
+    .xans-member-join #marry_month,
+    .xans-member-join #partner_month,
+    .xans-member-join #birth_day,
+    .xans-member-join #marry_day,
+    .xans-member-join #partner_day {
+        width: 86px;
+    }
+
+    #wrap #birth_day + .gFlow {
+        display: block;
+        margin: 10px 0 0 5px;
+    }
+    
+}

@@ -1,0 +1,25 @@
+<script>
+    var infoArea = document.querySelector('.infoArea');
+    var getPrice = infoArea.dataset.price;
+    var getCustom = infoArea.dataset.custom;
+    if(!document.querySelector('.prd_price_sale_css')) {
+        if(Number(getPrice) < Number(getCustom)) {
+            var calcPrice = 100-(Number(getPrice)*100/Number(getCustom));
+            var discountRate = Math.round(calcPrice);
+            var discountEle = document.createElement('span');
+            discountEle.classList.add('discount-per');
+            discountEle.innerText = '(' + discountRate + '% 할인)';
+            document.body.querySelector('.infoArea .product_price_css td').append(discountEle);
+        }    
+    }
+//    else {
+//        if(document.getElementById('span_product_price_sale')) {
+//            var salePrice = document.getElementById('span_product_price_sale');
+//            var discountRate = salePrice.querySelector('span').innerText;
+//            var discountEle = document.createElement('span');
+//                discountEle.classList.add('discount-per');
+//                discountEle.innerText = discountRate;
+//                document.body.querySelector('.infoArea .prd_price_sale_css td').append(discountEle);
+//        }
+//    }
+</script>

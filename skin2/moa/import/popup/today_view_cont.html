@@ -1,0 +1,85 @@
+<!--@layout(/layout/basic/layout_new_products.html)-->
+
+<div module="product_recentlist" class="today-view__content">
+    <!--
+        $count = 10
+    -->
+    <ul class="today-view__list" module="product_listitem">
+        <li class="today-view__item flex flex--v-center">
+            <a href="{$link_product_detail}" target="_parent" class="today-view__link flex flex--v-center">
+                <img src="{$image_medium}" class="today-view__thumb">
+                <span class="today-view__info">
+                    <span class="today-view__name">{$product_name}</span>
+                    <ul class="today-view__price flex flex--v-center">
+                        <li class="today-view__sale--fake {$product_sale_price_display|display}">{$product_sale_price}</li>
+                        <li class="{$strike_custom_price} {$custom_price_display|display}"><strong>{$product_custom}</strong></li>
+                        <li class="today-view__discount {$discount}"><strong class="txtEm">{$price}</strong>{$product_tax_type_text}</li>
+                        <li class="today-view__sale {$product_sale_price_display|display}">{$product_sale_price}</li>
+                    </ul>
+                </span>
+            </a>
+        </li>
+        <li class="today-view__item flex flex--v-center">
+            <a href="{$link_product_detail}" target="_parent" class="today-view__link flex flex--v-center">
+                <img src="{$image_medium}" class="today-view__thumb">
+                <span class="today-view__info">
+                    <span class="today-view__name">{$product_name}</span>
+                    <ul class="today-view__price flex flex--v-center">
+                        <li class="today-view__sale--fake {$product_sale_price_display|display}">{$product_sale_price}</li>
+                        <li class="{$strike_custom_price} {$custom_price_display|display}"><strong>{$product_custom}</strong></li>
+                        <li class="today-view__discount {$discount}"><strong class="txtEm">{$price}</strong>{$product_tax_type_text}</li>
+                        <li class="today-view__sale {$product_sale_price_display|display}">{$product_sale_price}</li>
+                    </ul>
+                </span>
+            </a>
+        </li>
+    </ul>
+    <p class="ec-base-prdEmpty {$empty_display|display}">You have no recently viewed items.</p>
+</div>
+<div id="todayPaginate" module="product_recentlistpaging" class="ec-base-paginate typeList">
+    <a href="{$param_first}" class="first displaynone">첫 페이지</a>
+    <a href="{$param_before}">이전 페이지</a>
+    <ol>
+        <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+        <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+        <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+        <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+        <li><a href="{$param}" class="{$param_class}">{$no}</a></li>
+    </ol>
+    <a href="{$param_next}">다음 페이지</a>
+    <a href="{$param_last}" class="last displaynone">마지막 페이지</a>
+</div>
+
+<div class="loading flex flex--v-center flex--h-center">
+    <div class="loading-effect"></div>
+</div>
+
+<script>
+    var contentHeight = document.body.offsetHeight;
+    var todayViewWrap = window.parent.document.querySelector('.today-view');
+    var todayiFrame = window.parent.document.querySelector('#today-view');
+    var loadingSpnier = document.querySelector('.loading');
+    setTimeout(function() {
+        todayiFrame.style.height = contentHeight+'px';
+        loadingSpnier.classList.add('stop');
+    },100);
+    
+    function isMobile() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
+    
+    if(isMobile() || window.parent.outerWidth < 768 || todayViewWrap.classList.contains('is-mobile')) {
+        document.getElementById('body-iframe').classList.add('is-mobile');
+    } else {
+        document.getElementById('body-iframe').classList.remove('is-mobile');
+    }
+    
+    window.addEventListener('resize', function() {
+        if(isMobile() || window.parent.outerWidth < 768) {
+            document.getElementById('body-iframe').classList.add('is-mobile');
+        } else {
+            document.getElementById('body-iframe').classList.remove('is-mobile');
+        }
+    });
+    
+</script>

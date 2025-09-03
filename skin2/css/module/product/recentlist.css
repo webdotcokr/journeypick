@@ -1,0 +1,18 @@
+.xans-product-listitem {
+    border-top: 1px solid #000;
+}
+
+.ec-base-prdInfo .description .price li.tdp-price {
+    font-weight: bold;
+    color: #2e2e2e;
+}
+
+.ec-base-prdInfo .description .price li.tdp-price--custom {
+    color: #bababa;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.ec-base-prdInfo .description .price li.tdp-price--basic.strike {
+    display: none;
+}

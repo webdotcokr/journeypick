@@ -1,0 +1,17 @@
+<div module="Product_BasketAdd" class="ec-base-layer-area">
+    <!--@css(/layout/basic/css/ec-base-layer.css)-->
+    <!--@css(/css/module/product/basketAdd.css)-->
+    <div class="ec-base-layer typeModal gAlert">
+        <div class="header">
+            <h3>Add to Cart</h3>
+        </div>
+        <div class="content">
+            <p>Selected item has been successfully added to your cart.</p>
+        </div>
+        <div class="ec-base-button">
+            <a href="#none" class="btnNormal sizeM" onclick="$('#confirmLayer').remove();" complete="complete">Continue Shopping</a>
+            <a href="/order/basket.html?delvtype={$delvtype}" class="btnSubmit sizeM">Add to cart</a>
+        </div>
+        <a class="btnClose" onclick="$('#confirmLayer').remove();">Close</a>
+    </div>    
+</div>

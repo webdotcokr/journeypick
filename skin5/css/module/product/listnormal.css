@@ -1,0 +1,142 @@
+.xans-product-normalmenu {
+}
+
+.xans-product-normalmenu .function {
+    overflow: hidden;
+    text-align: right;
+    line-height: 38px;
+    margin-bottom: 20px;
+}
+
+.xans-product-normalmenu .function .btnCompare {
+    display: inline-block;
+    padding: 0 12px;
+    border-left: 1px solid #d7d5d5;
+}
+
+.xans-product-normalmenu .function .btnCompare:hover {
+    text-decoration: none;
+}
+
+.xans-product-normalmenu .prdCount {
+    float: left;
+    color: #7d7d7d;
+}
+
+.xans-product-normalmenu fieldset {
+    margin: 20px 0 0;
+    padding: 10px 16px;
+    text-align: right;
+    background: #fbf9fa;
+}
+
+.xans-product-normalmenu #selArray {
+    width: 100px;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding-right: 0;
+    background-position: right center;
+    color: #333;
+}
+
+.function .grid-control {
+    display: none;
+}
+
+
+/********************* Mobile *********************/
+@media all and (max-width:767px) {
+    
+    .xans-product-listnormal {
+        overflow: hidden;
+    }
+    
+    .xans-product-normalmenu {
+        padding: 10px 0 0;
+    }
+    
+    .xans-product-listrecommend + .xans-product-normalpackage .xans-product-normalmenu {
+        padding: 30px 0 0;
+    }
+    
+    .xans-product-normalmenu .function {
+        padding: 0 16px;
+        margin-bottom: 16px;
+        line-height: 1;
+    }
+
+    .xans-product-normalpackage .product_area {
+        margin: 0 16px;
+    }
+    
+    .xans-product-normalmenu .prdCount {
+        display: none;
+    }
+    
+    .function .sort {
+        float: left;
+    }
+    
+    .xans-product-normalmenu #selArray {
+        width: 100px;
+        height: 30px;
+        padding: 0;
+    }
+    
+    .function .grid-control {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+    }
+    
+    .grid-control__btn {
+        font-size: 0;
+        display: block;
+        width: 30px;
+        height: 30px;
+        box-sizing: border-box;
+        margin-left: 5px;
+    }
+    
+    .grid-control__btn svg {
+        width: 100%;
+        height: auto;
+    }
+    
+    .grid-control__btn.selected path:first-child {
+        stroke: #000;
+    }
+    
+    .grid-control__btn.selected path:last-child {
+        fill: #000;
+    }
+}
+
+/********************* Mobile / Tablet *********************/
+@media all and (max-width:1024px) {
+    .xans-product-normalmenu {
+        margin: 0;
+    }
+}
+
+/********************* Tablet *********************/
+@media all and (min-width:768px) and (max-width: 1024px) {
+    .xans-product-normalmenu {
+        padding: 0;
+    }
+
+    .xans-product-normalpackage .product_area {
+        margin: 0;
+    }
+}
+
+/********************* PC *********************/
+@media all and (min-width:1025px) {
+    .xans-product-normalmenu {
+        padding: 0;
+    }
+}

@@ -1,0 +1,41 @@
+<div class="rv__item flex chk-no" data-idx="{$param_read}" data-attach="{$img_src|replace:/gallery,}">
+
+    <div class="rv__prd-info">
+        <a href="{$link_product_detail}">
+            <span class="rv__prd-thumb">
+                <img src="{$product_img_src}" alt="" class="rv__prd-img">
+            </span>
+            <span class="rv__prd-name">{$product_name}</span>
+        </a>
+    </div>
+
+    <div class="rv__content relative">
+        <ul class="rv__attached flex rv-view"></ul>
+        <div class="rv__subject rv-view">{$subject}<span class="rv__comment">{$comment_count}</span></div>
+        <div class="rv__summary rv-view">{$content|striptag}</div>
+        <div class="rv__summary rv__summary--more"></div>
+        <div class="rv__more chk-no" data-idx="{$param_read}">Review <span data-more="More" data-close="Close"></span>
+            <!--@import(/moa/icon/icon_arrow_down.html)-->
+        </div>
+        <div class="rv__vote rv__vote--m {$vote_display|display} flex flex--v-center">
+            <!--@import(/moa/icon/icon_heart_rv.html)-->
+            <span>{$vote}</span>
+        </div>
+
+    </div>
+
+    <div class="rv__info ">
+        <div class="rv__score flex flex--v-center {$point_display|display}">
+            <img src="/moa/img/default/icon-star-rating{$point_count}.svg" alt="{$point_count}점">
+        </div>
+        <div class="rv__writer">{$writer}</div>
+        <div class="rv__date {$date_display|display}">{$write_date}</div>
+        <div class="rv__hit {$hit_display|display}">Views {$hit_count}</div>
+        <div class="rv__vote {$vote_display|display} flex flex--v-center display-pc">
+            <!--@import(/moa/icon/icon_heart_rv.html)-->
+            <span>{$vote}</span>
+        </div>
+
+    </div>
+
+</div>

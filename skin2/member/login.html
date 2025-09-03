@@ -1,0 +1,114 @@
+<!--@layout(/layout/basic/layout.html)-->
+<!--@js(/moa/js/lib/sample-login.js)-->
+
+<div class="mcl">
+    
+    <div class="mcl__header flex flex--v-center">
+        <div class="mcl__back-btn flex flex--v-center flex--h-center" onclick="history.go(-1);return false;"></div>
+        <a href="/" class="mcl__home">Main</a>
+    </div>
+    
+    <div class="mcl__title text-center">
+        <h2>Login</h2>
+        <p>
+            Log in easily without entering any<br>
+            information by signing up in 1 second.
+        </p>
+    </div>
+    
+    <div module="member_login">
+        <div class="login__sns fake-sns-login displaynone">
+            <a href="#none" class="jsSampleBtn btnKakao " onclick="{$kakao_func_login}">Start with Kakao</a>
+        </div>
+        <div class="login__sns">
+            <a href="#none" class="btnKakao {$display_kakao|display}" onclick="{$kakao_func_login}">Start with Kakao</a>
+        </div>
+        
+        <div class="mcl-banner" df-banner-code="login-banner" hidden>
+            <div class="mcl-banner__item relative" df-banner-clone>
+                <a href="{#href}" target="{#target}">
+                    {#item}
+                </a>
+            </div>
+        </div>
+        
+        <div class="mcl-or relative"><span>or</span></div>
+    </div>
+
+    <div module="member_login" class="gInnerMargin" id="{$member_login_module_id}">
+        <!--@css(/css/module/member/login.css)-->
+        <!--@js(/js/module/member/login.js)-->
+        <!--
+            $defaultReturnUrl = /index.html
+            $forbidIpUrl = member/adminFail.html
+        -->
+
+        <div class="login">
+            <div class="ec-base-tab typeNav gFlex {$member_login_tab_display|display}">
+                <ul class="menu">
+                    <li class="selected"><a href="#member">Member</a></li>
+                    <li><a href="#noMember">Guest Checkout</a></li>
+                </ul>
+            </div>
+            <fieldset class="form">
+                <legend>Log in</legend>
+                <label class="id ePlaceholder" title="{$login_id_type_text}">{$form.member_id}</label>
+                <label class="password ePlaceholder" title="비밀번호">{$form.member_passwd}</label>
+                <p class="login__security">
+                    {$form.member_check_save_id}
+                    <span class="secret">{$form.member_check_secret_connect}</span>
+                </p>
+                <div class="login__button">
+                    <a href="#none" class="btnSubmit gFull sizeL" onclick="{$action_func_login}">Login</a>
+                    <a href="{$returnUrl}" onclick="{$action_nomember_order}" class="btnNormal gFull sizeL {$display_nomember|display}">Guest Checkout</a>
+                </div>    
+                <ul class="login__util ">
+                    <li><a href="/member/id/find_id.html">Find ID</a></li>
+                    <li><a href="/member/passwd/find_passwd_info.html">Find Password</a></li>
+                    <li><a href="/member/join.html">Join</a></li>
+                </ul>
+                <div class="login__sns">
+                    <a href="#none" class="btnNaver {$display_naver|display}" onclick="{$naver_func_login}">Login with Naver</a>
+                    <a href="#none" class="btnFacebook {$display_facebook|display}" onclick="{$facebook_func_login}">Login with Facebook</a>
+                    <a href="#none" class="btnLine {$display_line|display}" onclick="{$line_func_login}">Login with LINE</a>
+                    <a href="#none" class="btnGoogle {$display_google|display}" onclick="{$google_func_login}">Login with Google</a>
+                    <a href="#none" class="btnApple {$display_apple|display}" onclick="{$apple_func_login}">Login with Apple</a>
+                </div>
+                <div class="login__sns fake-sns-login displaynone">
+                    <a href="#none" class="jsSampleBtn btnNaver " onclick="{$naver_func_login}">Login with Naver</a>
+                    <a href="#none" class="jsSampleBtn btnFacebook" onclick="{$facebook_func_login}">Login with Facebook</a>
+                    <a href="#none" class="jsSampleBtn btnGoogle " onclick="{$google_func_login}">Login with Google</a>
+                    <a href="#none" class="jsSampleBtn btnApple " onclick="{$apple_func_login}">Login with Apple</a>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+
+    <div module="MyShop_OrderHistoryNologin" id="order_history_nologin_id" class="gInnerMargin">
+        <!--@css(/css/module/myshop/orderHistoryNologin.css)-->
+        <!--
+            $orderDetailUrl = /myshop/order/list.html
+        -->
+        <div class="login">
+            <div class="ec-base-tab typeNav gFlex">
+                <ul class="menu">
+                    <li><a href="#member">Member</a></li>
+                    <li class="selected"><a href="#noMember">Guest Checkout</a></li>
+                </ul>
+            </div>
+            <div class="form">
+                {$form.order_name}
+                {$form.order_id}
+                {$form.order_password}
+                <div class="login__button">
+                    <button type="submit" class="btnSubmit gFull sizeL">Search</button>
+                    <a href="/member/join.html" class="btnNormal gFull sizeL">Join</a>
+                </div>
+                <p class="txtInfo typeDot">When you shop as a guest,<br/>you can look up your order details with your order number.</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div id="sample-name" class="displaynone" module="Layout_LogoTop">{$mall_name}</div>

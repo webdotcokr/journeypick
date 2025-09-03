@@ -1,0 +1,142 @@
+.brand__alphabet {
+    padding-bottom: 50px;
+    margin-top: 72px;
+}
+
+.brand__char {
+    font-size: 14px;
+    border: 1px solid #ebebeb;
+    width: 30px;
+    height: 30px;
+    line-height: 29px;
+    text-align: center;
+    margin: 0 2.5px 5px;
+    display: block;
+    transition: border-color 0.2s;
+    cursor: pointer;
+}
+
+.brand__char[data-letter="ALL"],
+.brand__char[data-letter="ETC"] {
+    width: 50px;
+}
+
+.brand__char[data-empty="true"] {
+    pointer-events: none;
+}
+
+.brand__char span {
+    font-size: 12px;
+}
+
+.brand__char.current {
+    border-color: #000;
+    color: #fff;
+    background: #000;
+}
+
+.brand__char[data-empty="true"] span {
+    opacity: .2;
+}
+
+.brand__row {
+    border-bottom: 1px solid #ebebeb;
+    padding-bottom: 25px;
+    max-width: 1070px;
+    margin: 0 auto 20px;
+}
+
+.brand__row:empty {
+    display: none;
+}
+
+.brand__row:not(:empty)::before {
+    content: attr(data-letter);
+    display: block;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    width: 80px;
+}
+
+.brand__item {
+    margin-right: 5px;
+    display: inline-block;
+    padding: 0 15px;
+    border: 1px solid #ebebeb;
+    line-height: 30px;
+    font-size: 13px;
+    transition: border-color 0.2s;
+}
+
+@media (hover: hover) {
+    .brand__char:not([data-empty="true"]):hover,
+    .brand__item:hover {
+        border-color: #000;
+    }
+}
+
+@media (max-width: 768px) {
+    .brand__alphabet {
+        overflow-x: auto;
+        overflow-y: hidden;
+        flex-wrap: nowrap !important;
+        width: auto;
+        box-sizing: border-box;
+        white-space: nowrap;
+        text-align: center;
+        justify-content: normal !important;
+        border-bottom: 1px solid #bcbcbc;
+        border-image: linear-gradient(to left,rgba(147,147,147,0) 0%,rgba(147,147,147,.8) 50%,rgba(147,147,147,0) 100%);
+        border-image-slice: 1;
+        box-sizing: border-box;
+        -webkit-overflow-scrolling: touch;
+        padding: 0 16px 7px;
+        margin-top: 32px;
+    }
+    
+    .brand__char {
+        border-color: transparent;
+        border-radius: 7px;
+        margin: 0;
+    }
+    
+    .brand__char.current {
+        color: #131313;
+        font-weight: 700;
+        border: 1px solid #939393;
+        background: #fff;
+    }
+    
+    .brand__char[data-letter="ALL"], .brand__char[data-letter="ETC"] {
+        width: auto;
+    }
+    
+    .brand__char span {
+        display: block;
+        width: 30px;
+    }
+    
+    .brand__row {
+        padding: 25px 0;
+        margin: 0 16px;
+        border: none;
+    }
+    
+    .brand__row:not(:empty)::before {
+        font-size: 22px;
+    }
+    
+    .brand__item {
+        margin-right: 0;
+        display: inline-block;
+        font-size: 12px;
+        width: calc(50% - 2.5px);
+        box-sizing: border-box;
+        margin-bottom: 5px;
+    }
+    
+    .brand__item:nth-child(even) {
+        margin-left: 5px;
+    }
+}

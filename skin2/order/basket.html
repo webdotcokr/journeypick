@@ -1,0 +1,1215 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="path">
+    <span>Current Page</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li title="Current Page"><strong>Cart</strong></li>
+    </ol>
+</div>
+
+<div class="section titleArea">
+    <h2>Cart</h2>
+</div>
+<div class="section ec-base-step">
+    <ol class="step">
+        <li class="selected">1. Cart</li>
+        <li>2. Order and Pay</li>
+        <li>3. Order Complete</li>
+    </ol>
+</div>
+<div module="Order_BasketPackage" class="section">
+    <!--@css(/layout/basic/css/ec-base-layer.css)-->
+    <!--@css(/css/module/order/basketPackage.css)-->
+    <!--@js(/js/module/order/basket.js)-->
+
+    <p module="Order_Empty" class="ec-base-prdEmpty"><!--@import(/svg/icon-empty.html)-->Your cart is empty.</p>
+    <div class="cart-container">
+        <div class="cart-product">
+
+            <div module="Order_BasketOption">
+                <!-- 이값은 지우면 안되는 값입니다.
+                    $product_weight_display=F
+                    $checked_product_calc=T
+                -->
+            </div>
+
+            <div class="ec-base-fold theme1 selected eToggle" module="Order_EmptyItem">
+                <div class="title">
+                    <h3>Cart Products</h3>
+                </div>
+
+                <div class="contents">
+                    <div class="title subTitle" module="Order_NormTitle">
+                        <h4>Products ({$item_total})</h4>
+                    </div>
+                    <div module="Order_NormNormal">
+                        <div module="Order_list">
+                            <div class="ec-base-prdInfo gCheck">
+                                <div class="prdBox">
+                                    <input type="checkbox" id="{$chk_id}" name="{$chk_name}" class="check">
+                                    <div class="thumbnail"><a href="/product/detail.html{$param}"><img src="{$img}" width="83" height="83"></a></div>
+                                    <div class="description">
+                                        <strong class="prdName" title="상품명" id="{$prod_id}">{$product_name_link} {$icon} {$today_arrival_icon} {$pickup_icon} {$benefit_icons}</strong>
+                                        <p class="ec-base-help txtWarn txt11 {$exclusive_purchase_olny|display}"> Individual purchase items</p>
+                                        <ul class="price {$discount}">
+                                            <li class="{$discount}" id="{$product_purchase_price_div_id}">{$product_purchase_price_front_head}<strong>{$product_purchase_price_front}</strong>{$product_purchase_price_front_tail} <span class="{$product_purchase_price_display|display}"><span>{$product_purchase_price_back_head}</span>{$product_purchase_price_back}{$product_purchase_price_back_tail}</span></li>
+                                            <li><span class="txtSecondary">{$sum_price_front_head}{$sum_price_front}{$sum_price_front_tail} <span class="{$sum_price_display|display}">{$sum_price_back_head}{$sum_price_back}{$sum_price_back_tail}</span></span></li>
+                                            <li class="{$product_discount_cnt_display|display}" id="{$product_discount_price_id}">{$product_discount_price_front_head}<span class="txtSecondary">-{$product_discount_price_front}</span>
+                                            <span class="displaynone">
+                                                {$product_discount_price_front_tail} <span class="{$product_discount_price_ref_display|display}"><span>{$product_discount_price_back_head}</span>{$product_discount_price_back}</span>{$product_discount_price_back_tail}
+                                            </span>
+                                            </li>
+                                        </ul>
+                                        <ul class="info">
+                                            <li title="적립금" id="{$product_mileage_id}" class="mileage">{$mileage}</li>
+                                            <li class="{$product_weight_display|display}">Weight: <span>{$product_weight}kg * {$quantity} = {$total_product_weight} kg</span></li>
+                                        </ul>
+                                        <ul class="optionGroup" module="Order_optionAll">
+                                            <li>
+                                                <div class="name">
+                                                    <span class="product {$product_name_display|display}">{$product_name}</span><span class="optionStr">{$option_str}</span> <span class="{$qty_display|display}">({$qty} item(s))</span>
+                                                    <span class="{$nplusevent_hide_display|display}"><a href="#none" onclick="{$action_option_change}" class="btnText {$option_change_display|display}">Edit Option</a></span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="name">
+                                                    <span class="product {$product_name_display|display}">{$product_name}</span><span class="optionStr">{$option_str}</span> <span class="{$qty_display|display}">({$qty} item(s))</span>
+                                                    <span class="{$nplusevent_hide_display|display}"><a href="#none" onclick="{$action_option_change}" class="btnText {$option_change_display|display}">Edit Option</a></span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="quantity">
+                                        <span class="label displaynone">Quantity</span>
+                                        <div class="{$nplusevent_hide_display|display}">
+                                            <span class="ec-base-qty">
+                                                {$form.quantity}
+                                                <a href="javascript:;" class="up" onclick="{$add_shortcut}">Up</a>
+                                                <a href="javascript:;" class="down" onclick="{$out_shortcut}">Down</a>
+                                            </span>
+                                            <a href="javascript:;" class="btnNormal sizeQty" onclick="{$action_modify}">Edit</a>
+                                        </div>
+                                        <div class="{$nplusevent_show_display|display}">{$quantity}</div>
+                                    </div>
+                                    <div class="sumPrice displaynone">
+                                        <span class="label">Sum Price</span>
+                                        {$sum_price_front_head}<strong>{$sum_price_front}</strong>{$sum_price_front_tail} <span class="{$sum_price_display|display}">{$sum_price_back_head}{$sum_price_back}{$sum_price_back_tail}</span>
+                                    </div>
+                                    <div class="buttonGroup">
+                                        <a href="#none" onclick="{$action_wish_item}" class="btnNormal sizeM">Add to Wishlist</a>
+                                        <a href="#none" onclick="{$action_buy_item}" class="btnSubmit sizeM {$subscription_hide_display|display}">Checkout</a>
+                                        <!-- <a href="#none" onclick="{$action_buy_item}" class="btnSubmit sizeM {$subscription_show_display|display}">정기배송 신청</a> -->
+                                    </div>
+                                </div>
+                                <a href="#none" onclick="{$action_move_item}" class="btnDelete">Delete</a>
+                            </div>
+                            <div class="ec-base-prdInfo gCheck">
+                                <div class="prdBox">
+                                    <input type="checkbox" id="{$chk_id}" name="{$chk_name}" class="check">
+                                    <div class="thumbnail"><a href="/product/detail.html{$param}"><img src="{$img}" width="83" height="83"></a></div>
+                                    <div class="description">
+                                        <strong class="prdName" title="상품명" id="{$prod_id}">{$product_name_link} {$icon} {$today_arrival_icon} {$pickup_icon} {$benefit_icons}</strong>
+                                        <p class="ec-base-help txtWarn txt11 {$exclusive_purchase_olny|display}"> Individual purchase items</p>
+                                        <ul class="price {$discount}">
+                                            <li class="{$discount}" id="{$product_purchase_price_div_id}">{$product_purchase_price_front_head}<strong>{$product_purchase_price_front}</strong>{$product_purchase_price_front_tail} <span class="{$product_purchase_price_display|display}"><span>{$product_purchase_price_back_head}</span>{$product_purchase_price_back}{$product_purchase_price_back_tail}</span></li>
+                                            <li><span class="txtSecondary">{$sum_price_front_head}{$sum_price_front}{$sum_price_front_tail} <span class="{$sum_price_display|display}">{$sum_price_back_head}{$sum_price_back}{$sum_price_back_tail}</span></span></li>
+                                            <li class="{$product_discount_cnt_display|display}" id="{$product_discount_price_id}">{$product_discount_price_front_head}<span class="txtSecondary">-{$product_discount_price_front}</span>
+                                            <span class="displaynone">
+                                                {$product_discount_price_front_tail} <span class="{$product_discount_price_ref_display|display}"><span>{$product_discount_price_back_head}</span>{$product_discount_price_back}</span>{$product_discount_price_back_tail}
+                                            </span>
+                                            </li>
+                                        </ul>
+                                        <ul class="info">
+                                            <li title="적립금" id="{$product_mileage_id}" class="mileage">{$mileage}</li>
+                                            <li class="{$product_weight_display|display}">Weight: <span>{$product_weight}kg * {$quantity} = {$total_product_weight} kg</span></li>
+                                        </ul>
+                                        <ul class="optionGroup" module="Order_optionAll">
+                                            <li>
+                                                <div class="name">
+                                                    <span class="product {$product_name_display|display}">{$product_name}</span><span class="optionStr">{$option_str}</span> <span class="{$qty_display|display}">({$qty} item(s))</span>
+                                                    <span class="{$nplusevent_hide_display|display}"><a href="#none" onclick="{$action_option_change}" class="btnText {$option_change_display|display}">Edit Option</a></span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="name">
+                                                    <span class="product {$product_name_display|display}">{$product_name}</span><span class="optionStr">{$option_str}</span> <span class="{$qty_display|display}">({$qty} item(s))</span>
+                                                    <span class="{$nplusevent_hide_display|display}"><a href="#none" onclick="{$action_option_change}" class="btnText {$option_change_display|display}">Edit Option</a></span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="quantity">
+                                        <span class="label displaynone">Quantity</span>
+                                        <div class="{$nplusevent_hide_display|display}">
+                                            <span class="ec-base-qty">
+                                                {$form.quantity}
+                                                <a href="javascript:;" class="up" onclick="{$add_shortcut}">Up</a>
+                                                <a href="javascript:;" class="down" onclick="{$out_shortcut}">Down</a>
+                                            </span>
+                                            <a href="javascript:;" class="btnNormal sizeQty" onclick="{$action_modify}">Edit</a>
+                                        </div>
+                                        <div class="{$nplusevent_show_display|display}">{$quantity}</div>
+                                    </div>
+                                    <div class="sumPrice displaynone">
+                                        <span class="label">Sum Price</span>
+                                        {$sum_price_front_head}<strong>{$sum_price_front}</strong>{$sum_price_front_tail} <span class="{$sum_price_display|display}">{$sum_price_back_head}{$sum_price_back}{$sum_price_back_tail}</span>
+                                    </div>
+                                    <div class="buttonGroup">
+                                        <a href="#none" onclick="{$action_wish_item}" class="btnNormal sizeM">Add to Wishlist</a>
+                                        <a href="#none" onclick="{$action_buy_item}" class="btnSubmit sizeM {$subscription_hide_display|display}">Checkout</a>
+                                        <!-- <a href="#none" onclick="{$action_buy_item}" class="btnSubmit sizeM {$subscription_show_display|display}">정기배송 신청</a> -->
+                                    </div>
+                                </div>
+                                <a href="#none" onclick="{$action_move_item}" class="btnDelete">Delete</a>
+                            </div>
+                        </div>
+                        <div class="summary">
+                            <div class="title">
+                                <h5>[Basic Delivery]</h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div module="Order_SuppNormal">
+                        <div module="Order_list">
+                            <div class="ec-base-prdInfo gCheck">
+                                <div class="prdBox">
+                                    <input type="checkbox" id="{$chk_id}" name="{$chk_name}" class="check">
+                                    <div class="thumbnail"><a href="/product/detail.html{$param}"><img src="{$img}" width="83" height="83"></a></div>
+                                    <div class="description">
+                                        <strong class="prdName" title="상품명" id="{$prod_id}">{$product_name_link} {$icon} {$today_arrival_icon} {$pickup_icon} {$benefit_icons}</strong>
+                                        <p class="ec-base-help txtWarn txt11 {$exclusive_purchase_olny|display}"> Individual purchase items</p>
+                                        <ul class="price {$discount}">
+                                            <li class="{$discount}" id="{$product_purchase_price_div_id}">{$product_purchase_price_front_head}<strong>{$product_purchase_price_front}</strong>{$product_purchase_price_front_tail} <span class="{$product_purchase_price_display|display}"><span>{$product_purchase_price_back_head}</span>{$product_purchase_price_back}{$product_purchase_price_back_tail}</span></li>
+                                            <li><span class="txtSecondary">{$sum_price_front_head}{$sum_price_front}{$sum_price_front_tail} <span class="{$sum_price_display|display}">{$sum_price_back_head}{$sum_price_back}{$sum_price_back_tail}</span></span></li>
+                                            <li class="{$product_discount_cnt_display|display}" id="{$product_discount_price_id}">{$product_discount_price_front_head}<span class="txtSecondary">-{$product_discount_price_front}</span>
+                                            <span class="displaynone">
+                                                {$product_discount_price_front_tail} <span class="{$product_discount_price_ref_display|display}"><span>{$product_discount_price_back_head}</span>{$product_discount_price_back}</span>{$product_discount_price_back_tail}
+                                            </span>
+                                            </li>
+                                        </ul>
+                                        <ul class="info">
+                                            <li title="적립금" id="{$product_mileage_id}" class="mileage">{$mileage}</li>
+                                            <li class="{$product_weight_display|display}">Weight: <span>{$product_weight}kg * {$quantity} = {$total_product_weight} kg</span></li>
+                                        </ul>
+                                        <ul class="optionGroup" module="Order_optionAll">
+                                            <li>
+                                                <div class="name">
+                                                    <span class="product {$product_name_display|display}">{$product_name}</span><span class="optionStr">{$option_str}</span> <span class="{$qty_display|display}">({$qty} item(s))</span>
+                                                    <span class="{$nplusevent_hide_display|display}"><a href="#none" onclick="{$action_option_change}" class="btnText {$option_change_display|display}">Edit Option</a></span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="name">
+                                                    <span class="product {$product_name_display|display}">{$product_name}</span><span class="optionStr">{$option_str}</span> <span class="{$qty_display|display}">({$qty} item(s))</span>
+                                                    <span class="{$nplusevent_hide_display|display}"><a href="#none" onclick="{$action_option_change}" class="btnText {$option_change_display|display}">Edit Option</a></span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="quantity">
+                                        <span class="label displaynone">Quantity</span>
+                                        <div class="{$nplusevent_hide_display|display}">
+                                            <span class="ec-base-qty">
+                                                {$form.quantity}
+                                                <a href="javascript:;" class="up" onclick="{$add_shortcut}">Up</a>
+                                                <a href="javascript:;" class="down" onclick="{$out_shortcut}">Down</a>
+                                            </span>
+                                            <a href="javascript:;" class="btnNormal sizeQty" onclick="{$action_modify}">Edit</a>
+                                        </div>
+                                        <div class="{$nplusevent_show_display|display}">{$quantity}</div>
+                                    </div>
+                                    <div class="sumPrice displaynone">
+                                        <span class="label">Sum Price</span>
+                                        {$sum_price_front_head}<strong>{$sum_price_front}</strong>{$sum_price_front_tail} <span class="{$sum_price_display|display}">{$sum_price_back_head}{$sum_price_back}{$sum_price_back_tail}</span>
+                                    </div>
+                                    <div class="buttonGroup">
+                                        <a href="#none" onclick="{$action_wish_item}" class="btnNormal sizeM">Add to Wishlist</a>
+                                        <a href="#none" onclick="{$action_buy_item}" class="btnSubmit sizeM {$subscription_hide_display|display}">Checkout</a>
+                                        <!-- <a href="#none" onclick="{$action_buy_item}" class="btnSubmit sizeM {$subscription_show_display|display}">정기배송 신청</a> -->
+                                    </div>
+                                </div>
+                                <a href="#none" onclick="{$action_move_item}" class="btnDelete">Delete</a>
+                            </div>
+                            <div class="ec-base-prdInfo gCheck">
+                                <div class="prdBox">
+                                    <input type="checkbox" id="{$chk_id}" name="{$chk_name}" class="check">
+                                    <div class="thumbnail"><a href="/product/detail.html{$param}"><img src="{$img}" width="83" height="83"></a></div>
+                                    <div class="description">
+                                        <strong class="prdName" title="상품명" id="{$prod_id}">{$product_name_link} {$icon} {$today_arrival_icon} {$pickup_icon} {$benefit_icons}</strong>
+                                        <p class="ec-base-help txtWarn txt11 {$exclusive_purchase_olny|display}"> Individual purchase items</p>
+                                        <ul class="price {$discount}">
+                                            <li class="{$discount}" id="{$product_purchase_price_div_id}">{$product_purchase_price_front_head}<strong>{$product_purchase_price_front}</strong>{$product_purchase_price_front_tail} <span class="{$product_purchase_price_display|display}"><span>{$product_purchase_price_back_head}</span>{$product_purchase_price_back}{$product_purchase_price_back_tail}</span></li>
+                                            <li><span class="txtSecondary">{$sum_price_front_head}{$sum_price_front}{$sum_price_front_tail} <span class="{$sum_price_display|display}">{$sum_price_back_head}{$sum_price_back}{$sum_price_back_tail}</span></span></li>
+                                            <li class="{$product_discount_cnt_display|display}" id="{$product_discount_price_id}">{$product_discount_price_front_head}<span class="txtSecondary">-{$product_discount_price_front}</span>
+                                            <span class="displaynone">
+                                                {$product_discount_price_front_tail} <span class="{$product_discount_price_ref_display|display}"><span>{$product_discount_price_back_head}</span>{$product_discount_price_back}</span>{$product_discount_price_back_tail}
+                                            </span>
+                                            </li>
+                                        </ul>
+                                        <ul class="info">
+                                            <li title="적립금" id="{$product_mileage_id}" class="mileage">{$mileage}</li>
+                                            <li class="{$product_weight_display|display}">Weight: <span>{$product_weight}kg * {$quantity} = {$total_product_weight} kg</span></li>
+                                        </ul>
+                                        <ul class="optionGroup" module="Order_optionAll">
+                                            <li>
+                                                <div class="name">
+                                                    <span class="product {$product_name_display|display}">{$product_name}</span><span class="optionStr">{$option_str}</span> <span class="{$qty_display|display}">({$qty} item(s))</span>
+                                                    <span class="{$nplusevent_hide_display|display}"><a href="#none" onclick="{$action_option_change}" class="btnText {$option_change_display|display}">Edit Option</a></span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="name">
+                                                    <span class="product {$product_name_display|display}">{$product_name}</span><span class="optionStr">{$option_str}</span> <span class="{$qty_display|display}">({$qty} item(s))</span>
+                                                    <span class="{$nplusevent_hide_display|display}"><a href="#none" onclick="{$action_option_change}" class="btnText {$option_change_display|display}">Edit Option</a></span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="quantity">
+                                        <span class="label displaynone">Quantity</span>
+                                        <div class="{$nplusevent_hide_display|display}">
+                                            <span class="ec-base-qty">
+                                                {$form.quantity}
+                                                <a href="javascript:;" class="up" onclick="{$add_shortcut}">Up</a>
+                                                <a href="javascript:;" class="down" onclick="{$out_shortcut}">Down</a>
+                                            </span>
+                                            <a href="javascript:;" class="btnNormal sizeQty" onclick="{$action_modify}">Edit</a>
+                                        </div>
+                                        <div class="{$nplusevent_show_display|display}">{$quantity}</div>
+                                    </div>
+                                    <div class="sumPrice displaynone">
+                                        <span class="label">Sum Price</span>
+                                        {$sum_price_front_head}<strong>{$sum_price_front}</strong>{$sum_price_front_tail} <span class="{$sum_price_display|display}">{$sum_price_back_head}{$sum_price_back}{$sum_price_back_tail}</span>
+                                    </div>
+                                    <div class="buttonGroup">
+                                        <a href="#none" onclick="{$action_wish_item}" class="btnNormal sizeM">Add to Wishlist</a>
+                                        <a href="#none" onclick="{$action_buy_item}" class="btnSubmit sizeM {$subscription_hide_display|display}">Checkout</a>
+                                        <!-- <a href="#none" onclick="{$action_buy_item}" class="btnSubmit sizeM {$subscription_show_display|display}">정기배송 신청</a> -->
+                                    </div>
+                                </div>
+                                <a href="#none" onclick="{$action_move_item}" class="btnDelete">Delete</a>
+                            </div>
+                        </div>
+                        <div class="summary">
+                            <div class="title">
+                                <h5>[Supply Delivery]</h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="title subTitle" module="Order_NormOverseaTitle">
+                        <h4>Products ({$item_total})</h4>
+                    </div>
+
+                    <div module="Order_NormOversea">
+                        <div module="Order_list">
+                            <div class="ec-base-prdInfo gCheck">
+                                <div class="prdBox">
+                                    <input type="checkbox" id="{$chk_id}" name="{$chk_name}" class="check">
+                                    <div class="thumbnail"><a href="/product/detail.html{$param}"><img src="{$img}" width="83" height="83"></a></div>
+                                    <div class="description">
+                                        <strong class="prdName" title="상품명" id="{$prod_id}">{$product_name_link} {$icon} {$today_arrival_icon} {$pickup_icon} {$benefit_icons}</strong>
+                                        <p class="ec-base-help txtWarn txt11 {$exclusive_purchase_olny|display}"> Individual purchase items</p>
+                                        <ul class="price {$discount}">
+                                            <li class="{$discount}" id="{$product_purchase_price_div_id}">{$product_purchase_price_front_head}<strong>{$product_purchase_price_front}</strong>{$product_purchase_price_front_tail} <span class="{$product_purchase_price_display|display}"><span>{$product_purchase_price_back_head}</span>{$product_purchase_price_back}{$product_purchase_price_back_tail}</span></li>
+                                            <li><span class="txtSecondary">{$sum_price_front_head}{$sum_price_front}{$sum_price_front_tail} <span class="{$sum_price_display|display}">{$sum_price_back_head}{$sum_price_back}{$sum_price_back_tail}</span></span></li>
+                                            <li class="{$product_discount_cnt_display|display}" id="{$product_discount_price_id}">{$product_discount_price_front_head}<span class="txtSecondary">-{$product_discount_price_front}</span>
+                                            <span class="displaynone">
+                                                {$product_discount_price_front_tail} <span class="{$product_discount_price_ref_display|display}"><span>{$product_discount_price_back_head}</span>{$product_discount_price_back}</span>{$product_discount_price_back_tail}
+                                            </span>
+                                            </li>
+                                        </ul>
+                                        <ul class="info">
+                                            <li title="적립금" id="{$product_mileage_id}" class="mileage">{$mileage}</li>
+                                            <li class="{$product_weight_display|display}">Weight: <span>{$product_weight}kg * {$quantity} = {$total_product_weight} kg</span></li>
+                                        </ul>
+                                        <ul class="optionGroup" module="Order_optionAll">
+                                            <li>
+                                                <div class="name">
+                                                    <span class="product {$product_name_display|display}">{$product_name}</span><span class="optionStr">{$option_str}</span> <span class="{$qty_display|display}">({$qty} item(s))</span>
+                                                    <span class="{$nplusevent_hide_display|display}"><a href="#none" onclick="{$action_option_change}" class="btnText {$option_change_display|display}">Edit Option</a></span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="name">
+                                                    <span class="product {$product_name_display|display}">{$product_name}</span><span class="optionStr">{$option_str}</span> <span class="{$qty_display|display}">({$qty} item(s))</span>
+                                                    <span class="{$nplusevent_hide_display|display}"><a href="#none" onclick="{$action_option_change}" class="btnText {$option_change_display|display}">Edit Option</a></span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="quantity">
+                                        <span class="label displaynone">Quantity</span>
+                                        <div class="{$nplusevent_hide_display|display}">
+                                            <span class="ec-base-qty">
+                                                {$form.quantity}
+                                                <a href="javascript:;" class="up" onclick="{$add_shortcut}">Up</a>
+                                                <a href="javascript:;" class="down" onclick="{$out_shortcut}">Down</a>
+                                            </span>
+                                            <a href="javascript:;" class="btnNormal sizeQty" onclick="{$action_modify}">Edit</a>
+                                        </div>
+                                        <div class="{$nplusevent_show_display|display}">{$quantity}</div>
+                                    </div>
+                                    <div class="sumPrice displaynone">
+                                        <span class="label">Sum Price</span>
+                                        {$sum_price_front_head}<strong>{$sum_price_front}</strong>{$sum_price_front_tail} <span class="{$sum_price_display|display}">{$sum_price_back_head}{$sum_price_back}{$sum_price_back_tail}</span>
+                                    </div>
+                                    <div class="buttonGroup">
+                                        <a href="#none" onclick="{$action_wish_item}" class="btnNormal sizeM">Add to Wishlist</a>
+                                        <a href="#none" onclick="{$action_buy_item}" class="btnSubmit sizeM {$subscription_hide_display|display}">Checkout</a>
+                                        <!-- <a href="#none" onclick="{$action_buy_item}" class="btnSubmit sizeM {$subscription_show_display|display}">정기배송 신청</a> -->
+                                    </div>
+                                </div>
+                                <a href="#none" onclick="{$action_move_item}" class="btnDelete">Delete</a>
+                            </div>
+                            <div class="ec-base-prdInfo gCheck">
+                                <div class="prdBox">
+                                    <input type="checkbox" id="{$chk_id}" name="{$chk_name}" class="check">
+                                    <div class="thumbnail"><a href="/product/detail.html{$param}"><img src="{$img}" width="83" height="83"></a></div>
+                                    <div class="description">
+                                        <strong class="prdName" title="상품명" id="{$prod_id}">{$product_name_link} {$icon} {$today_arrival_icon} {$pickup_icon} {$benefit_icons}</strong>
+                                        <p class="ec-base-help txtWarn txt11 {$exclusive_purchase_olny|display}"> Individual purchase items</p>
+                                        <ul class="price {$discount}">
+                                            <li class="{$discount}" id="{$product_purchase_price_div_id}">{$product_purchase_price_front_head}<strong>{$product_purchase_price_front}</strong>{$product_purchase_price_front_tail} <span class="{$product_purchase_price_display|display}"><span>{$product_purchase_price_back_head}</span>{$product_purchase_price_back}{$product_purchase_price_back_tail}</span></li>
+                                            <li><span class="txtSecondary">{$sum_price_front_head}{$sum_price_front}{$sum_price_front_tail} <span class="{$sum_price_display|display}">{$sum_price_back_head}{$sum_price_back}{$sum_price_back_tail}</span></span></li>
+                                            <li class="{$product_discount_cnt_display|display}" id="{$product_discount_price_id}">{$product_discount_price_front_head}<span class="txtSecondary">-{$product_discount_price_front}</span>
+                                            <span class="displaynone">
+                                                {$product_discount_price_front_tail} <span class="{$product_discount_price_ref_display|display}"><span>{$product_discount_price_back_head}</span>{$product_discount_price_back}</span>{$product_discount_price_back_tail}
+                                            </span>
+                                            </li>
+                                        </ul>
+                                        <ul class="info">
+                                            <li title="적립금" id="{$product_mileage_id}" class="mileage">{$mileage}</li>
+                                            <li class="{$product_weight_display|display}">Weight: <span>{$product_weight}kg * {$quantity} = {$total_product_weight} kg</span></li>
+                                        </ul>
+                                        <ul class="optionGroup" module="Order_optionAll">
+                                            <li>
+                                                <div class="name">
+                                                    <span class="product {$product_name_display|display}">{$product_name}</span><span class="optionStr">{$option_str}</span> <span class="{$qty_display|display}">({$qty} item(s))</span>
+                                                    <span class="{$nplusevent_hide_display|display}"><a href="#none" onclick="{$action_option_change}" class="btnText {$option_change_display|display}">Edit Option</a></span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="name">
+                                                    <span class="product {$product_name_display|display}">{$product_name}</span><span class="optionStr">{$option_str}</span> <span class="{$qty_display|display}">({$qty} item(s))</span>
+                                                    <span class="{$nplusevent_hide_display|display}"><a href="#none" onclick="{$action_option_change}" class="btnText {$option_change_display|display}">Edit Option</a></span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="quantity">
+                                        <span class="label displaynone">Quantity</span>
+                                        <div class="{$nplusevent_hide_display|display}">
+                                            <span class="ec-base-qty">
+                                                {$form.quantity}
+                                                <a href="javascript:;" class="up" onclick="{$add_shortcut}">Up</a>
+                                                <a href="javascript:;" class="down" onclick="{$out_shortcut}">Down</a>
+                                            </span>
+                                            <a href="javascript:;" class="btnNormal sizeQty" onclick="{$action_modify}">Edit</a>
+                                        </div>
+                                        <div class="{$nplusevent_show_display|display}">{$quantity}</div>
+                                    </div>
+                                    <div class="sumPrice displaynone">
+                                        <span class="label">Sum Price</span>
+                                        {$sum_price_front_head}<strong>{$sum_price_front}</strong>{$sum_price_front_tail} <span class="{$sum_price_display|display}">{$sum_price_back_head}{$sum_price_back}{$sum_price_back_tail}</span>
+                                    </div>
+                                    <div class="buttonGroup">
+                                        <a href="#none" onclick="{$action_wish_item}" class="btnNormal sizeM">Add to Wishlist</a>
+                                        <a href="#none" onclick="{$action_buy_item}" class="btnSubmit sizeM {$subscription_hide_display|display}">Checkout</a>
+                                        <!-- <a href="#none" onclick="{$action_buy_item}" class="btnSubmit sizeM {$subscription_show_display|display}">정기배송 신청</a> -->
+                                    </div>
+                                </div>
+                                <a href="#none" onclick="{$action_move_item}" class="btnDelete">Delete</a>
+                            </div>
+                        </div>
+                        <div class="summary">
+                            <div class="title {$shipping_info_show_display|display}">
+                                <h5>[Oversea Delivery]</h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div module="Order_NormIndividual">
+                        <div module="Order_list">
+                            <div class="ec-base-prdInfo gCheck">
+                                <div class="prdBox">
+                                    <input type="checkbox" id="{$chk_id}" name="{$chk_name}" class="check">
+                                    <div class="thumbnail"><a href="/product/detail.html{$param}"><img src="{$img}" width="83" height="83"></a></div>
+                                    <div class="description">
+                                        <strong class="prdName" title="상품명" id="{$prod_id}">{$product_name_link} {$icon} {$today_arrival_icon} {$pickup_icon} {$benefit_icons}</strong>
+                                        <p class="ec-base-help txtWarn txt11 {$exclusive_purchase_olny|display}"> Individual purchase items</p>
+                                        <ul class="price {$discount}">
+                                            <li class="{$discount}" id="{$product_purchase_price_div_id}">{$product_purchase_price_front_head}<strong>{$product_purchase_price_front}</strong>{$product_purchase_price_front_tail} <span class="{$product_purchase_price_display|display}"><span>{$product_purchase_price_back_head}</span>{$product_purchase_price_back}{$product_purchase_price_back_tail}</span></li>
+                                            <li><span class="txtSecondary">{$sum_price_front_head}{$sum_price_front}{$sum_price_front_tail} <span class="{$sum_price_display|display}">{$sum_price_back_head}{$sum_price_back}{$sum_price_back_tail}</span></span></li>
+                                            <li class="{$product_discount_cnt_display|display}" id="{$product_discount_price_id}">{$product_discount_price_front_head}<span class="txtSecondary">-{$product_discount_price_front}</span>
+                                            <span class="displaynone">
+                                                {$product_discount_price_front_tail} <span class="{$product_discount_price_ref_display|display}"><span>{$product_discount_price_back_head}</span>{$product_discount_price_back}</span>{$product_discount_price_back_tail}
+                                            </span>
+                                            </li>
+                                        </ul>
+                                        <ul class="info">
+                                            <li title="적립금" id="{$product_mileage_id}" class="mileage">{$mileage}</li>
+                                            <li class="{$product_weight_display|display}">Weight: <span>{$product_weight}kg * {$quantity} = {$total_product_weight} kg</span></li>
+                                        </ul>
+                                        <ul class="optionGroup" module="Order_optionAll">
+                                            <li>
+                                                <div class="name">
+                                                    <span class="product {$product_name_display|display}">{$product_name}</span><span class="optionStr">{$option_str}</span> <span class="{$qty_display|display}">({$qty} item(s))</span>
+                                                    <span class="{$nplusevent_hide_display|display}"><a href="#none" onclick="{$action_option_change}" class="btnText {$option_change_display|display}">Edit Option</a></span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="name">
+                                                    <span class="product {$product_name_display|display}">{$product_name}</span><span class="optionStr">{$option_str}</span> <span class="{$qty_display|display}">({$qty} item(s))</span>
+                                                    <span class="{$nplusevent_hide_display|display}"><a href="#none" onclick="{$action_option_change}" class="btnText {$option_change_display|display}">Edit Option</a></span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="quantity">
+                                        <span class="label displaynone">Quantity</span>
+                                        <div class="{$nplusevent_hide_display|display}">
+                                            <span class="ec-base-qty">
+                                                {$form.quantity}
+                                                <a href="javascript:;" class="up" onclick="{$add_shortcut}">Up</a>
+                                                <a href="javascript:;" class="down" onclick="{$out_shortcut}">Down</a>
+                                            </span>
+                                            <a href="javascript:;" class="btnNormal sizeQty" onclick="{$action_modify}">Edit</a>
+                                        </div>
+                                        <div class="{$nplusevent_show_display|display}">{$quantity}</div>
+                                    </div>
+                                    <div class="sumPrice displaynone">
+                                        <span class="label">Sum Price</span>
+                                        {$sum_price_front_head}<strong>{$sum_price_front}</strong>{$sum_price_front_tail} <span class="{$sum_price_display|display}">{$sum_price_back_head}{$sum_price_back}{$sum_price_back_tail}</span>
+                                    </div>
+                                    <div class="buttonGroup">
+                                        <a href="#none" onclick="{$action_wish_item}" class="btnNormal sizeM">Add to Wishlist</a>
+                                        <a href="#none" onclick="{$action_buy_item}" class="btnSubmit sizeM {$subscription_hide_display|display}">Checkout</a>
+                                        <!-- <a href="#none" onclick="{$action_buy_item}" class="btnSubmit sizeM {$subscription_show_display|display}">정기배송 신청</a> -->
+                                    </div>
+                                </div>
+                                <a href="#none" onclick="{$action_move_item}" class="btnDelete">Delete</a>
+                            </div>
+                            <div class="ec-base-prdInfo gCheck">
+                                <div class="prdBox">
+                                    <input type="checkbox" id="{$chk_id}" name="{$chk_name}" class="check">
+                                    <div class="thumbnail"><a href="/product/detail.html{$param}"><img src="{$img}" width="83" height="83"></a></div>
+                                    <div class="description">
+                                        <strong class="prdName" title="상품명" id="{$prod_id}">{$product_name_link} {$icon} {$today_arrival_icon} {$pickup_icon} {$benefit_icons}</strong>
+                                        <p class="ec-base-help txtWarn txt11 {$exclusive_purchase_olny|display}"> Individual purchase items</p>
+                                        <ul class="price {$discount}">
+                                            <li class="{$discount}" id="{$product_purchase_price_div_id}">{$product_purchase_price_front_head}<strong>{$product_purchase_price_front}</strong>{$product_purchase_price_front_tail} <span class="{$product_purchase_price_display|display}"><span>{$product_purchase_price_back_head}</span>{$product_purchase_price_back}{$product_purchase_price_back_tail}</span></li>
+                                            <li><span class="txtSecondary">{$sum_price_front_head}{$sum_price_front}{$sum_price_front_tail} <span class="{$sum_price_display|display}">{$sum_price_back_head}{$sum_price_back}{$sum_price_back_tail}</span></span></li>
+                                            <li class="{$product_discount_cnt_display|display}" id="{$product_discount_price_id}">{$product_discount_price_front_head}<span class="txtSecondary">-{$product_discount_price_front}</span>
+                                            <span class="displaynone">
+                                                {$product_discount_price_front_tail} <span class="{$product_discount_price_ref_display|display}"><span>{$product_discount_price_back_head}</span>{$product_discount_price_back}</span>{$product_discount_price_back_tail}
+                                            </span>
+                                            </li>
+                                        </ul>
+                                        <ul class="info">
+                                            <li title="적립금" id="{$product_mileage_id}" class="mileage">{$mileage}</li>
+                                            <li class="{$product_weight_display|display}">Weight: <span>{$product_weight}kg * {$quantity} = {$total_product_weight} kg</span></li>
+                                        </ul>
+                                        <ul class="optionGroup" module="Order_optionAll">
+                                            <li>
+                                                <div class="name">
+                                                    <span class="product {$product_name_display|display}">{$product_name}</span><span class="optionStr">{$option_str}</span> <span class="{$qty_display|display}">({$qty} item(s))</span>
+                                                    <span class="{$nplusevent_hide_display|display}"><a href="#none" onclick="{$action_option_change}" class="btnText {$option_change_display|display}">Edit Option</a></span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="name">
+                                                    <span class="product {$product_name_display|display}">{$product_name}</span><span class="optionStr">{$option_str}</span> <span class="{$qty_display|display}">({$qty} item(s))</span>
+                                                    <span class="{$nplusevent_hide_display|display}"><a href="#none" onclick="{$action_option_change}" class="btnText {$option_change_display|display}">Edit Option</a></span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="quantity">
+                                        <span class="label displaynone">Quantity</span>
+                                        <div class="{$nplusevent_hide_display|display}">
+                                            <span class="ec-base-qty">
+                                                {$form.quantity}
+                                                <a href="javascript:;" class="up" onclick="{$add_shortcut}">Up</a>
+                                                <a href="javascript:;" class="down" onclick="{$out_shortcut}">Down</a>
+                                            </span>
+                                            <a href="javascript:;" class="btnNormal sizeQty" onclick="{$action_modify}">Edit</a>
+                                        </div>
+                                        <div class="{$nplusevent_show_display|display}">{$quantity}</div>
+                                    </div>
+                                    <div class="sumPrice displaynone">
+                                        <span class="label">Sum Price</span>
+                                        {$sum_price_front_head}<strong>{$sum_price_front}</strong>{$sum_price_front_tail} <span class="{$sum_price_display|display}">{$sum_price_back_head}{$sum_price_back}{$sum_price_back_tail}</span>
+                                    </div>
+                                    <div class="buttonGroup">
+                                        <a href="#none" onclick="{$action_wish_item}" class="btnNormal sizeM">Add to Wishlist</a>
+                                        <a href="#none" onclick="{$action_buy_item}" class="btnSubmit sizeM {$subscription_hide_display|display}">Checkout</a>
+                                        <!-- <a href="#none" onclick="{$action_buy_item}" class="btnSubmit sizeM {$subscription_show_display|display}">정기배송 신청</a> -->
+                                    </div>
+                                </div>
+                                <a href="#none" onclick="{$action_move_item}" class="btnDelete">Delete</a>
+                            </div>
+                        </div>
+                        <div class="summary">
+                            <div class="title">
+                                <h5>[Individual Delivery]</h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="title subTitle" module="Order_InstTitle">
+                        <h4>Interest-free ({$item_total})</h4>
+                    </div>
+
+                    <div module="Order_InstNormal">
+                        <div module="Order_list">
+                            <div class="ec-base-prdInfo gCheck">
+                                <div class="prdBox">
+                                    <input type="checkbox" id="{$chk_id}" name="{$chk_name}" class="check">
+                                    <div class="thumbnail"><a href="/product/detail.html{$param}"><img src="{$img}" width="83" height="83"></a></div>
+                                    <div class="description">
+                                        <strong class="prdName" title="상품명" id="{$prod_id}">{$product_name_link} {$icon} {$today_arrival_icon} {$pickup_icon} {$benefit_icons}</strong>
+                                        <p class="ec-base-help txtWarn txt11 {$exclusive_purchase_olny|display}"> Individual purchase items</p>
+                                        <ul class="price {$discount}">
+                                            <li class="{$discount}" id="{$product_purchase_price_div_id}">{$product_purchase_price_front_head}<strong>{$product_purchase_price_front}</strong>{$product_purchase_price_front_tail} <span class="{$product_purchase_price_display|display}"><span>{$product_purchase_price_back_head}</span>{$product_purchase_price_back}{$product_purchase_price_back_tail}</span></li>
+                                            <li><span class="txtSecondary">{$sum_price_front_head}{$sum_price_front}{$sum_price_front_tail} <span class="{$sum_price_display|display}">{$sum_price_back_head}{$sum_price_back}{$sum_price_back_tail}</span></span></li>
+                                            <li class="{$product_discount_cnt_display|display}" id="{$product_discount_price_id}">{$product_discount_price_front_head}<span class="txtSecondary">-{$product_discount_price_front}</span>
+                                            <span class="displaynone">
+                                                {$product_discount_price_front_tail} <span class="{$product_discount_price_ref_display|display}"><span>{$product_discount_price_back_head}</span>{$product_discount_price_back}</span>{$product_discount_price_back_tail}
+                                            </span>
+                                            </li>
+                                        </ul>
+                                        <ul class="info">
+                                            <li title="적립금" id="{$product_mileage_id}" class="mileage">{$mileage}</li>
+                                            <li class="{$product_weight_display|display}">Weight: <span>{$product_weight}kg * {$quantity} = {$total_product_weight} kg</span></li>
+                                        </ul>
+                                        <ul class="optionGroup" module="Order_optionAll">
+                                            <li>
+                                                <div class="name">
+                                                    <span class="product {$product_name_display|display}">{$product_name}</span><span class="optionStr">{$option_str}</span> <span class="{$qty_display|display}">({$qty} item(s))</span>
+                                                    <span class="{$nplusevent_hide_display|display}"><a href="#none" onclick="{$action_option_change}" class="btnText {$option_change_display|display}">Edit Option</a></span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="name">
+                                                    <span class="product {$product_name_display|display}">{$product_name}</span><span class="optionStr">{$option_str}</span> <span class="{$qty_display|display}">({$qty} item(s))</span>
+                                                    <span class="{$nplusevent_hide_display|display}"><a href="#none" onclick="{$action_option_change}" class="btnText {$option_change_display|display}">Edit Option</a></span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="quantity">
+                                        <span class="label displaynone">Quantity</span>
+                                        <div class="{$nplusevent_hide_display|display}">
+                                            <span class="ec-base-qty">
+                                                {$form.quantity}
+                                                <a href="javascript:;" class="up" onclick="{$add_shortcut}">Up</a>
+                                                <a href="javascript:;" class="down" onclick="{$out_shortcut}">Down</a>
+                                            </span>
+                                            <a href="javascript:;" class="btnNormal sizeQty" onclick="{$action_modify}">Edit</a>
+                                        </div>
+                                        <div class="{$nplusevent_show_display|display}">{$quantity}</div>
+                                    </div>
+                                    <div class="sumPrice displaynone">
+                                        <span class="label">Sum Price</span>
+                                        {$sum_price_front_head}<strong>{$sum_price_front}</strong>{$sum_price_front_tail} <span class="{$sum_price_display|display}">{$sum_price_back_head}{$sum_price_back}{$sum_price_back_tail}</span>
+                                    </div>
+                                    <div class="buttonGroup">
+                                        <a href="#none" onclick="{$action_wish_item}" class="btnNormal sizeM">Add to Wishlist</a>
+                                        <a href="#none" onclick="{$action_buy_item}" class="btnSubmit sizeM {$subscription_hide_display|display}">Checkout</a>
+                                        <!-- <a href="#none" onclick="{$action_buy_item}" class="btnSubmit sizeM {$subscription_show_display|display}">정기배송 신청</a> -->
+                                    </div>
+                                </div>
+                                <a href="#none" onclick="{$action_move_item}" class="btnDelete">Delete</a>
+                            </div>
+                            <div class="ec-base-prdInfo gCheck">
+                                <div class="prdBox">
+                                    <input type="checkbox" id="{$chk_id}" name="{$chk_name}" class="check">
+                                    <div class="thumbnail"><a href="/product/detail.html{$param}"><img src="{$img}" width="83" height="83"></a></div>
+                                    <div class="description">
+                                        <strong class="prdName" title="상품명" id="{$prod_id}">{$product_name_link} {$icon} {$today_arrival_icon} {$pickup_icon} {$benefit_icons}</strong>
+                                        <p class="ec-base-help txtWarn txt11 {$exclusive_purchase_olny|display}"> Individual purchase items</p>
+                                        <ul class="price {$discount}">
+                                            <li class="{$discount}" id="{$product_purchase_price_div_id}">{$product_purchase_price_front_head}<strong>{$product_purchase_price_front}</strong>{$product_purchase_price_front_tail} <span class="{$product_purchase_price_display|display}"><span>{$product_purchase_price_back_head}</span>{$product_purchase_price_back}{$product_purchase_price_back_tail}</span></li>
+                                            <li><span class="txtSecondary">{$sum_price_front_head}{$sum_price_front}{$sum_price_front_tail} <span class="{$sum_price_display|display}">{$sum_price_back_head}{$sum_price_back}{$sum_price_back_tail}</span></span></li>
+                                            <li class="{$product_discount_cnt_display|display}" id="{$product_discount_price_id}">{$product_discount_price_front_head}<span class="txtSecondary">-{$product_discount_price_front}</span>
+                                            <span class="displaynone">
+                                                {$product_discount_price_front_tail} <span class="{$product_discount_price_ref_display|display}"><span>{$product_discount_price_back_head}</span>{$product_discount_price_back}</span>{$product_discount_price_back_tail}
+                                            </span>
+                                            </li>
+                                        </ul>
+                                        <ul class="info">
+                                            <li title="적립금" id="{$product_mileage_id}" class="mileage">{$mileage}</li>
+                                            <li class="{$product_weight_display|display}">Weight: <span>{$product_weight}kg * {$quantity} = {$total_product_weight} kg</span></li>
+                                        </ul>
+                                        <ul class="optionGroup" module="Order_optionAll">
+                                            <li>
+                                                <div class="name">
+                                                    <span class="product {$product_name_display|display}">{$product_name}</span><span class="optionStr">{$option_str}</span> <span class="{$qty_display|display}">({$qty} item(s))</span>
+                                                    <span class="{$nplusevent_hide_display|display}"><a href="#none" onclick="{$action_option_change}" class="btnText {$option_change_display|display}">Edit Option</a></span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="name">
+                                                    <span class="product {$product_name_display|display}">{$product_name}</span><span class="optionStr">{$option_str}</span> <span class="{$qty_display|display}">({$qty} item(s))</span>
+                                                    <span class="{$nplusevent_hide_display|display}"><a href="#none" onclick="{$action_option_change}" class="btnText {$option_change_display|display}">Edit Option</a></span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="quantity">
+                                        <span class="label displaynone">Quantity</span>
+                                        <div class="{$nplusevent_hide_display|display}">
+                                            <span class="ec-base-qty">
+                                                {$form.quantity}
+                                                <a href="javascript:;" class="up" onclick="{$add_shortcut}">Up</a>
+                                                <a href="javascript:;" class="down" onclick="{$out_shortcut}">Down</a>
+                                            </span>
+                                            <a href="javascript:;" class="btnNormal sizeQty" onclick="{$action_modify}">Edit</a>
+                                        </div>
+                                        <div class="{$nplusevent_show_display|display}">{$quantity}</div>
+                                    </div>
+                                    <div class="sumPrice displaynone">
+                                        <span class="label">Sum Price</span>
+                                        {$sum_price_front_head}<strong>{$sum_price_front}</strong>{$sum_price_front_tail} <span class="{$sum_price_display|display}">{$sum_price_back_head}{$sum_price_back}{$sum_price_back_tail}</span>
+                                    </div>
+                                    <div class="buttonGroup">
+                                        <a href="#none" onclick="{$action_wish_item}" class="btnNormal sizeM">Add to Wishlist</a>
+                                        <a href="#none" onclick="{$action_buy_item}" class="btnSubmit sizeM {$subscription_hide_display|display}">Checkout</a>
+                                        <!-- <a href="#none" onclick="{$action_buy_item}" class="btnSubmit sizeM {$subscription_show_display|display}">정기배송 신청</a> -->
+                                    </div>
+                                </div>
+                                <a href="#none" onclick="{$action_move_item}" class="btnDelete">Delete</a>
+                            </div>
+                        </div>
+                        <div class="summary">
+                            <div class="title">
+                                <h5>[Basic Delivery]</h5>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div module="Order_InstIndividual">
+                        <div module="Order_list">
+                            <div class="ec-base-prdInfo gCheck">
+                                <div class="prdBox">
+                                    <input type="checkbox" id="{$chk_id}" name="{$chk_name}" class="check">
+                                    <div class="thumbnail"><a href="/product/detail.html{$param}"><img src="{$img}" width="83" height="83"></a></div>
+                                    <div class="description">
+                                        <strong class="prdName" title="상품명" id="{$prod_id}">{$product_name_link} {$icon} {$today_arrival_icon} {$pickup_icon} {$benefit_icons}</strong>
+                                        <p class="ec-base-help txtWarn txt11 {$exclusive_purchase_olny|display}"> Individual purchase items</p>
+                                        <ul class="price {$discount}">
+                                            <li class="{$discount}" id="{$product_purchase_price_div_id}">{$product_purchase_price_front_head}<strong>{$product_purchase_price_front}</strong>{$product_purchase_price_front_tail} <span class="{$product_purchase_price_display|display}"><span>{$product_purchase_price_back_head}</span>{$product_purchase_price_back}{$product_purchase_price_back_tail}</span></li>
+                                            <li><span class="txtSecondary">{$sum_price_front_head}{$sum_price_front}{$sum_price_front_tail} <span class="{$sum_price_display|display}">{$sum_price_back_head}{$sum_price_back}{$sum_price_back_tail}</span></span></li>
+                                            <li class="{$product_discount_cnt_display|display}" id="{$product_discount_price_id}">{$product_discount_price_front_head}<span class="txtSecondary">-{$product_discount_price_front}</span>
+                                            <span class="displaynone">
+                                                {$product_discount_price_front_tail} <span class="{$product_discount_price_ref_display|display}"><span>{$product_discount_price_back_head}</span>{$product_discount_price_back}</span>{$product_discount_price_back_tail}
+                                            </span>
+                                            </li>
+                                        </ul>
+                                        <ul class="info">
+                                            <li title="적립금" id="{$product_mileage_id}" class="mileage">{$mileage}</li>
+                                            <li class="{$product_weight_display|display}">Weight: <span>{$product_weight}kg * {$quantity} = {$total_product_weight} kg</span></li>
+                                        </ul>
+                                        <ul class="optionGroup" module="Order_optionAll">
+                                            <li>
+                                                <div class="name">
+                                                    <span class="product {$product_name_display|display}">{$product_name}</span><span class="optionStr">{$option_str}</span> <span class="{$qty_display|display}">({$qty} item(s))</span>
+                                                    <span class="{$nplusevent_hide_display|display}"><a href="#none" onclick="{$action_option_change}" class="btnText {$option_change_display|display}">Edit Option</a></span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="name">
+                                                    <span class="product {$product_name_display|display}">{$product_name}</span><span class="optionStr">{$option_str}</span> <span class="{$qty_display|display}">({$qty} item(s))</span>
+                                                    <span class="{$nplusevent_hide_display|display}"><a href="#none" onclick="{$action_option_change}" class="btnText {$option_change_display|display}">Edit Option</a></span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="quantity">
+                                        <span class="label displaynone">Quantity</span>
+                                        <div class="{$nplusevent_hide_display|display}">
+                                            <span class="ec-base-qty">
+                                                {$form.quantity}
+                                                <a href="javascript:;" class="up" onclick="{$add_shortcut}">Up</a>
+                                                <a href="javascript:;" class="down" onclick="{$out_shortcut}">Down</a>
+                                            </span>
+                                            <a href="javascript:;" class="btnNormal sizeQty" onclick="{$action_modify}">Edit</a>
+                                        </div>
+                                        <div class="{$nplusevent_show_display|display}">{$quantity}</div>
+                                    </div>
+                                    <div class="sumPrice displaynone">
+                                        <span class="label">Sum Price</span>
+                                        {$sum_price_front_head}<strong>{$sum_price_front}</strong>{$sum_price_front_tail} <span class="{$sum_price_display|display}">{$sum_price_back_head}{$sum_price_back}{$sum_price_back_tail}</span>
+                                    </div>
+                                    <div class="buttonGroup">
+                                        <a href="#none" onclick="{$action_wish_item}" class="btnNormal sizeM">Add to Wishlist</a>
+                                        <a href="#none" onclick="{$action_buy_item}" class="btnSubmit sizeM {$subscription_hide_display|display}">Checkout</a>
+                                        <!-- <a href="#none" onclick="{$action_buy_item}" class="btnSubmit sizeM {$subscription_show_display|display}">정기배송 신청</a> -->
+                                    </div>
+                                </div>
+                                <a href="#none" onclick="{$action_move_item}" class="btnDelete">Delete</a>
+                            </div>
+                            <div class="ec-base-prdInfo gCheck">
+                                <div class="prdBox">
+                                    <input type="checkbox" id="{$chk_id}" name="{$chk_name}" class="check">
+                                    <div class="thumbnail"><a href="/product/detail.html{$param}"><img src="{$img}" width="83" height="83"></a></div>
+                                    <div class="description">
+                                        <strong class="prdName" title="상품명" id="{$prod_id}">{$product_name_link} {$icon} {$today_arrival_icon} {$pickup_icon} {$benefit_icons}</strong>
+                                        <p class="ec-base-help txtWarn txt11 {$exclusive_purchase_olny|display}"> Individual purchase items</p>
+                                        <ul class="price {$discount}">
+                                            <li class="{$discount}" id="{$product_purchase_price_div_id}">{$product_purchase_price_front_head}<strong>{$product_purchase_price_front}</strong>{$product_purchase_price_front_tail} <span class="{$product_purchase_price_display|display}"><span>{$product_purchase_price_back_head}</span>{$product_purchase_price_back}{$product_purchase_price_back_tail}</span></li>
+                                            <li><span class="txtSecondary">{$sum_price_front_head}{$sum_price_front}{$sum_price_front_tail} <span class="{$sum_price_display|display}">{$sum_price_back_head}{$sum_price_back}{$sum_price_back_tail}</span></span></li>
+                                            <li class="{$product_discount_cnt_display|display}" id="{$product_discount_price_id}">{$product_discount_price_front_head}<span class="txtSecondary">-{$product_discount_price_front}</span>
+                                            <span class="displaynone">
+                                                {$product_discount_price_front_tail} <span class="{$product_discount_price_ref_display|display}"><span>{$product_discount_price_back_head}</span>{$product_discount_price_back}</span>{$product_discount_price_back_tail}
+                                            </span>
+                                            </li>
+                                        </ul>
+                                        <ul class="info">
+                                            <li title="적립금" id="{$product_mileage_id}" class="mileage">{$mileage}</li>
+                                            <li class="{$product_weight_display|display}">Weight: <span>{$product_weight}kg * {$quantity} = {$total_product_weight} kg</span></li>
+                                        </ul>
+                                        <ul class="optionGroup" module="Order_optionAll">
+                                            <li>
+                                                <div class="name">
+                                                    <span class="product {$product_name_display|display}">{$product_name}</span><span class="optionStr">{$option_str}</span> <span class="{$qty_display|display}">({$qty} item(s))</span>
+                                                    <span class="{$nplusevent_hide_display|display}"><a href="#none" onclick="{$action_option_change}" class="btnText {$option_change_display|display}">Edit Option</a></span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="name">
+                                                    <span class="product {$product_name_display|display}">{$product_name}</span><span class="optionStr">{$option_str}</span> <span class="{$qty_display|display}">({$qty} item(s))</span>
+                                                    <span class="{$nplusevent_hide_display|display}"><a href="#none" onclick="{$action_option_change}" class="btnText {$option_change_display|display}">Edit Option</a></span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="quantity">
+                                        <span class="label displaynone">Quantity</span>
+                                        <div class="{$nplusevent_hide_display|display}">
+                                            <span class="ec-base-qty">
+                                                {$form.quantity}
+                                                <a href="javascript:;" class="up" onclick="{$add_shortcut}">Up</a>
+                                                <a href="javascript:;" class="down" onclick="{$out_shortcut}">Down</a>
+                                            </span>
+                                            <a href="javascript:;" class="btnNormal sizeQty" onclick="{$action_modify}">Edit</a>
+                                        </div>
+                                        <div class="{$nplusevent_show_display|display}">{$quantity}</div>
+                                    </div>
+                                    <div class="sumPrice displaynone">
+                                        <span class="label">Sum Price</span>
+                                        {$sum_price_front_head}<strong>{$sum_price_front}</strong>{$sum_price_front_tail} <span class="{$sum_price_display|display}">{$sum_price_back_head}{$sum_price_back}{$sum_price_back_tail}</span>
+                                    </div>
+                                    <div class="buttonGroup">
+                                        <a href="#none" onclick="{$action_wish_item}" class="btnNormal sizeM">Add to Wishlist</a>
+                                        <a href="#none" onclick="{$action_buy_item}" class="btnSubmit sizeM {$subscription_hide_display|display}">Checkout</a>
+                                        <!-- <a href="#none" onclick="{$action_buy_item}" class="btnSubmit sizeM {$subscription_show_display|display}">정기배송 신청</a> -->
+                                    </div>
+                                </div>
+                                <a href="#none" onclick="{$action_move_item}" class="btnDelete">Delete</a>
+                            </div>
+                        </div>
+                        <div class="summary">
+                            <div class="title">
+                                <h5>[Individual Delivery]</h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="title subTitle" module="Order_InstOverseaTitle">
+                        <h4>Interest-free ({$item_total})</h4>
+                    </div>
+
+                    <div module="Order_InstOversea">
+                        <div module="Order_list">
+                            <div class="ec-base-prdInfo gCheck">
+                                <div class="prdBox">
+                                    <input type="checkbox" id="{$chk_id}" name="{$chk_name}" class="check">
+                                    <div class="thumbnail"><a href="/product/detail.html{$param}"><img src="{$img}" width="83" height="83"></a></div>
+                                    <div class="description">
+                                        <strong class="prdName" title="상품명" id="{$prod_id}">{$product_name_link} {$icon} {$today_arrival_icon} {$pickup_icon} {$benefit_icons}</strong>
+                                        <p class="ec-base-help txtWarn txt11 {$exclusive_purchase_olny|display}"> Individual purchase items</p>
+                                        <ul class="price {$discount}">
+                                            <li class="{$discount}" id="{$product_purchase_price_div_id}">{$product_purchase_price_front_head}<strong>{$product_purchase_price_front}</strong>{$product_purchase_price_front_tail} <span class="{$product_purchase_price_display|display}"><span>{$product_purchase_price_back_head}</span>{$product_purchase_price_back}{$product_purchase_price_back_tail}</span></li>
+                                            <li><span class="txtSecondary">{$sum_price_front_head}{$sum_price_front}{$sum_price_front_tail} <span class="{$sum_price_display|display}">{$sum_price_back_head}{$sum_price_back}{$sum_price_back_tail}</span></span></li>
+                                            <li class="{$product_discount_cnt_display|display}" id="{$product_discount_price_id}">{$product_discount_price_front_head}<span class="txtSecondary">-{$product_discount_price_front}</span>
+                                            <span class="displaynone">
+                                                {$product_discount_price_front_tail} <span class="{$product_discount_price_ref_display|display}"><span>{$product_discount_price_back_head}</span>{$product_discount_price_back}</span>{$product_discount_price_back_tail}
+                                            </span>
+                                            </li>
+                                        </ul>
+                                        <ul class="info">
+                                            <li title="적립금" id="{$product_mileage_id}" class="mileage">{$mileage}</li>
+                                            <li class="{$product_weight_display|display}">Weight: <span>{$product_weight}kg * {$quantity} = {$total_product_weight} kg</span></li>
+                                        </ul>
+                                        <ul class="optionGroup" module="Order_optionAll">
+                                            <li>
+                                                <div class="name">
+                                                    <span class="product {$product_name_display|display}">{$product_name}</span><span class="optionStr">{$option_str}</span> <span class="{$qty_display|display}">({$qty} item(s))</span>
+                                                    <span class="{$nplusevent_hide_display|display}"><a href="#none" onclick="{$action_option_change}" class="btnText {$option_change_display|display}">Edit Option</a></span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="name">
+                                                    <span class="product {$product_name_display|display}">{$product_name}</span><span class="optionStr">{$option_str}</span> <span class="{$qty_display|display}">({$qty} item(s))</span>
+                                                    <span class="{$nplusevent_hide_display|display}"><a href="#none" onclick="{$action_option_change}" class="btnText {$option_change_display|display}">Edit Option</a></span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="quantity">
+                                        <span class="label displaynone">Quantity</span>
+                                        <div class="{$nplusevent_hide_display|display}">
+                                            <span class="ec-base-qty">
+                                                {$form.quantity}
+                                                <a href="javascript:;" class="up" onclick="{$add_shortcut}">Up</a>
+                                                <a href="javascript:;" class="down" onclick="{$out_shortcut}">Down</a>
+                                            </span>
+                                            <a href="javascript:;" class="btnNormal sizeQty" onclick="{$action_modify}">Edit</a>
+                                        </div>
+                                        <div class="{$nplusevent_show_display|display}">{$quantity}</div>
+                                    </div>
+                                    <div class="sumPrice displaynone">
+                                        <span class="label">Sum Price</span>
+                                        {$sum_price_front_head}<strong>{$sum_price_front}</strong>{$sum_price_front_tail} <span class="{$sum_price_display|display}">{$sum_price_back_head}{$sum_price_back}{$sum_price_back_tail}</span>
+                                    </div>
+                                    <div class="buttonGroup">
+                                        <a href="#none" onclick="{$action_wish_item}" class="btnNormal sizeM">Add to Wishlist</a>
+                                        <a href="#none" onclick="{$action_buy_item}" class="btnSubmit sizeM {$subscription_hide_display|display}">Checkout</a>
+                                        <!-- <a href="#none" onclick="{$action_buy_item}" class="btnSubmit sizeM {$subscription_show_display|display}">정기배송 신청</a> -->
+                                    </div>
+                                </div>
+                                <a href="#none" onclick="{$action_move_item}" class="btnDelete">Delete</a>
+                            </div>
+                            <div class="ec-base-prdInfo gCheck">
+                                <div class="prdBox">
+                                    <input type="checkbox" id="{$chk_id}" name="{$chk_name}" class="check">
+                                    <div class="thumbnail"><a href="/product/detail.html{$param}"><img src="{$img}" width="83" height="83"></a></div>
+                                    <div class="description">
+                                        <strong class="prdName" title="상품명" id="{$prod_id}">{$product_name_link} {$icon} {$today_arrival_icon} {$pickup_icon} {$benefit_icons}</strong>
+                                        <p class="ec-base-help txtWarn txt11 {$exclusive_purchase_olny|display}"> Individual purchase items</p>
+                                        <ul class="price {$discount}">
+                                            <li class="{$discount}" id="{$product_purchase_price_div_id}">{$product_purchase_price_front_head}<strong>{$product_purchase_price_front}</strong>{$product_purchase_price_front_tail} <span class="{$product_purchase_price_display|display}"><span>{$product_purchase_price_back_head}</span>{$product_purchase_price_back}{$product_purchase_price_back_tail}</span></li>
+                                            <li><span class="txtSecondary">{$sum_price_front_head}{$sum_price_front}{$sum_price_front_tail} <span class="{$sum_price_display|display}">{$sum_price_back_head}{$sum_price_back}{$sum_price_back_tail}</span></span></li>
+                                            <li class="{$product_discount_cnt_display|display}" id="{$product_discount_price_id}">{$product_discount_price_front_head}<span class="txtSecondary">-{$product_discount_price_front}</span>
+                                            <span class="displaynone">
+                                                {$product_discount_price_front_tail} <span class="{$product_discount_price_ref_display|display}"><span>{$product_discount_price_back_head}</span>{$product_discount_price_back}</span>{$product_discount_price_back_tail}
+                                            </span>
+                                            </li>
+                                        </ul>
+                                        <ul class="info">
+                                            <li title="적립금" id="{$product_mileage_id}" class="mileage">{$mileage}</li>
+                                            <li class="{$product_weight_display|display}">Weight: <span>{$product_weight}kg * {$quantity} = {$total_product_weight} kg</span></li>
+                                        </ul>
+                                        <ul class="optionGroup" module="Order_optionAll">
+                                            <li>
+                                                <div class="name">
+                                                    <span class="product {$product_name_display|display}">{$product_name}</span><span class="optionStr">{$option_str}</span> <span class="{$qty_display|display}">({$qty} item(s))</span>
+                                                    <span class="{$nplusevent_hide_display|display}"><a href="#none" onclick="{$action_option_change}" class="btnText {$option_change_display|display}">Edit Option</a></span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="name">
+                                                    <span class="product {$product_name_display|display}">{$product_name}</span><span class="optionStr">{$option_str}</span> <span class="{$qty_display|display}">({$qty} item(s))</span>
+                                                    <span class="{$nplusevent_hide_display|display}"><a href="#none" onclick="{$action_option_change}" class="btnText {$option_change_display|display}">Edit Option</a></span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="quantity">
+                                        <span class="label displaynone">Quantity</span>
+                                        <div class="{$nplusevent_hide_display|display}">
+                                            <span class="ec-base-qty">
+                                                {$form.quantity}
+                                                <a href="javascript:;" class="up" onclick="{$add_shortcut}">Up</a>
+                                                <a href="javascript:;" class="down" onclick="{$out_shortcut}">Down</a>
+                                            </span>
+                                            <a href="javascript:;" class="btnNormal sizeQty" onclick="{$action_modify}">Edit</a>
+                                        </div>
+                                        <div class="{$nplusevent_show_display|display}">{$quantity}</div>
+                                    </div>
+                                    <div class="sumPrice displaynone">
+                                        <span class="label">Sum Price</span>
+                                        {$sum_price_front_head}<strong>{$sum_price_front}</strong>{$sum_price_front_tail} <span class="{$sum_price_display|display}">{$sum_price_back_head}{$sum_price_back}{$sum_price_back_tail}</span>
+                                    </div>
+                                    <div class="buttonGroup">
+                                        <a href="#none" onclick="{$action_wish_item}" class="btnNormal sizeM">Add to Wishlist</a>
+                                        <a href="#none" onclick="{$action_buy_item}" class="btnSubmit sizeM {$subscription_hide_display|display}">Checkout</a>
+                                        <!-- <a href="#none" onclick="{$action_buy_item}" class="btnSubmit sizeM {$subscription_show_display|display}">정기배송 신청</a> -->
+                                    </div>
+                                </div>
+                                <a href="#none" onclick="{$action_move_item}" class="btnDelete">Delete</a>
+                            </div>
+                        </div>
+                        <div class="summary">
+                            <div class="title {$shipping_info_show_display|display}">
+                                <h5>[해외배송]</h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div module="Order_Weight" class="{$total_weight_display|display}">
+                        <div class="totalWeight">Order weight : <span>{$total_weight} kg</span></div>
+                    </div>
+                    <div module="Order_SelectOrder" class="ec-base-button typeMulti">
+                        <div class="gLeft {$move_oversea_display|display}">
+                            <a href="#none" class="btnNormal sizeS" id="product_select_all" data-status="off">Select All</a>
+                            <a href="#none" onclick="{$action_delete}" class="btnNormal sizeS">Delete</a>
+                        </div>
+                        <div class="gRight">
+                            <a href="#none" class="btnNormal sizeS displaynone" onclick="{$action_estimate}" link="/estimate/userform.html">Print Order</a>
+                            <a href="#none" onclick="{$action_order_store_pickup_select}" class="btnNormal sizeS {$action_order_store_pickup_select_display|display}" link-order="/order/orderform.html{$param}" link-login="/member/login.html">Select store pick up items</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="cart-total">
+            <div class="sticky">
+                <!-- 총 주문금액 : 국내배송상품 -->
+                <div module="Order_TotalSummary" class="{$area_delv_info_display|display} totalSummary" unroll="1">
+                    <div class="totalSummary__item">
+                        <div class="heading">
+                            <h4 class="title">Total</h4>
+                            <div class="data">
+                                {$total_product_price_display_front_head}<strong>{$total_product_price_display_front}</strong>{$total_product_price_display_front_tail}
+                                <span class="refer {$total_product_price_ref_display|display}">{$total_product_price_display_back_head}{$total_product_price_display_back}{$total_product_price_display_back_tail}</span>
+                            </div>
+                        </div>
+                        <div class="contents {$vat_total_display|display}">
+                            <div class="item">
+                                <h5 class="title">Merchandise</h5>
+                                <div class="data">{$total_product_base_display}</div>
+                            </div>
+                            <div class="item">
+                                <h5 class="title">Tax</h5>
+                                <div class="data">{$total_product_vat_display}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="{$total_benefit_price_title_area_id}" class="totalSummary__item {$total_benefit_layer_display|display}">
+                        <div class="heading">
+                            <h4 class="title">Discount</h4>
+                            <div class="data">
+                                {$total_product_discount_price_front_head}<strong id="{$total_product_discount_price_front_id}">{$total_product_discount_price_front}</strong>{$total_product_discount_price_front_tail}
+                                <span class="refer {$total_product_discount_price_ref_display|display}">{$total_product_discount_price_back_head}<span id="{$total_product_discount_price_back_id}">{$total_product_discount_price_back}</span>{$total_product_discount_price_back_tail}</span>
+                            </div>
+                        </div>
+                        <div id="{$total_benefit_price_area_id}" class="contents {$total_benefit_layer_display|display}">
+                            <div id="{$total_benefit_list_id}">
+                                <!-- <div class="item {$total_subscriptionpayseqsale_price|display}">
+                                    <h5 class="title">정기배송할인</h5>
+                                    <div class="data" id="{$total_subscriptionpayseqsale_price_id}">{$price_unit_head}{$total_subscriptionpayseqsale_price}{$price_unit_tail}</div>
+                                </div> -->
+                                <div class="item {$total_periodsale_price_display|display}">
+                                    <h5 class="title">Limited Time Discount</h5>
+                                    <div class="data" id="{$total_periodsale_price_id}">{$price_unit_head}{$total_periodsale_price}{$price_unit_tail}</div>
+                                </div>
+                                <div class="item {$total_membersale_price_display|display}">
+                                    <h5 class="title">Membership Discount</h5>
+                                    <div class="data" id="{$total_membersale_price_id}">{$price_unit_head}{$total_membersale_price}{$price_unit_tail}</div>
+                                </div>
+                                <div class="item {$total_rebuysale_price_display|display}">
+                                    <h5 class="title">{$rebuysale_head}Repurchase Discount</h5>
+                                    <div class="data" id="{$total_rebuysale_price_id}">{$price_unit_head}{$total_rebuysale_price}{$price_unit_tail}</div>
+                                </div>
+                                <div class="item {$total_bulksale_price_display|display}">
+                                    <h5 class="title">Bulk Order Discount</h5>
+                                    <div class="data" id="{$total_bulksale_price_id}">{$price_unit_head}{$total_bulksale_price}{$price_unit_tail}</div>
+                                </div>
+                                <div class="item {$total_pbpsale_price_display|display}">
+                                    <h5 class="title">About PBP Discount</h5>
+                                    <div class="data" id="{$total_pbpsale_price_id}">{$price_unit_head}{$total_pbpsale_price}{$price_unit_tail}</div>
+                                </div>
+                                <div class="item {$total_newproductsale_price|display}">
+                                    <h5 class="title">New Product Discount</h5>
+                                    <div class="data" id="{$total_newproductsale_price_id}">{$price_unit_head}{$total_newproductsale_price}{$price_unit_tail}</div>
+                                </div>
+                                <div class="item {$total_setproductsale_price|display}">
+                                    <h5 class="title">Discounted amount for Set Items</h5>
+                                    <div class="data" id="{$total_setproductsale_price_id}">{$price_unit_head}{$total_setproductsale_price}{$price_unit_tail}</div>
+                                </div>
+                                <div class="item {$total_paymethodsale_price_display|display}">
+                                    <h5 class="title">Payment Method Discount</h5>
+                                    <div class="data" id="{$total_paymethodsale_price_id}">{$price_unit_head}{$total_paymethodsale_price}{$price_unit_tail}</div>
+                                </div>
+                                <div class="item {$total_membergroupsale_price_display|display}">
+                                    <h5 class="title">Membership Level Discount</h5>
+                                    <div class="data" id="{$total_membergroupsale_price_id}">{$price_unit_head}{$total_membergroupsale_price}{$price_unit_tail}</div>
+                                </div>
+                                <!-- <div class="item {$total_shipfeesale_price_display|display}">
+                                    <h5 class="title">배송비할인</h5>
+                                    <div class="data" id="{$total_shipfeesale_price_id}">{$price_unit_head}{$total_shipfeesale_price}{$price_unit_tail}</div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="total">
+                        <h3 class="title">Total Amount</h3>
+                        <div class="paymentPrice">
+                            {$total_order_price_front_head}<strong id="{$total_order_price_front_id}">{$total_order_price_front}</strong>{$total_order_price_front_tail}
+                            <span class="refer {$total_order_price_ref_display|display}">{$total_order_price_back_head}<span id="{$total_order_price_back_id}">{$total_order_price_back}</span>{$total_order_price_back_tail}</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 총 주문금액 : 해외배송상품 -->
+                <div module="Order_TotalOversea" class="{$oversea_delv_info_display|display} totalSummary" unroll="1">
+                    <h3 class="totalSummary__title">Order Products</h3>
+                    <div class="totalSummary__item">
+                        <div class="heading">
+                            <h4 class="title">Total</h4>
+                            <div class="data">
+                                {$total_product_price_display_front_head}<strong>{$total_product_price_display_front}</strong>{$total_product_price_display_front_tail}
+                                <span class="refer {$total_product_price_ref_display|display}">{$total_product_price_display_back_head}{$total_product_price_display_back}{$total_product_price_display_back_tail}</span>
+                            </div>
+                        </div>
+                        <div class="contents {$vat_total_display|display}">
+                            <div class="item">
+                                <h5 class="title">Merchandise</h5>
+                                <div class="data">{$total_product_base_display}</div>
+                            </div>
+                            <div class="item">
+                                <h5 class="title">Tax</h5>
+                                <div class="data">{$total_product_vat_display}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="{$oversea_total_benefit_price_title_area_id}" class="totalSummary__item {$total_benefit_layer_display|display}">
+                        <div class="heading">
+                            <h4 class="title">Discount</h4>
+                            <div class="data">
+                                {$total_product_discount_price_front_head}<strong id="{$oversea_total_product_discount_price_front_id}">{$total_product_discount_price_front}</strong>{$total_product_discount_price_front_tail}
+                                <span class="refer {$total_product_discount_price_ref_display|display}">{$total_product_discount_price_back_head}<span id="{$oversea_total_product_discount_price_back_id}">{$total_product_discount_price_back}</span>{$total_product_discount_price_back_tail}</span>
+                            </div>
+                        </div>
+                        <div id="{$oversea_total_benefit_price_area_id}" class="contents {$total_benefit_layer_display|display}">
+                            <div id="{$oversea_total_benefit_list_id}">
+                                <!-- <div class="item {$total_subscriptionpayseqsale_price|display}">
+                                    <h5 class="title">정기배송할인</h5>
+                                    <div class="data" id="{$total_subscriptionpayseqsale_price_id}">{$price_unit_head}{$total_subscriptionpayseqsale_price}{$price_unit_tail}</div>
+                                </div> -->
+                                <div class="item {$total_periodsale_price_display|display}">
+                                    <h5 class="title">Limited Time Discount</h5>
+                                    <div class="data" id="{$total_periodsale_price_id}">{$price_unit_head}{$total_periodsale_price}{$price_unit_tail}</div>
+                                </div>
+                                <div class="item {$total_membersale_price_display|display}">
+                                    <h5 class="title">Membership Discount</h5>
+                                    <div class="data" id="{$total_membersale_price_id}">{$price_unit_head}{$total_membersale_price}{$price_unit_tail}</div>
+                                </div>
+                                <div class="item {$total_rebuysale_price_display|display}">
+                                    <h5 class="title">{$rebuysale_head}Repurchase Discount</h5>
+                                    <div class="data" id="{$total_rebuysale_price_id}">{$price_unit_head}{$total_rebuysale_price}{$price_unit_tail}</div>
+                                </div>
+                                <div class="item {$total_bulksale_price_display|display}">
+                                    <h5 class="title">Bulk Order Discount</h5>
+                                    <div class="data" id="{$total_bulksale_price_id}">{$price_unit_head}{$total_bulksale_price}{$price_unit_tail}</div>
+                                </div>
+                                <div class="item {$total_pbpsale_price_display|display}">
+                                    <h5 class="title">About PBP Discount</h5>
+                                    <div class="data" id="{$total_pbpsale_price_id}">{$price_unit_head}{$total_pbpsale_price}{$price_unit_tail}</div>
+                                </div>
+                                <div class="item {$total_newproductsale_price|display}">
+                                    <h5 class="title">New Product Discount</h5>
+                                    <div class="data" id="{$total_newproductsale_price_id}">{$price_unit_head}{$total_newproductsale_price}{$price_unit_tail}</div>
+                                </div>
+                                <div class="item {$total_setproductsale_price|display}">
+                                    <h5 class="title">Discounted amount for Set Items</h5>
+                                    <div class="data" id="{$total_setproductsale_price_id}">{$price_unit_head}{$total_setproductsale_price}{$price_unit_tail}</div>
+                                </div>
+                                <div class="item {$total_paymethodsale_price_display|display}">
+                                    <h5 class="title">Payment Method Discount</h5>
+                                    <div class="data" id="{$total_paymethodsale_price_id}">{$price_unit_head}{$total_paymethodsale_price}{$price_unit_tail}</div>
+                                </div>
+                                <div class="item {$total_membergroupsale_price_display|display}">
+                                    <h5 class="title">Membership Level Discount</h5>
+                                    <div class="data" id="{$total_membergroupsale_price_id}">{$price_unit_head}{$total_membergroupsale_price}{$price_unit_tail}</div>
+                                </div>
+                                <!-- <div class="item {$total_shipfeesale_price_display|display}">
+                                    <h5 class="title">배송비할인</h5>
+                                    <div class="data" id="{$total_shipfeesale_price_id}">{$price_unit_head}{$total_shipfeesale_price}{$price_unit_tail}</div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="total">
+                        <h3 class="title">Total Amount</h3>
+                        <div class="paymentPrice">
+                            {$total_order_price_front_head}<strong id="{$oversea_total_order_price_front_id}">{$total_order_price_front}</strong>{$total_order_price_front_tail}
+                            <span class="refer {$total_order_price_ref_display|display}">{$total_order_price_back_head}<span id="{$oversea_total_order_price_back_id}">{$total_order_price_back}</span>{$total_order_price_back_tail}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="{$btn_order_display|display}" module="Order_TotalOrder" id="orderFixItem">
+                    <div class="ec-base-button">
+                        <a href="#none" onclick="{$action_order_all}" class="btnSubmit gFull sizeL {$buy_display|display}" link-order="/order/orderform.html{$param}" link-login="/member/login.html">Checkout</a>
+                        <a href="#none" onclick="{$action_order_select}" class="btnNormal gFull sizeL" link-order="/order/orderform.html{$param}" link-login="/member/login.html">Checkout Selected Items</a>
+                    </div>
+                    <!-- 네이버 체크아웃 구매 버튼  -->
+                    <div id="{$naver_checkout_button_id}"></div>
+                    <div id="{$app_payment_button_box_id}"></div>
+                </div>
+
+                <div module="Order_BasketPriceInfoGuide" class="gInnerMargin {$basket_price_info_guide_display|display}">
+                    <ul class="ec-base-help">
+                        <li class=" {$basket_price_sale_guide_display|display}">Applied discount can be checked at the payment estimation section in the order form.</li>
+                        <li class=" {$basket_price_basic_guide_display|display}">Shipping fees will be added during the checkout stage.</li>
+                        <li class=" {$basket_nplusevent_guid_display|display}">Changes to product options or order quantities for additional event items may be conducted through the 'product details' page.</li>
+                        <li class=" {$basket_price_tax_guide_display|display}">Taxes are added to the order total during the checkout stage.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ec-base-button gFixed {$btn_order_display|display}" module="Order_TotalOrder" id="orderFixArea">
+        <div class="ec-base-button gColumn">
+            <a href="#none" onclick="{$action_order_select}" class="btnNormal sizeM" link-order="/order/orderform.html{$param}" link-login="/member/login.html">Checkout Selected Items</a>
+            <a href="#none" onclick="{$action_order_all}" class="btnSubmit sizeM {$buy_display|display}" link-order="/order/orderform.html{$param}" link-login="/member/login.html">Checkout</a>
+        </div>
+    </div>
+</div>
+<div id="ec-basketOptionModifyLayer" class="optionModifyLayer ec-base-layer-area" style="display:none;">
+    <div class="ec-base-layer typeModal">
+        <div class="header">
+            <h3>Edit Option</h3>
+        </div>
+        <div class="content">
+            <ul class="prdInfo">
+                <li class="ec-basketOptionModifyLayer-productName">{$product_name}</li>
+                <li class="ec-basketOptionModifyLayer-optionStr">{$layer_option_str}</li>
+            </ul>
+            <div class="prdModify">
+                <h6 class="title">Product Option</h6>
+                <ul>
+                    <li class="ec-basketOptionModifyLayer-options" style="display:none;"><span class="optionDesc">{$option_name}</span> {$form.option_value}</li>
+                    <li class="ec-basketOptionModifyLayer-addOptions" style="display:none;"><span class="optionDesc">{$option_name}</span> {$form.option_value}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="ec-base-button">
+            <a href="#none" class="btnNormalFix sizeM ec-basketOptionModifyLayer-add">Add</a>
+            <a href="#none" class="btnSubmitFix sizeM ec-basketOptionModifyLayer-modify">Edit</a>
+        </div>
+        <a href="#none" class="btnClose" onclick="$('#ec-basketOptionModifyLayer').hide();">Close</a>
+    </div>
+</div>

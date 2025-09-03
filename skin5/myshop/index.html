@@ -1,0 +1,114 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="path">
+    <span>Current Page</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li title="Current Page">My Account</li>
+    </ol>
+</div>
+
+<div module="layout_logincheck">
+<!--
+    $url = /member/login.html
+-->
+</div>
+
+<div class="myshopArea myshopMain">
+    <div class="titleArea titleArea--myshop blind">
+        <h2>My Account</h2>
+    </div>
+    <div class="benefit">
+        <div module="myshop_asyncbankbook">
+            <!--@css(/css/module/myshop/bankbook.css)-->
+  
+            <ul>
+                <li module="myshop_asyncbenefit" class="{$display_benefit|display}">
+                    <div class="user">
+                        <span class="user__thumb"><img src="{$group_image}" alt="" onerror="this.src='//img.echosting.cafe24.com/skin/base_ko_KR/member/img_member_default.gif';" width="42" class="{$group_image_tag_class}"></span>
+                        <div class="user__info">
+                            Thank you for shopping with us. <span class="txtEm">{$member_name}</span> 
+                        	<span class="user__data"><span class="{$displayGroupIcon|display}"><img src="{$group_icon}" alt="" class="{$group_icon_tag_class}"></span>{$group_name}</span>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <span class="thumb"><!--@import(/svg/icon-user.html)--></span>
+                        <span class="data"><span class="{$displayGroupIcon|display}"><img src="{$group_icon}" alt="" class="{$group_icon_tag_class}"></span>{$group_name}</span>
+                        <span class="title">Membership level</span>
+                    </div>
+                </li>
+                <li>
+                    <a href="/myshop/mileage/historyList.html">
+                        <span class="thumb"><!--@import(/svg/icon-mileage.html)--></span>
+                        <span class="data">{$total_mileage}</span>
+                        <span class="title">Total {$mileage_name}</span>
+                    </a>
+                </li>
+                <li class="{$display_coupon|display}">
+                    <a href="/myshop/coupon/coupon.html">
+                        <span class="thumb"><!--@import(/svg/icon-coupon.html)--></span>
+                        <span class="data">{$coupon_cnt} coupons</span>
+                        <span class="title">Coupons</span>
+                    </a>    
+                </li>
+                <li>
+                    <a href="/myshop/order/list.html">
+                        <span class="thumb"><!--@import(/svg/icon-check.html)--></span>
+                        <span class="data">{$total_order_price}({$total_order_count}orders)</span>
+                        <span class="title">Order History</span>
+                    </a>    
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="titleArea titleArea--middle">
+        <h3>My Order Status <span class="desc">(Last <em>3 months</em>)</span></h3>
+    </div>
+    <div module="myshop_orderstate">
+        <!--@css(/css/module/myshop/orderState.css)-->
+        <div class="state">
+            <ul class="state__order">
+                <li>
+                    <a href="{$shppiedBeforeUrl}" class="count">{$shppiedBeforeCount}</a>
+                    <span class="label">Awaiting Payment</span>
+                </li>
+                <li>
+                    <a href="{$shppiedStandbyUrl}" class="count">{$shppiedStandbyCount}</a>
+                    <span class="label">Preparing Shipment</span>
+                </li>
+                <li>
+                    <a href="{$shppiedBeginUrl}" class="count">{$shppiedBeginCount}</a>
+                    <span class="label">In Transit</span>
+                </li>
+                <li>
+                    <a href="{$shppiedComplateUrl}" class="count">{$shppiedComplateCount}</a>
+                    <span class="label">Delivered</span>
+                </li>
+            </ul>
+            <ul class="state__cs">
+                <li>
+                    <strong>Cancellations</strong>
+                    <a href="{$orderCancelUrl}" class="count">{$orderCancelCount}</a>
+                </li>
+                <li>
+                    <strong>Exchanges</strong>
+                    <a href="{$orderExchangeUrl}" class="count">{$orderExchangeCount}</a>
+                </li>
+                <li>
+                    <strong>Returns</strong>
+                    <a href="{$orderReturnUrl}" class="count">{$orderReturnCount}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="RW">
+        <div class="titleArea titleArea--middle">
+            <h3>Order History</h3>
+        </div>
+        <!--@import(/myshop/order/history_list_item.html)-->
+    </div>
+
+    <!--@import(/myshop/myshop_main.html)-->    
+    
+</div>    

@@ -1,0 +1,82 @@
+<div module="product_searchdata">
+    <!--@css(/css/module/product/searchdata.css)-->
+    <form class="searchField" id="{$searchkeyword_form}" action="/product/search.html" method="get">
+        <fieldset>
+            <legend>Product Search</legend>
+            <div class="searchInput">{$searchdata_keywordform}<input type="image" id="{$search_submit_button}" src="//img.echosting.cafe24.com/skin/skin/product/ico_search.svg" alt="검색" class="btnSearch" />
+                <ul class="autoDrop" id="{$search_auto_id}"></ul>
+            </div>
+            <button type="button" class="btnSearchOption">Search Options</button>
+            <!-- 검색옵션 레이어 -->
+            <div id="ec-product-searchoption" class="searchOption ec-base-layer">
+                <!--@css(/layout/basic/css/ec-base-layer.css)-->
+                <div class="header">
+                    <h3>Search Options</h3>
+                </div>
+                <div class="content">
+                    <div class="boardWrite">
+                        <table border="1" >
+                            <caption>Search Options</caption>
+                            <colgroup>
+                                <col style="width:80px;" />
+                                <col style="width:auto;" />
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Keywords</th>
+                                    <td> {$searchdata_detail_keywordform} <p class="desc">
+                                            {$searchdata_detail_type_form}<label for="{$search_detail_type_id}">Search
+                                                all products that contain at least one search keyword</label></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Except keyword</th>
+                                    <td> {$searchdata_except_keywordform} <p class="desc">You can enter search keywords
+                                            that will be excluded from the search results.</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="ec-base-button">
+                    <a href="#none" id="{$searchdata_layer_reset}" class="btnNormalFix sizeM">Reset</a>
+                    <a href="#none" id="{$searchdata_layer_submit}" class="btnSubmitFix sizeM">Search</a>
+                </div>
+                <a href="#none" class="close"><img src="//img.echosting.cafe24.com/skin/base/common/btn_close.gif" alt="닫기" /></a>
+            </div><!-- //참고: 검색옵션 레이어 -->
+        </fieldset>
+        <div module="product_RelateKeyword" class="keywordArea">
+            <strong class="heading">Related Search</strong>
+            <ul class="list">
+                <li><a href="{$relate_url}">{$relate_word}</a></li>
+                <li><a href="{$relate_url}">{$relate_word}</a></li>
+            </ul>
+        </div>
+        <div module="product_HotKeyword" class="keywordArea">
+            <strong class="heading">Popular Search</strong>
+            <ul class="list">
+                <li><a href="{$hot_keyword_search_url}">{$hot_keyword_name}</a></li>
+                <li><a href="{$hot_keyword_search_url}">{$hot_keyword_name}</a></li>
+            </ul>
+        </div>
+    </form>
+
+    <div class="searchResult">
+        <p class="record"><strong class="txtEm">{$total_count} </strong> items</p>
+        <div class="sort">
+            <div module="product_searchdata">
+                <div class="searchOrder">{$searchOrderby}</div>
+            </div>
+        </div>
+    </div>
+    <div class="noData {$search_fail_display|display}">
+        <!--@import(/svg/icon-warning.html)-->
+        <h3 class="title">No results were found.</h3>
+        <p class="desc">Please check if the search term is correct and try searching again..</p>
+        <p class="subDesc">
+        	Please check if the search term/excluded search term is entered correctly.<br />
+            If the search term is more than one word, please check the spacing.
+        </p>
+    </div>
+</div>

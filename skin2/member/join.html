@@ -1,0 +1,299 @@
+<!--@layout(/layout/basic/layout.html)-->
+<!--@css(/css/module/member/login.css)-->
+<!--@js(/moa/js/lib/sample-login.js)-->
+<!--@js(/moa/js/lib/join.js)-->
+<div class="path">
+    <span>Current Page</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li title="Current Page"><strong>Join</strong></li>
+    </ol>
+</div>
+
+<div class="titleArea">
+    <h2>Join</h2>
+</div>
+
+<div class="join-container">
+
+    <div module="member_login">
+        <div class="login__sns">
+            <a href="#none" class="btnKakao {$display_kakao|display}" onclick="{$kakao_func_login}">Start with Kakao</a>
+            <a href="#none" class="btnNaver {$display_naver|display}" onclick="{$naver_func_login}">Login with Naver</a>
+            <a href="#none" class="btnFacebook {$display_facebook|display}" onclick="{$facebook_func_login}">Login with Facebook</a>
+            <a href="#none" class="btnLine {$display_line|display}" onclick="{$line_func_login}">Login with LINE</a>
+            <a href="#none" class="btnGoogle {$display_google|display}" onclick="{$google_func_login}">Login with Google</a>
+            <a href="#none" class="btnApple {$display_apple|display}" onclick="{$apple_func_login}">Login with Apple</a>
+        </div>
+        <div class="login__sns fake-sns-login displaynone">
+            <a href="#none" class="jsSampleBtn btnKakao " onclick="{$kakao_func_login}">Start with Kakao</a>
+            <a href="#none" class="jsSampleBtn btnNaver " onclick="{$naver_func_login}">Login with Naver</a>
+        </div>
+    </div>
+
+</div>
+
+<div module="member_join" class="memberArea">
+    <!--@css(/css/module/member/join.css)-->
+    <!--
+        $returnUrl = /member/join_result.html
+        $checkIdUrl = /member/check_id.html
+        $personalName = 이름
+        $companyName = 법인명
+        $companySsn = 법인번호
+        $foreignerSsn1 = 외국인 등록번호
+        $foreignerSsn2 = 여권번호
+        $foreignerSsn3 = 국제운전면허증번호
+        $isRuleBasedAddrForm = T
+     -->
+    <div class="titleArea titleArea--middle {$display_base_column_title|display}">
+        <h3>Personal Information</h3>
+        <p class="required {$display_base_column_title|display}"><img src="//img.echosting.cafe24.com/skin/skin/common/ico_required.svg" class="icon icoRequired" alt="필수" /> Required Fields</p>
+    </div>
+    <div class="ec-base-table typeWrite">
+        <table border="1">
+            <caption>Personal Information</caption>
+            <colgroup>
+                <col style="width:190px;" />
+                <col style="width:auto;" />
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th scope="row">Email <img src="//img.echosting.cafe24.com/skin/skin/common/ico_required.svg" class="icon icoRequired" alt="필수" /></th>
+                    <td>{$form.email} <span id="{$emailMsg_id}"></span></td>
+                </tr>
+                <tr>
+                    <th scope="row">Password <img src="//img.echosting.cafe24.com/skin/skin/common/ico_required.svg" class="icon icoRequired" alt="필수" /></th>
+                    <td>
+                        <div class="eTooltip">
+                            {$form.passwd}
+                            <div class="ec-base-tooltip typeUpper">
+                                <div class="content">
+                                    <strong>※ {$passwd_terms}</strong>
+                                    <ul class="typeDash txtInfo">
+                                        {$passwd_chk_info}
+                                    </ul>
+                                </div>
+                                <a href="#none" class="btnClose">Close</a>
+                                <span class="edge"></span>
+                            </div>
+                        </div>
+                        <span class="txtInfo">{$passwd_type_desc}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Confirm Password <img src="//img.echosting.cafe24.com/skin/skin/common/ico_required.svg" class="icon icoRequired" alt="필수" /></th>
+                    <td>{$form.user_passwd_confirm} <span id="{$pwConfirmMsg_id}"></span></td>
+                </tr>
+                <tr class="{$display_use_id|display}">
+                    <th scope="row">ID <img src="//img.echosting.cafe24.com/skin/skin/common/ico_required.svg" class="icon icoRequired" alt="필수" /></th>
+                    <td>{$form.member_id} <span id="{$idMsg_id}"></span></td>
+                </tr>
+                <tr class="{$display_name|display}">
+                    <th scope="row">Name <img src="//img.echosting.cafe24.com/skin/skin/common/ico_required.svg" class="icon icoRequired {$display_required_name|display}" alt="Required Field" /></th>
+                    <td>{$form.name} {$form.last_name}</td>
+                </tr>
+                <tr class="{$display_eng_name|display}">
+                    <th scope="row">English Name <img src="//img.echosting.cafe24.com/skin/skin/common/ico_required.svg" class="icon icoRequired {$display_required_name_en|display}" alt="Required Field" /></th>
+                    <td>{$form.name_en} {$form.last_name_en}</td>
+                </tr>
+                <tr class="{$display_pron_name|display}">
+                    <th scope="row">Phonetics <img src="//img.echosting.cafe24.com/skin/skin/common/ico_required.svg" class="icon icoRequired {$display_required_name_phonetic|display}" alt="Required Field" /></th>
+                    <td>{$form.name_phonetic} {$form.last_name_phonetic}</td>
+                </tr>
+                <tr class="{$display_addr|display}">
+                    <th scope="row">Address <img src="//img.echosting.cafe24.com/skin/skin/common/ico_required.svg" class="icon icoRequired {$display_required_address|display}" alt="Required Field" /></th>
+                    <td>{$form.address}</td>
+                </tr>
+                <tr class="{$display_phone|display}">
+                    <th scope="row">Telephone <img src="//img.echosting.cafe24.com/skin/skin/common/ico_required.svg" class="icon icoRequired {$display_required_phone|display}" alt="Required Field" /></th>
+                    <td>{$form.nation_phone} {$form.phone}</td>
+                </tr>
+                <tr class="{$display_mobile|display}">
+                    <th scope="row">Mobile Phone <img src="//img.echosting.cafe24.com/skin/skin/common/ico_required.svg" class="icon icoRequired {$display_required_cell|display}" alt="Required Field" /></th>
+                    <td>{$form.mobile}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="titleArea titleArea--middle {$display_add_title|display}">
+        <h3>Additional Information</h3>
+    </div>
+    <div class="ec-base-table typeWrite {$display_add_title|display}">
+        <table border="1">
+            <caption>Additional Information</caption>
+            <colgroup>
+                <col style="width:190px;" />
+                <col style="width:auto;" />
+            </colgroup>
+            <tbody>
+                <tr class="{$display_nick|display}">
+                    <th scope="row">Nickname <img src="//img.echosting.cafe24.com/skin/skin/common/ico_required.svg" class="icon icoRequired {$display_required_nick_name_flag|display}" alt="Required Field" /></th>
+                    <td>{$form.nick_name} <p id="nickMsg"></p></td>
+                </tr>
+                <tr class="{$display_is_sex|display}">
+                    <th scope="row">Gender <img src="//img.echosting.cafe24.com/skin/skin/common/ico_required.svg" class="icon icoRequired {$display_required_sex|display}" alt="Required Field" /></th>
+                    <td>{$form.is_sex}</td>
+                </tr>
+                <tr class="{$display_birthday|display}">
+                    <th scope="row">Date of Birth <img src="//img.echosting.cafe24.com/skin/skin/common/ico_required.svg" class="icon icoRequired {$display_required_is_birthday|display}" alt="Required Field" /></th>
+                    <td>{$form.birth_month} / {$form.birth_day} / {$form.birth_year}<span class="gIndent20 {$display_calendar_type|display}">{$form.is_solar_calendar}</span></td>
+                </tr>
+                <tr class="{$display_marry|display}">
+                    <th scope="row">Anniversary <img src="//img.echosting.cafe24.com/skin/skin/common/ico_required.svg" class="icon icoRequired {$display_required_is_wedding_anniversary|display}" alt="Required Field" /></th>
+                    <td>{$form.marry_month} / {$form.marry_day} / {$form.marry_year}</td>
+                </tr>
+                <tr class="{$display_add1|display}">
+                    <th scope="row">{$title_add1} <img src="//img.echosting.cafe24.com/skin/skin/common/ico_required.svg" class="icon icoRequired {$display_required_add1|display}" alt="Required Field" /></th>
+                    <td>{$form.add1}</td>
+                </tr>
+                <tr class="{$display_add2|display}">
+                    <th scope="row">{$title_add2} <img src="//img.echosting.cafe24.com/skin/skin/common/ico_required.svg" class="icon icoRequired {$display_required_add2|display}" alt="Required Field" /></th>
+                    <td>{$form.add2}</td>
+                </tr>
+                <tr class="{$display_add3|display}">
+                    <th scope="row">{$title_add3} <img src="//img.echosting.cafe24.com/skin/skin/common/ico_required.svg" class="icon icoRequired {$display_required_add3|display}" alt="Required Field" /></th>
+                    <td>{$form.add3}</td>
+                </tr>
+                <tr class="{$display_add4|display}">
+                    <th scope="row">{$title_add4} <img src="//img.echosting.cafe24.com/skin/skin/common/ico_required.svg" class="icon icoRequired {$display_required_add4|display}" alt="Required Field" /></th>
+                    <td>{$form.add4}</td>
+                </tr>
+                <tr class="{$display_add5|display}">
+                    <th scope="row">{$title_add5} <img src="//img.echosting.cafe24.com/skin/skin/common/ico_required.svg" class="icon icoRequired {$display_required_add5|display}" alt="Required Field" /></th>
+                    <td>{$form.add5}</td>
+                </tr>
+                <tr class="{$display_add6|display}">
+                    <th scope="row">{$title_add6} <img src="//img.echosting.cafe24.com/skin/skin/common/ico_required.svg" class="icon icoRequired {$display_required_add6|display}" alt="Required Field" /></th>
+                    <td>{$form.add6}</td>
+                </tr>
+                <tr class="{$display_add7|display}">
+                    <th scope="row">{$title_add7} <img src="//img.echosting.cafe24.com/skin/skin/common/ico_required.svg" class="icon icoRequired {$display_required_add7|display}" alt="Required Field" /></th>
+                    <td>{$form.add7}</td>
+                </tr>
+                <tr class="{$display_add8|display}">
+                    <th scope="row">{$title_add8} <img src="//img.echosting.cafe24.com/skin/skin/common/ico_required.svg" class="icon icoRequired {$display_required_add8|display}" alt="Required Field" /></th>
+                    <td>{$form.add8}</td>
+                </tr>
+                <tr class="{$display_add9|display}">
+                    <th scope="row">{$title_add9} <img src="//img.echosting.cafe24.com/skin/skin/common/ico_required.svg" class="icon icoRequired {$display_required_add9|display}" alt="Required Field" /></th>
+                    <td>{$form.add9}</td>
+                </tr>
+                <tr class="{$display_add10|display}">
+                    <th scope="row">{$title_add10} <img src="//img.echosting.cafe24.com/skin/skin/common/ico_required.svg" class="icon icoRequired {$display_required_add10|display}" alt="Required Field" /></th>
+                    <td>{$form.add10}</td>
+                </tr>
+                <tr class="{$display_add11|display}">
+                    <th scope="row">{$title_add11} <img src="//img.echosting.cafe24.com/skin/skin/common/ico_required.svg" class="icon icoRequired {$display_required_add11|display}" alt="Required Field" /></th>
+                    <td>{$form.add11}</td>
+                </tr>
+                <tr class="{$display_add12|display}">
+                    <th scope="row">{$title_add12} <img src="//img.echosting.cafe24.com/skin/skin/common/ico_required.svg" class="icon icoRequired {$display_required_add12|display}" alt="Required Field" /></th>
+                    <td>{$form.add12}</td>
+                </tr>
+                <tr class="{$display_add13|display}">
+                    <th scope="row">{$title_add13} <img src="//img.echosting.cafe24.com/skin/skin/common/ico_required.svg" class="icon icoRequired {$display_required_add13|display}" alt="Required Field" /></th>
+                    <td>{$form.add13}</td>
+                </tr>
+                <tr class="{$display_add14|display}">
+                    <th scope="row">{$title_add14} <img src="//img.echosting.cafe24.com/skin/skin/common/ico_required.svg" class="icon icoRequired {$display_required_add14|display}" alt="Required Field" /></th>
+                    <td>{$form.add14}</td>
+                </tr>
+                <tr class="{$display_add15|display}">
+                    <th scope="row">{$title_add15} <img src="//img.echosting.cafe24.com/skin/skin/common/ico_required.svg" class="icon icoRequired {$display_required_add15|display}" alt="Required Field" /></th>
+                    <td>{$form.add15}</td>
+                </tr>
+                <tr class="{$display_reco_id|display}">
+                    <th scope="row">Referrer <img src="//img.echosting.cafe24.com/skin/skin/common/ico_required.svg" class="icon icoRequired {$display_required_reco_id|display}" alt="Required Field" /></th>
+                    <td>{$form.reco_id}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="agreeAll">
+        <h3>{$sAgreeAllChecked} Agree all</h3>
+        <p>
+            <label for="sAgreeAllChecked" class="{$display_marketing|display}">I agree to all terms and conditions, collection and use of personal information, and receipt of shopping information (optional).</label>
+            <label for="sAgreeAllChecked" class="{$display_is_agree|display}">I agree to all terms of use and personal information collection and use.</label>
+        </p>
+    </div>
+    <div class="agreeInner">
+        <div class="left">
+            <div class="agreeArea terms">
+                <div class="title">
+                    <h3>{$form.agree_service_check}<label for="agree_service_check0" class="check">Terms and Conditions (Required)</label></h3>
+                    <span class="agree-toggle flex flex--v-center"><!--@import(/moa/icon/icon_arrow_down.html)--></span>
+                </div>
+                <div class="agree-cont-box">
+                    <div class="contents">{$service_desc}</div>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="agreeArea">
+                <div class="title">
+                    <h3>{$form.agree_privacy_check}<label for="agree_privacy_check0" class="check">Collection and Use of Personal Information (Required)</label></h3>
+                    <span class="agree-toggle flex flex--v-center"><!--@import(/moa/icon/icon_arrow_down.html)--></span>
+                </div>
+                <div class="agree-cont-box">
+                    <div class="contents">{$privacy_desc}</div>
+                </div>
+            </div>
+            <div class="{$display_privacy_optional|display} agreeArea">
+                <div class="title">
+                    <h3>{$form.agree_privacy_optional_check}<label for="agree_privacy_optional_check0" class="check">Collection and Use of Personal Information (Optional)</label></h3>
+                    <span class="agree-toggle flex flex--v-center"><!--@import(/moa/icon/icon_arrow_down.html)--></span>
+                </div>
+                <div class="contents">
+                    {$privacy_optional_desc}
+                </div>
+            </div>
+            <div class="{$display_information|display} agreeArea">
+                <div class="title">
+                    <h3>{$form.agree_information_check}<label for="agree_information_check0" class="check">Sharing Information with Third Parties (Optional)</label></h3>
+                    <span class="agree-toggle flex flex--v-center"><!--@import(/moa/icon/icon_arrow_down.html)--></span>
+                </div>
+                <div class="agree-cont-box">
+                    <div class="contents">{$information_desc}</div>
+                </div>
+            </div>
+            <div class="{$display_consignment|display} agreeArea">
+                <div class="title">
+                    <h3>{$form.agree_consignment_check}<label for="agree_consignment_check0" class="check">Entrusting Personal Information (Optional)</label></h3>
+                    <span class="agree-toggle flex flex--v-center"><!--@import(/moa/icon/icon_arrow_down.html)--></span>
+                </div>
+                <div class="agree-cont-box">
+                    <div class="contents">{$consignment_desc}</div>
+                </div>
+            </div>
+            <div class="agreeArea agreeArea--marketing {$display_marketing|display}">
+                <div class="title">
+<!--                    <h3>{$sMarketingAgreeAllChecked}마케팅 전체 동의<label for="sMarketingAgreeAllChecked" class="check">쇼핑정보 수신 동의 (선택)</label></h3>-->
+                    <ul class="additional">
+                        <li class="{$display_is_sms|display} relative">{$form.is_sms}<label for="is_sms0" class="check">">Do you agree to receive SMS? (Optional)</label><span class="agree-toggle agree-toggle--marketing flex flex--v-center"><!--@import(/moa/icon/icon_arrow_down.html)--></span></li>
+                        <li class="{$display_is_news_mail|display} relative">{$form.is_news_mail}<label for="is_news_mail0" class="check">Do you agree to receive e-mails? (Optional)</label><span class="agree-toggle agree-toggle--marketing flex flex--v-center"><!--@import(/moa/icon/icon_arrow_down.html)--></span></li>
+                    </ul>
+                </div>
+                <div class="agree-cont-box agree-cont-box--last">
+                    <div class="contents">
+                        <p>You can receive discount coupons, benefits, events, new arrivals, and other valuable information from the shopping mall via Text or Email.</p>
+                        <p>However, some information will be sent without your agreement such as order/payment status and policy related articles.</p>
+                        <p>You can join the membership without agreeing to the optional categories, and update your status anytime at Edit Profile page once you join the membership.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ec-base-button gBottom">
+        <a href="#none" class="btnSubmitFix sizeM" onclick="{$action_func_join}">Join</a>
+    </div>
+
+    <!--@import(/member/join_confirm.html)-->
+</div>
+
+
+
+<div id="sample-name" class="displaynone" module="Layout_LogoTop">{$mall_name}</div>

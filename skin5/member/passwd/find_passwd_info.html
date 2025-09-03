@@ -1,0 +1,33 @@
+<!--@layout(/layout/basic/layout.html)-->
+<div class="path">
+    <span>Current Page</span>
+    <ol>
+        <li><a href="/">Home</a></li>
+        <li title="Current Page"><strong>Forgot Password</strong></li>
+    </ol>
+</div>
+
+<div class="titleArea">
+    <h2>Forgot Password</h2>
+</div>
+
+<div module="member_findpasswd" class="memberArea gInnerMargin">
+    <!--@css(/css/module/member/find_passwd.css)-->
+    <!--
+        $nextURL = /member/passwd/find_passwd_question.html
+     -->
+    <div class="ec-base-box typeMember">
+        <fieldset class="content">
+            <legend>Forgot Password</legend>
+            <ul class="ec-base-desc gVer">
+                <li><strong class="term">Type</strong><div class="desc">{$form.searchType}<span class="check gBlank10">{$form.check_method}</span></div></li>
+                <li class="gBlank20 {$display_id|display}"><strong class="term">ID</strong><div class="desc">{$form.member_id}</div></li>
+                <li id="name_view" class="name"><strong class="term" id="name_lable">Name</strong><div class="desc">{$form.name}</div></li>
+                <li id="email_view" class="email" style="display:none;"><strong class="term">Enter Email Address</strong><div class="desc">{$form.email}</div></li>
+            </ul>
+        </fieldset>
+    </div>
+    <div class="ec-base-button gBottom">
+        <a href="#none" class="btnSubmitFix sizeM" onclick="{$action_func_find_passwd_question}">Submit</a>
+    </div>
+</div>

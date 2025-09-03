@@ -1,0 +1,40 @@
+<section module="product_listmain_2" class="section ec-base-product">
+   
+    <!--
+        $count = 8
+        $basket_result = /product/add_basket.html
+        $basket_option = /product/basket_option.html
+        $moreview = no
+        $cache = no
+    -->
+    
+    <div class="product-container relative">
+        <div class="main-title-wrap scroll-effect">
+           
+            <!-- 서브 타이틀 -->
+            <div class="main-sub-title text-center">새로 나온 신상품</div>
+            
+            <!-- 타이틀 -->
+            <div class="main-title text-center">New Arrivals</div>
+            
+        </div>
+        <div class="prd-nav-wrap flex flex--v-center">
+            <span class="prd-nav prd-nav--prev flex flex--v-center flex--h-center jsPrdPrev"><!--@import(/moa/icon/icon_arrow_left.html)--></span>
+            <span class="prd-nav prd-nav--next flex flex--v-center flex--h-center jsPrdNext"><!--@import(/moa/icon/icon_arrow_right.html)--></span>
+        </div>
+        <div class="scroll-effect jsPrdSlide">
+            <ul class="prdList grid-slide">
+                <!--@import(/moa/import/product/product_form_slide.html)-->
+                <!--@import(/moa/import/product/product_form_slide.html)-->
+            </ul>
+        </div>
+    </div>
+    
+    <div module="product_listmore_2" class="more scroll-effect">
+        <a href="#none" onclick="{$more_action}" class="btnMore">
+            more view&nbsp;&nbsp;&nbsp;<span id="more_current_page_{$display_group}">{$current_page}</span>/<span id="more_total_page_{$display_group}">{$total_page}</span>
+            <i aria-hidden="true" class="icon icoArrowBottom"></i>
+        </a>
+    </div>
+    
+</section>

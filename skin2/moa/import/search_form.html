@@ -1,0 +1,38 @@
+<div class="search jsSearchLayer">
+    <div module="Layout_SearchHeader" class="search__inner container">
+        <!--
+          $product_page=/product/detail.html
+          $category_page=/product/list.html
+      -->
+        <div class="search__form relative flex flex--v-center jsSearchForm">
+            <fieldset class="search__field ">
+                <legend>Search</legend>
+                <input id="keyword" name="keyword" fw-filter="" fw-label="검색어" fw-msg="" class="search__input inputTypeText" placeholder="Search..." onmousedown="SEARCH_BANNER.clickSearchForm(this)" value="" type="text">
+                <!-- <span class="search__button jsSearchBtn">Search</span> -->
+                 <span class="search__submit" onclick="SEARCH_BANNER.submitSearchBanner(this); return false;"><img src="/moa/img/icon/icon_search.svg" class="seach-icon-img"></span> 
+            </fieldset>
+            
+            <div class="skwd">
+                <div class="skwd__inner">
+
+                    <div class="skwd__section skwd-recent">
+                        <div class="skwd__title relative">Recent Search<span class="recent__delete displaynone">Delete</span></div>
+                        <p class="skwd-recent__empty displaynone">There are no recent searches.</p>
+                        <ul class="skwd-recent__list flex"></ul>
+                    </div>
+
+                    <div class="skwd__section skwd-hot" module="search_hotkeyword">
+                        <div class="skwd__title">Popular Search</div>
+                        <ul class="skwd-hot__list flex">
+                            <li class="skwd-hot__item flex"><a class="" href="{$hot_keyword_url}">{$hot_keyword_name}</a></li>
+                            <li class="skwd-hot__item flex"><a class="" href="{$hot_keyword_url}">{$hot_keyword_name}</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<div class="search-bg"></div>

@@ -1,0 +1,32 @@
+<li class="main-review__item main-review__item--photo jsReviewItem rv-view">
+    <div class="thumb relative jsReviewItem" data-idx="{$param_read}" data-prd-src="{$product_img_src}">
+
+        <div class="thumb__img thumb__img--default" style="background-image: url({$product_img_src});">
+        </div>
+
+        <div class="thumb__img thumb__img--attach" style="background-image: url({$img_src|replace:/gallery,});"></div>
+        {$file_icon}
+    </div>
+    <div class="description " data-idx="{$param_read}">
+        <p class="subject">{$subject|striptag}</p>
+        <p class="content">{$content|striptag}</p>
+        <div class="description__footer flex">
+            <div class="score">
+                <div class="score__rate relative">
+                    <div class="score__status flex score__status--{$point_count}">
+                        <!--@import(/moa/icon/icon_star.html)-->
+                        <!--@import(/moa/icon/icon_star.html)-->
+                        <!--@import(/moa/icon/icon_star.html)-->
+                        <!--@import(/moa/icon/icon_star.html)-->
+                        <!--@import(/moa/icon/icon_star.html)-->
+                    </div>
+                </div>
+            </div>
+            <p class="writer">{$writer}</p>
+        </div>
+    </div>
+    <div class="prd-info inline">
+        <span class="prd-thumb"><a href="{$link_product_detail}" style="background-image: url({$product_img_src});"></a></span>
+        <span class="prd-name"><a href="{$link_product_detail}">{$product_name|striptag}{$attach_file}</a></span>
+    </div>
+</li>

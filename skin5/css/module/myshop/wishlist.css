@@ -1,0 +1,38 @@
+.xans-myshop-wishlistitem {
+    border-top: 1px solid #000;
+}
+
+.xans-myshop-wishlist .shippingFee {
+    position: relative;
+    display: inline-block;
+    text-align: left;
+}
+
+.xans-myshop-wishlist .shippingFee .ec-base-tooltip {
+    display: block;
+    margin: 0 0 0 -170px;
+    width: 360px;
+}
+
+.xans-myshop-wishlist .shippingFee .ec-base-tooltip table th {
+    width: 40px;
+}
+
+.xans-myshop-wishlist .shippingFee .ec-base-tooltip table th,
+.xans-myshop-wishlist .shippingFee .ec-base-tooltip table td {
+    padding: 7px 10px 8px 10px;
+    text-align: left;
+}
+
+.ec-base-prdInfo .description .price li.strike {
+    color: #909090;
+}
+
+.ec-base-prdInfo .description .price li:not(.strike) strong,
+.ec-base-prdInfo .description .price li.strike ~ li.sale-price strong {
+    font-weight: 700;
+}
+
+.ec-base-prdInfo .description .price li:not(.strike) ~ li.sale-price {
+    display:none;
+}

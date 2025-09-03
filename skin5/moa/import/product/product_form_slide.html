@@ -1,0 +1,36 @@
+<li
+    id="anchorBoxId_{$product_no}"
+    class="swiper-slide slide-prd-item" 
+    data-price="{$product_price}" 
+    data-custom="{$product_custom}" 
+>
+    <div class="thumbnail">
+        <a href="{$link_product_detail}">
+            <img src="/moa/img/default/empty_thumb.png" class="asyncImage" id="{$image_medium_id}" alt="{$seo_alt_tag}"  data-src="{$image_medium}" width="100%" height="100%">
+            <span module="product_Imagestyle"><span class="prdIcon {$icon_class_name}" style="background-image:url('{$icon_url}');"></span></span>
+        </a>
+        <div class="icon__box">
+            <span class="cart">{$basket_icon}</span>
+            <span class="wish">{$list_wish_icon}</span>
+        </div>
+        <span class="benefit">{$benefit_icons}</span>
+    </div>
+    <div class="description relative" onclick="location.href='{$link_product_detail}'">
+            <div class="colorchip {$colorchip_display|display}">
+                <div class="color inline" module="product_Colorchip">
+                    <span class="chips" style="background-color:{$color}"></span>
+                    <span class="chips" style="background-color:{$color}"></span>
+                </div>
+            </div>
+            <strong class="name"><span class="title {$product_name_title_display|display}">{$product_name_title} :</span> {$product_name}</strong>
+            <ul module="product_ListItem" class="spec">
+                <li class="{$item_display|display} {$column_name}">
+                    <strong class="title {$item_title_display|display}">{$item_title} :</strong> {$item_content}
+                </li>
+                <li class="{$item_display|display} {$column_name}">
+                    <strong class="title {$item_title_display|display}">{$item_title} :</strong> {$item_content}
+                </li>
+            </ul>
+    </div>
+    <div class="icon">{$soldout_icon}{$stock_icon}{$recommend_icon}{$new_icon}{$product_icons}{$today_arrival_icon}{$pickup_icon}</div>
+</li>
